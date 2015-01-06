@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Super admin login</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript">
+		function correctTopPos() {
+			var f=document.getElementById("login-form");
+			h=f.offsetHeight/2;
+			f.style.margin=-h+"px 0 0 -92px";
+		}
+	</script>
+</head>
+<body onload="correctTopPos()">
+
+<form id="login-form">
+	<h2>Login</h2>
+	<div> <!-- It is a container for labels and inputs -->
+		<div class="label"><label for="name">Username</label></div>
+		<div class="field"><input type="text" id="name" class="login-input" name="username" title="comment_0101" /></div>
+		<div class="label"><label for="password">Password</label></div>
+		<div class="field"><input type="password" id="password" class="login-input" name="password" title="comment_0102" /></div>
+		<div class="field" id="wrong">wrong username or password</div>
+	</div>
+	<div id="captcha-wrap"><img src="../../images/captcha.jpg" alt="" /></div>
+	<div id="button-wrap">
+		<a class="button" title="comment_0103">Sign in</a>
+	</div>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="set_type" text="Set type">
+		<item id="set_type_task" text="Task" />
+		<item id="set_type_timetable" text="Timetable" />
+		<item id="set_type_meeting" text="Meeting" />
+	</item>
+	<item id="edit_event" text="Edit Event" />
+	<item id="delete_event" text="Delete Event" />
+	<item id="set_attendance" text="Set Attendance" />
+	<item id="go_courceroom" text="Go to Courceroom" />
+	<item id="set_bulletin" text="Set bulletin" />
+</menu>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Calendar</title>
+
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/accordion.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxmenu_dhx_schoolmule.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxtree.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/sheduler/dhtmlxscheduler.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/sheduler/ext/dhtmlxscheduler_custom.css">	
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid_dhx_schoolmule.css">
+	
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script type="text/javascript" src="../../js/accordion.js"></script>
+	<script type="text/javascript" src="../../js/jscolor.js"></script>
+	
+	<!--
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	-->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+	<script src="../../dhtmlx/dhtmlxtree.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu_ext.js"></script>
+	<script src="../../dhtmlx/sheduler/dhtmlxscheduler.js"></script>
+	<script src="../../dhtmlx/sheduler/ext/dhtmlxscheduler_custom.js"></script>
+	<script src="../../dhtmlx/sheduler/ext/dhtmlxscheduler_minical.js"></script>
+	<script src="../../dhtmlx/sheduler/ext/dhtmlxscheduler_multisource.js"></script>
+	<script src="../../dhtmlx/sheduler/ext/dhtmlxscheduler_year_view.js"></script>
+
+	<!-- date picker start -->
+	<script src="../../js/date-picker-v5/js/datepicker.packed.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../js/date-picker-v5/css/datepicker.css">
+	<!-- date picker end -->
+	
+	<script src="../../dhtmlx/dhtmlxgrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxgridcell.js"></script>
+	<script src="../../dhtmlx/dhtmlxtreegrid.js"></script>
+	
+	<script type="text/javascript">
+	
+		function resizeTiny() { return; }
+		function resizeMainBoxBody() { return; }
+		var mygrid;
+		function resizeGrid() {
+			if (!mygrid) return;
+			mygrid.loadSizeFromCookie();
+		}
+		
+		$(document).ready(function() {
+		
+			initHideButton();
+		
+			initAccordion("#accord");
+			
+			$(window).resize(function(){
+				resizeAccordion("#accord");
+			});
+
+			scheduler.config.xml_date="%Y-%m-%d %H:%i";
+			scheduler.config.default_date = "%M %d, %Y";
+			scheduler.config.month_date = "%M %d, %Y";
+			scheduler.config.day_date = "%D, %M %d";
+			scheduler.config.hour_date = "%H:%i"; 
+			scheduler.init('scheduler_here', null, "week");
+			var t_uid = scheduler.uid();
+			scheduler.load(["../../dhtmlx/sheduler/php/events.php?uid="+t_uid, "../../dhtmlx/sheduler/php/absence_events.php?uid="+t_uid]);
+			var dp = new dataProcessor("../../dhtmlx/sheduler/php/events.php");
+			dp.init(scheduler);			
+			
+			var tree1 = new dhtmlXTreeObject("tree-box1","100%","100%",0);
+			tree1.setSkin("dhx_black");
+			tree1.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			tree1.loadXML("../../dhtmlx/xml/tree-calendar.xml");
+			tree1.enableCheckBoxes(true, false);
+			tree1.enableThreeStateCheckboxes(true);
+			
+			var tree2 = new dhtmlXTreeObject("tree-box2","100%","100%",0);
+			tree2.setSkin("dhx_black");
+			tree2.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			tree2.loadXML("../../dhtmlx/xml/tree-calendar-pupils.xml");
+			tree2.enableCheckBoxes(true, false);
+			tree2.enableThreeStateCheckboxes(true);
+			
+			var tree3 = new dhtmlXTreeObject("tree-box3","100%","100%",0);
+			tree3.setSkin("dhx_black");
+			tree3.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			tree3.loadXML("../../dhtmlx/xml/tree-calendar-staff.xml");
+			tree3.enableCheckBoxes(true, false);
+			tree3.enableThreeStateCheckboxes(true);
+			
+			var tree4 = new dhtmlXTreeObject("tree-box4","100%","100%",0);
+			tree4.setSkin("dhx_black");
+			tree4.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			tree4.loadXML("../../dhtmlx/xml/tree-calendar-rooms.xml");
+			tree4.enableCheckBoxes(true, false);
+			tree4.enableThreeStateCheckboxes(true);
+			
+            var menu1 = new dhtmlXMenuObject();
+            menu1.renderAsContextMenu();
+            menu1.loadXML("../../dhtmlx/xml/context1.xml");
+			
+            var menu2 = new dhtmlXMenuObject();
+            menu2.renderAsContextMenu();
+            menu2.loadXML("../../dhtmlx/xml/context2.xml");
+			
+            var menu3 = new dhtmlXMenuObject();
+            menu3.renderAsContextMenu();
+            menu3.loadXML("../../dhtmlx/xml/context3.xml");
+			
+			//tree1.enableContextMenu(menu); // available in PRO version only
+			
+			tree1.attachEvent("onRightClick", function(id, e){
+				menu1.hideContextMenu();
+				menu2.hideContextMenu();
+				menu3.hideContextMenu();
+				if (id[0]=='1') {
+					menu1.showContextMenu(e.clientX, e.clientY);
+					tree1.selectItem(id);
+				}
+				if (id[0]=='2') {
+					menu2.showContextMenu(e.clientX, e.clientY);
+					tree1.selectItem(id);
+				}
+				if (id[0]=='3') {
+					menu3.showContextMenu(e.clientX, e.clientY);
+					tree1.selectItem(id);
+				}
+			});
+			
+			var loginTree = new dhtmlXTreeObject("login-treebox","100%","100%",0);
+			loginTree.setSkin("dhx_black");
+			loginTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			loginTree.loadXML("../../dhtmlx/xml/tree-login.xml");
+			//loginTree.enableCheckBoxes(true, false);
+			//loginTree.enableThreeStateCheckboxes(true);
+			
+			// CONTEXT MENU
+            var loginMenu = new dhtmlXMenuObject();
+            loginMenu.renderAsContextMenu();
+			loginMenu.contextAutoHide = false;
+			loginMenu.addNewChild(loginMenu.topId, 0, "login_menu_item_0", "Change school (admins)", false);
+			loginMenu.addNewChild(loginMenu.topId, 1, "login_menu_item_1", "Child 1 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 2, "login_menu_item_2", "Child 2 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 3, "login_menu_item_3", "Account settings", false);
+			loginMenu.addNewChild(loginMenu.topId, 4, "login_menu_item_4", "Log out", false);
+			loginMenu.addNewSeparator("login_menu_item_3");
+			loginMenu.attachEvent("onClick", function(id, zoneId, casState){
+				if (id=="login_menu_item_0") {
+					loginTree.openItem("i000");
+					loginTree.openItem("i001");
+					$('#login-dialog').dialog('open');
+				}
+			});
+			
+			// grid for Filter dialog
+			var filterGrid = new dhtmlXGridObject('filter_gridbox');
+			filterGrid.selMultiRows = true;
+			filterGrid.imgURL = "../../dhtmlx/imgs/icons_attendance/";
+			filterGrid.setHeader(",Event type");
+			filterGrid.setInitWidths("20,215");
+			filterGrid.setColAlign("left,left");
+			filterGrid.setColTypes("ch,ed");
+			filterGrid.init();
+			filterGrid.setSkin("dhx_skyblue");
+			filterGrid.loadXML("../../dhtmlx/xml/grid_calendar_filter_events.xml");
+			
+			$("#login-dd").click(function () {
+				loginMenu.showContextMenu($("#login-dd").offset().left - 115, $("#login-dd").offset().top + 11);
+			});
+			
+			$("#filter").click(function () {
+				$('#filter_events_dialog').dialog('open');
+				$('#filter_events_dialog').css("min-height", "18px");
+			});
+			
+			// Login dialog
+			$('#login-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Change": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// Filter events type dialog
+			$('#filter_events_dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 260,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+		
+		});
+		
+	</script>
+	
+</head>
+
+<body class="calendar">
+
+<div id="login-dialog" title="Change school" style="display:none">
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="login-treebox" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="filter_events_dialog" title="Filter event types" style="display:none">
+	<div>
+		<div id="filter_gridbox"></div>
+	</div>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<div style="float: right;">
+				<img id="login-dd" src="../../images/new_header_dropdown.png" alt="" />
+			</div>
+			<div style="float: left; padding-right: 8px;">
+				<div id="school-name">ECOActive school Lund</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li><a href="sm-settings-appearance.html">School manager</a></li>
+		<li><a href="calendar.html" class="fm-active">Calendar</a></li>
+		<li><a href="course-objectives.html">Course rooms</a></li>
+		<li><a href="attendance.html">Attendance</a></li>
+		<li><a href="discussions.html">Discussions and messages</a></li>
+		<li><a href="grades.html">Grades and pupil development</a></li>
+		<li><a href="reports.html">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0011">Day</li>
+			<li class="item-active" onclick="menu2click(this)" title="comment_0012">Week</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0013">Month</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0013">Year</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0013">Event</li>
+		</ul>
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Calendar navigation
+		</div>
+		
+		<div id="nav-header">
+			<div id="nav-buttons-left">
+				<input id="search" type="text" style="width:220px;margin-right:5px;border:1px solid #666;" title="comment_0021" />
+				<a class="button" title="comment_0024">Search</a>
+			</div>
+		</div>
+		
+		<div id="nav-body">
+		
+			<div class="acc-container" id="accord">
+			
+				<div class="acc-item i-expanded">
+					<div class="i-head">
+						<span class="i-title">Present view</span><div class="i-arrow"></div>
+					</div>
+					<div class="i-body">
+						<div class="i-content">
+							<ul style="list-style-type: none; margin: 3px 4px 0;">
+								<li>
+									<span style="display:inline-block; width:13px; height:13px; border: 1px solid #999; background: #F6B26B;"></span>
+									<span style="vertical-align: 2px;">French A > My studygroups</span>
+								</li>
+								<li>
+									<span style="display:inline-block; width:13px; height:13px; border: 1px solid #999; background: #FFE599;"></span>
+									<span style="vertical-align: 2px;">French for beginners > French A > My studygroups</span>
+								</li>
+								<li>
+									<span style="display:inline-block; width:13px; height:13px; border: 1px solid #999; background: #B6D7A8;"></span>
+									<span style="vertical-align: 2px;">French verbs > French A > My studygroups</span>							
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="acc-item i-expanded">
+					<div class="i-head">
+						<span class="i-title">Course rooms and studygroups</span><div class="i-arrow"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						<div class="i-content" id="tree-box1"></div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Pupils</span><div class="i-arrow"></div>
+					</div>
+					<div class="i-body" style="height:0px;">						
+						<div class="i-content" id="tree-box2"></div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Staff</span><div class="i-arrow"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						<div class="i-content" id="tree-box3"></div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Rooms</span><div class="i-arrow"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						<div class="i-content" id="tree-box4"></div>
+					</div>
+				</div>
+				
+			</div>
+		
+		</div>
+		
+		<!-- Buttons at the bottom of the Details box -->
+		<div id="details-footer">
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">View</a>
+				<a class="button" title="comment_0037">Clear</a>
+			</div>
+			<div id="buttons-right">
+				<a class="button" title="comment_0036">New event</a>
+			</div>
+		</div>
+	</div> <!-- END details -->
+	
+	<div id="main-content">
+		<div class="box-caption">
+			<div class="expand_btn" id="hide-navigation" title="comment_0016"></div>
+			<span class="after_expand_btn">Calendar</span>
+		</div>
+		
+		<div id="cal_header">
+			<input type="text" class="w16em" id="dhx_cal_date_picker" style="display: none;" value="" />
+			<span class="dhx_cal_prev_button">&nbsp;</span>
+			<span class="dhx_cal_next_button">&nbsp;</span>
+			<span class="button dhx_cal_today_button">Today</span>
+			<a class="button" id="filter" title="comment_0100">Filter event types</a>
+			<span class="hidden_event_types">Hidden event types: Timetable, Meeting</span>
+			<span class="dhx_cal_header_text"><span class="w">Week 22</span>|<span class="y">2012</span>|<span class="d">28 May - 03 Jun</span></span>
+		</div>		
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body">
+			<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:100%;'>
+				<div class="dhx_cal_navline" style="display: none;">
+					<div class="dhx_cal_prev_button">&nbsp;</div>
+					<div class="dhx_cal_next_button">&nbsp;</div>
+					<div class="dhx_cal_today_button"></div>
+					<div class="dhx_cal_date"></div>
+					<div class="dhx_cal_tab" name="day_tab" style="right:204px;"></div>
+					<div class="dhx_cal_tab" name="week_tab" style="right:140px;"></div>
+					<div class="dhx_cal_tab" name="month_tab" style="right:76px;"></div>
+				</div>
+				<div class="dhx_cal_header">
+				</div>
+				<div class="dhx_cal_data">
+				</div>		
+			</div>
+		
+		</div> <!-- END overview-body -->
+		
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+<script type="text/javascript">
+	setLeftTab(5); //make menu item active
+</script>
+
+</body>
+</html>

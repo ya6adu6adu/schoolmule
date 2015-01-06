@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Swedish literature" id="lev0_0">
+		<item text="SWE1-MPL10a (Swedish 1)" id="lev0_0_0">
+			<item text="Anna Andersson" id="lev0_0_0_0">
+				<item text="Objectives progress [>]" id="lev0_0_0_0_0" select="1">
+					<userdata name="href">course-rooms-pd-op.html</userdata>
+				</item>
+				<item text="Assignments progress [>]" id="lev0_0_0_0_1">
+					<userdata name="href">course-rooms-pd-ap.html</userdata>
+				</item>
+				<item text="Statistics and notes [>]" id="lev0_0_0_0_2">
+					<userdata name="href">course-rooms-pd-sn.html</userdata>
+				</item>
+			</item>
+			<item text="Peter Petersson" id="lev0_0_0_1">
+				<item text="Objectives progress" id="lev0_0_0_1_0" />
+				<item text="Assignments progress" id="lev0_0_0_1_1" />
+				<item text="Statistics and notes" id="lev0_0_0_1_2" />
+			</item>
+		</item>
+	</item>
+	<item text="The beginning of history" id="lev0_1">
+		<item text="HIS1-MPL10b (History 1)" id="lev0_1_0">
+			<item text="Content" id="lev0_1_0_0" />
+		</item>
+	</item>
+</tree>

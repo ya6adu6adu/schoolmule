@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My ongoing course objectives" id="lev0_0">
+		<item text="Media program 09" id="lev0_0_0">
+			<item text="Some content" id="lev0_0_0_0" />
+		</item>
+		<item text="Economic program 09" id="lev0_0_1">
+			<item text="Subject Swedish" id="lev0_0_1_0">
+				<item text="Course Swedish [m]" id="1lev0_0_1_0_0">
+					<item text="Objectivegroup languages [m]" id="2lev0_0_1_0_0_0">
+						<item text="Reading [m]" id="3lev0_0_1_0_0_0_0" select="1" />
+						<item text="Writing [m]" id="3lev0_0_1_0_0_0_1" />
+					</item>
+				</item>
+			</item>
+		</item>
+		<item text="Economic program 10" id="lev0_0_2">
+			<item text="Some content" id="lev0_0_2_0" />
+		</item>
+	</item>
+	<item text="My past course objectives" id="lev0_1">
+		<item text="Content" id="lev0_1_0" />
+	</item>
+	<item text="Shared course objectives" id="lev0_2">
+		<item text="Content" id="lev0_2_0" />
+	</item>
+</tree> 

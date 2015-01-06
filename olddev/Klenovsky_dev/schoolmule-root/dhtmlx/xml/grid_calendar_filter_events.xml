@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<row id="row0">
+		<cell>1</cell>
+		<cell>Meeting</cell>
+	</row>
+	<row id="row1">
+		<cell>1</cell>
+		<cell>Timetable</cell>
+	</row>
+	<row id="row2">
+		<cell>1</cell>
+		<cell>Event</cell>
+	</row>
+</rows>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="X,Y Chart type" id="i00">
+		<item text="Content" id="i000" />
+	</item>
+	<item text="Background" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+	<item text="x unit view" id="i02">
+		<item text="Content" id="i020" />
+	</item>
+	<item text="y unit view" id="i03">
+		<item text="Content" id="i030" />
+	</item>
+	<item text="Borders" id="i04">
+		<item text="Color" id="i040">
+			<item text="Brown" id="i0400" />
+			<item text="Blue" id="i0401" />
+		</item>
+		<item text="Thickness" id="i041">
+			<item text="Thin" id="i0410" />
+			<item text="Thick" id="i0411" />
+		</item>
+	</item>	
+	<item text="Font design" id="i05">
+		<item text="Fonts" id="i050">
+			<item text="Content" id="i0500" />
+		</item>
+		<item text="Font color" id="i051">
+			<item text="Content" id="i0510" />
+		</item>
+	</item>	
+</tree> 

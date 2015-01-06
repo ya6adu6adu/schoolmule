@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="Hide Quality" />
+	<item id="menu_item_1" text="View hidden items" />
+</menu>

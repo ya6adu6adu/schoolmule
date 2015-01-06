@@ -1,0 +1,77 @@
+.dhx_cal_header {
+	border-top: 0;
+}
+/*#dhx_cal_navigation {
+	position: absolute;
+	top: 1px;
+	right: 200px;
+	width: 18px;
+	height: 18px;
+	background-image: url(../imgs/calendar.gif);
+	cursor: pointer;
+	z-index: 5;
+}*/
+#fd-but-dhx_cal_date_picker {
+	/*position: absolute;
+	right: 241px;
+	top: 3px;
+	*/
+}
+.dhx_cal_header_text { float: right; padding-top: 2px; }
+/*event in day or week view*/
+.dhx_selected_event .dhx_header, .dhx_selected_event .dhx_title, .dhx_selected_event .dhx_body, .dhx_selected_event .dhx_footer, .dhx_selected_event .dhx_event_menu_arrow  {
+	background-color: #ddd !important;
+	/*color: white !important;*/
+}
+/*multi-day event in month view*/
+.dhx_cal_event_line.dhx_selected_event {
+	background-color: #ddd !important;
+	/*color: white !important;*/
+}
+/*event with fixed time, in month view*/
+.dhx_cal_event_clear.dhx_selected_event{
+	color: #ddd !important;
+}
+.dhx_cal_event .dhx_title {
+	text-align: left;
+}
+.dhx_title .dhx_title_time {
+	padding-left: 5px;
+	cursor: move;
+}
+
+/* week number span in Month view */
+.dhx_week_number {
+	position: absolute;
+	left: 10px;
+	font-weight: bold;
+}
+.dhx_cal_event .dhx_title {
+	cursor: default;
+}
+.dhx_event_menu_arrow {
+	height: 12px;
+	width: 20px !important;
+	background: url(../imgs/menu_arrow.png) no-repeat 5px 3px;
+	border: 0 !important;
+	cursor: pointer;
+	position: absolute;
+	top: 2px;
+	right: -1px;
+}
+
+/* absence time */
+.dhx_absence_time {
+	background-color: #B2E699 !important;
+	margin-top: 4px;
+	border: 1px dotted black;
+	left: 0;
+}
+.dhx_absence_time .dhx_absence_section {
+	border: 0 !important;
+}
+.dhx_absence_time, .dhx_absence_section {
+	height: 4px;
+	position: absolute;
+	bottom: 7px;
+}

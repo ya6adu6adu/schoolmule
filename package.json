@@ -1,0 +1,7 @@
+{
+  "name": "schoolmule",
+  "version": "1.0",
+  "devDependencies": {
+    "grunt": "*"
+  }
+}

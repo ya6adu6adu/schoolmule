@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Pupil progress app</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxtree.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid_dhx_schoolmule.css" />
+	
+	<script type="text/javascript" src="../../js/script.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+	<script src="../../dhtmlx/dhtmlxtree.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxgridcell.js"></script>
+	<script src="../../dhtmlx/dhtmlxtreegrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxtreegrid_filter.js"></script>
+	
+	<!--
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+			// tree content is loading here from XML file (can be loaded from DB) - for Dialog 5
+			var tree1 = new dhtmlXTreeObject("tree-box1","100%","100%",0);
+			tree1.setSkin("dhx_black");
+			tree1.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			tree1.loadXML("../../dhtmlx/xml/tree_hidden.xml");
+			tree1.enableCheckBoxes(true, false);
+			tree1.enableThreeStateCheckboxes(true);
+			
+			// treegrid for Dialog 6
+			var mygrid = new dhtmlXGridObject('gridbox');
+			mygrid.selMultiRows = true;
+			mygrid.imgURL = "../../dhtmlx/imgs/icons_greenfolders/";
+			mygrid.setHeader("Objective,Weight");
+			mygrid.setInitWidths("276,60");
+			mygrid.setColAlign("left,left");
+			mygrid.setColTypes("tree,ed");
+			mygrid.init();
+			mygrid.setSkin("dhx_skyblue");
+			mygrid.loadXML("../../dhtmlx/xml/dialog_grid.xml");
+			mygrid.attachFooter('Sum (must be 100%):,{#stat_tree_total}%');
+			mygrid.enableEditEvents(true,false,true);
+			mygrid.enableTreeCellEdit(false);
+			
+			// UI-dialog1 code
+			$('#dialog1').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 300,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// dialog1 call
+			$('#dialog_btn1').click(function(){
+				$('#dialog1').dialog('open');			
+			});
+
+			// UI-dialog2 code
+			$('#dialog2').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 300,
+				resizable: false,
+				buttons: {
+					"Add": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// dialog2 call
+			$('#dialog_btn2').click(function(){
+				$('#dialog2').dialog('open');			
+			});
+			
+			// UI-dialog3 code
+			$('#dialog3').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 300,
+				resizable: false,
+				buttons: {
+					"Add": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// dialog3 call
+			$('#dialog_btn3').click(function(){
+				$('#dialog3').dialog('open');			
+			});
+			
+			// UI-dialog4 code
+			$('#dialog4').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 250,
+				resizable: false,
+				buttons: {
+					"Hide": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// dialog4 call
+			$('#dialog_btn4').click(function(){
+				$('#dialog4').dialog('open');			
+			});
+			
+			// UI-dialog5 code
+			$('#dialog5').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Update": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// dialog5 call
+			$('#dialog_btn5').click(function(){
+				$('#dialog5').dialog('open');			
+			});
+			
+			// UI-dialog6 code
+			$('#dialog6').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Update": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// dialog6 call
+			$('#dialog_btn6').click(function(){
+				$('#dialog6').dialog('open');
+			});
+			
+			// UI-dialog7 code
+			$('#dialog7').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 300,
+				resizable: false,
+				buttons: {
+					"Update": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// dialog7 call
+			$('#dialog_btn7').click(function(){
+				$('#selectresultunit').width(158);
+				$('#dialog7').dialog('open');
+			});
+					
+		});
+	</script>
+	
+	<style type="text/css">
+		#dialog7 .select { border: 1px solid #ccc4cf; }
+	</style>
+</head>
+
+<body>
+
+<!-- HTML of ui-dialog, should be in the beginning of document, just after body tag -->
+<div id="dialog1" title="Empty dialog" style="display:none">
+	<!-- Place content here -->
+</div>
+
+<div id="dialog2" title="Add (group, course objective)" style="display:none">
+	<div class="label" style="margin-top: 0;"><label for="f-name">Name</label></div>
+	<div class="field"><input type="text" id="f-name" style="width: 275px;" name="f-name" title="comment_0056" /></div>
+	<ul style="list-style-type: none;">		
+		<li><input type="radio" name="radio-dlg2" style="margin-top:8px; margin-right: 3px;" checked="checked" />Hide addition from this pupil (Peter Petersson)</li>
+		<li><input type="radio" name="radio-dlg2" style="margin-top:4px; margin-right: 3px;" />Hide addition from this studygroup (ENG1-MPL10a)</li>
+		<li><input type="radio" name="radio-dlg2" style="margin-top:4px; margin-right: 3px;" />Hide addition from this course (English 1)</li>
+		<li><input type="radio" name="radio-dlg2" style="margin-top:4px; margin-right: 3px;" />Don't hide</li>
+	</ul>
+</div>
+
+<div id="dialog3" title="Add (assignment, performance)" style="display:none">
+	<div class="label" style="margin-top: 0;"><label for="f-name">Name</label></div>
+	<div class="field"><input type="text" id="f-name" style="width: 275px;" name="f-name" title="comment_0056" /></div>
+	<ul style="list-style-type: none;">
+		<li><input type="radio" name="radio-dlg3" style="margin-top:8px; margin-right: 3px;" checked="checked" />Add to this pupil (Peter Petersson)</li>
+		<li><input type="radio" name="radio-dlg3" style="margin-top:4px; margin-right: 3px;" />Add to all pupils in this studygroup (ENG1-MPL10a)</li>
+		<li><input type="radio" name="radio-dlg3" style="margin-top:4px; margin-right: 3px;" />Add to all pupils in this course (English 1)</li>
+		<div class="hr" style="margin: 8px 1px 4px 0;"></div>
+		<li><input type="radio" name="radio-dlg3_2" style="margin-top:4px; margin-right: 3px;" checked="checked" />Hide addition from this pupil (Peter Petersson)</li>
+		<li><input type="radio" name="radio-dlg3_2" style="margin-top:4px; margin-right: 3px;" />Hide addition from this studygroup (ENG1-MPL10a)</li>
+		<li><input type="radio" name="radio-dlg3_2" style="margin-top:4px; margin-right: 3px;" />Hide addition from this course (English 1)</li>
+		<li><input type="radio" name="radio-dlg3_2" style="margin-top:4px; margin-right: 3px;" />Don't hide</li>
+	</ul>
+</div>
+
+<div id="dialog4" title="Hide" style="display:none">
+	<div>Hide (item name) from</div>
+	<ul style="list-style-type: none;">
+		<li><input type="checkbox" name="r-hide-cb" style="margin-top:8px;" checked="checked" />My view</li>
+		<div class="hr" style="margin: 8px 1px 4px 0;"></div>
+		<li><input type="radio" name="r-hide" style="margin-top:4px; margin-right: 3px;" checked="checked" />Current pupil (Peter Petersson)</li>
+		<li><input type="radio" name="r-hide" style="margin-top:4px; margin-right: 3px;" />All pupils in studygroup (ENG1-MPL10a)</li>
+		<li><input type="radio" name="r-hide" style="margin-top:4px; margin-right: 3px;" />All pupils in course (English 1)</li>
+		<li><input type="radio" name="r-hide" style="margin-top:4px; margin-right: 3px;" />Don't hide</li>
+	</ul>	
+</div>
+
+<div id="dialog5" title="Hidden items" style="display:none">
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="tree-box1" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="dialog6" title="Change objective weight" style="display:none">
+	<div style="height: 340px; border: 1px solid #999;">
+		<div id="gridbox"></div>
+	</div>
+</div>
+
+<div id="dialog7" title="Change result" style="display:none">
+	<div class="label" style="margin-top: 0;"><label for="new-result">New result</label></div>
+	<div class="field"><input type="text" id="new-result" style="width: 275px;" name="new-result" title="comment_0056" /></div>
+	<div class="label"><label for="old-result">Old result</label></div>
+	<div class="field"><input type="text" id="old-result" style="width: 275px;" name="old-result" title="comment_0056" /></div>
+	
+	<div style="float:left">
+		<div class="label"><label>Result unit</label></div>
+		<div class="field">
+			<select class="styled" name="resultunit" style="width:181px;" title="comment_0047">
+				<option>Grade</option>
+				<option>Points</option>
+				<option>Pass</option>
+				<option>Percent</option>
+				<option>Freetext with assessment</option>
+				<option>Freetext without assessment</option>
+				<option>No evaluation</option>
+				<option>E</option>
+				<option>C-D</option>
+				<option>A-B</option>
+			</select>
+		</div>
+	</div>
+	<div style="float:left; margin-left:5px;">
+		<div class="label"><label for="max">Max</label></div>
+		<div class="field"><input type="text" id="max" name="max" style="width: 40px;" value="100" title="comment_0048" /></div>
+	</div>
+	<div style="float:left; margin-left:5px;">
+		<div class="label"><label for="pass">Pass</label></div>
+		<div class="field"><input type="text" id="pass" name="pass" style="width: 40px;" title="comment_0048" /></div>
+	</div>
+	<div style="clear:left"></div>
+	
+	<div class="hr" style="margin-right: 1px; margin-top: 14px;"></div>
+	
+	<div class="label"><label for="new-custom-result">New custom result unit</label></div>
+	<div class="field">
+		<input type="text" id="new-custom-result" style="width:229px; margin-right:5px;" name="new-custom-result" title="comment_0056" />
+		<a class="button" title="comment_0024">Add</a>
+	</div>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<!-- Admin image -->
+			<img src="../../images/noimage.png" alt="schooladmin teachers interface" />
+			<div id="login-content">
+				<div id="login-caption">Teachers interface</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+				<!-- School name field -->
+				<select class="styled" name="school" title="comment_0001">
+					<option>School 1</option>
+					<option>School 2</option>
+				</select><br />
+				<a id="acc-set" href="#">Account settings</a><span id="acc-divider"> | </span><a id="sign" href="#">Sign out</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Navigation
+		</div>
+		
+		<!-- Buttons at the bottom of the Details (or accord) box -->
+		<div id="details-footer">
+		</div>
+	</div> <!-- END accord -->
+	
+	<div id="main-content">
+		<div class="box-caption" style="text-indent:20px">
+			<img class="pointer" id="hide-navigation" src="../../images/collapse.png" alt="Hide details" onclick="hideNavigation()" title="comment_0016" />
+			<img src="../../images/expand.png" alt="collapse" style="display:none" />
+			Pupil progress application
+			<div style="position: absolute; right: 8px; top: 4px; text-indent: 0;">
+				<div class="field">
+					<select class="styled" style="width: 100px;" name="weight" title="comment_0030">
+						<option>Staff/Admin</option>
+						<option>Teacher</option>
+						<option>Pupil/Parent</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="padding: 4px 16px; top: 24px;">
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Cancel</a>
+				<span>&nbsp;&nbsp;Dialogs:</span>
+				<a class="button" id="dialog_btn1" title="comment_0037">Ok (Empty)</a>
+				<a class="button" id="dialog_btn2" title="comment_0037">Add (group ...)</a>
+				<a class="button" id="dialog_btn3" title="comment_0037">Add (assignment ...)</a>
+				<a class="button" id="dialog_btn4" title="comment_0037">Hide</a>
+				<a class="button" id="dialog_btn5" title="comment_0037">Hidden items</a>
+				<a class="button" id="dialog_btn6" title="comment_0037">Change objective weight</a>
+				<a class="button" id="dialog_btn7" title="comment_0037">Change result</a>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+</body>
+</html>

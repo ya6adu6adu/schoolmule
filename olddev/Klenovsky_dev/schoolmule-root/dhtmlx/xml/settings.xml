@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Appearance" id="lev0_0" select="1" />
+	<item text="System" id="lev0_1" />
+	<item text="Import pupils by programme" id="lev0_2" />
+	<item text="Discussions and messages settings" id="lev0_3" />
+	<item text="File handling" id="lev0_4" />
+	<item text="Grading" id="lev0_5" />
+	<item text="Contacts" id="lev0_6" />
+	<item text="Import from or sync to sheduler software" id="lev0_7" />
+</tree> 

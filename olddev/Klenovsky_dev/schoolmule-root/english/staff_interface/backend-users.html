@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Users</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style-old.css" />
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Dialog			
+			$('#fields-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 150,
+				resizable: false,
+				buttons: {
+					"View": function() { 
+						//deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+			// Open dialog link/btn
+			$('#fields-btn').click(function(){
+				$('#fields-dialog').dialog('open');
+			});
+			// Add 'Check all' checkbox to fields-dialog
+			$("#fields-dialog ~ .ui-dialog-buttonpane").css("position", "relative");
+			$("#fields-dialog ~ .ui-dialog-buttonpane").append('<div id="check-all-div" style="position: absolute; top: 6px;"><input type="checkbox" name="check-all" title="Check all"/></div>');
+			$('#check-all-div input').click(function(){
+				if (this.checked) { $('#fields-dialog input').attr("checked", "checked"); }
+				else { $('#fields-dialog input').removeAttr("checked"); }
+			});
+		});
+	</script>
+</head>
+<body>
+
+<!-- ui-dialog -->
+<div id="fields-dialog" title="Choose fields" style="display:none">
+	<input type="checkbox" name="choose-fields-cb1" />Customer<br />
+	<input type="checkbox" name="choose-fields-cb2" />School<br />
+	<input type="checkbox" name="choose-fields-cb3" />Type or Position<br />
+	<input type="checkbox" name="choose-fields-cb4" />Phone<br />
+	<input type="checkbox" name="choose-fields-cb5" />Email<br />
+	<input type="checkbox" name="choose-fields-cb6" />Address<br />
+	<input type="checkbox" name="choose-fields-cb7" />Zip code<br />
+	<input type="checkbox" name="choose-fields-cb8" />City<br />
+	<input type="checkbox" name="choose-fields-cb9" />ID number<br />
+	<input type="checkbox" name="choose-fields-cb10" />Login name<br />
+	<input type="checkbox" name="choose-fields-cb11" />Password<br />
+</div>
+
+<div id="container">
+<div id="page-wrap" class="backend">
+
+	<div id="header" class="backend">
+		<h1>Schoolmule Backend administration</h1>
+		<img class="backend" src="../../images/schoolmule_logo_big.png" alt="SchoolMULE" />
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li title="comment_0002" style="padding-left: 16px;"><a href="backend-customers.html">Customers</a></li>
+		<li title="comment_0003"><a href="backend-schools.html">Schools</a></li>
+		<li title="comment_0004"><a href="backend-administrators.html">Administrators</a></li>
+		<li title="comment_0005"><a href="backend-users.html">Users</a></li>
+		<li title="comment_0006"><a href="#">Statistics</a></li>
+		<li title="comment_0007"><a href="backend-settings-system.html">Settings</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<div id="left-tab">Users</div>
+	</div>
+	
+	<div id="overview" class="backend">
+		<div class="box-caption">
+			Users overview
+			<img class="pointer" id="hide-details" src="../../images/expand.png" alt="Hide details" onclick="hideElement()" title="comment_0016" />
+			<img src="../../images/collapse.png" alt="collapse" style="display:none" />
+		</div>
+		<!-- Here is all inputs of Overview header -->
+		<div id="overview-header">
+			<input type="checkbox" class="row3" title="comment_0034" />
+			<div id="buttons-left">
+				<a class="button" id="fields-btn" title="comment_0018">Fields</a>
+				<input id="search" type="text" style="width:175px" title="comment_0021" />
+				<span id="num-span" title="comment_0022">15 / 25</span>
+				<a class="button" title="comment_0023">Clear</a>
+				<a class="button" title="comment_0024">Search</a>
+			</div>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body">
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<input type="checkbox" class="row3" title="comment_0034" />
+			<div id="buttons-left">
+				<a class="button" title="comment_0035">Send message</a>
+				<a class="button" title="comment_0035">Export users</a>
+				<a class="button" title="comment_0036">Print</a>
+				<a class="button" title="comment_0037">Delete</a>
+			</div>
+			<a class="button row3right" title="comment_0040">Import users</a>
+		</div>
+	</div> <!-- END overview -->
+	
+	<!-- Details box -->
+	<form id="details" class="backend" action="#">
+		<div class="box-caption">
+			User details
+		</div>		
+		<div id="details-header">
+			<!-- Image and inputs of the Details box -->
+			<p style="padding: 0 0 2px;">
+				<label for="adm-name">Name</label><br />
+				<input type="text" id="adm-name" class="xl-input" name="adm-name" title="comment_0044" />
+			</p>
+			<p style="padding: 4px 0 2px;">
+				<label for="adm-surname">Surname</label><br />
+				<input type="text" id="adm-surname" class="xl-input" name="adm-surname" title="comment_0044" />
+			</p>			
+			<p style="padding: 5px 0 8px;">
+				<label for="info">Information</label><br />
+				<textarea id="info" rows="3" cols="50">
+				</textarea>
+			</p>
+			<input type="checkbox" name="freeze" title="comment_0034" />Freeze user account
+		</div>
+		<!-- Inputs in the scrollable area of the Details box -->
+		<div id="details-body-wrap" class="backend">
+			<div id="details-body" class="backend">
+				<div> <!-- It is a container for labels and inputs -->
+					<div class="label"><label for="customer">Customer</label></div>
+					<div class="field"><input type="text" id="customer" class="long-input" name="customer" title="comment_0058" /></div>
+					
+					<div class="label"><label for="school">School</label></div>
+					<div class="field"><input type="text" id="school" class="long-input" name="school" title="comment_0058" /></div>
+					
+					<div class="label"><label for="type-pos">Type or Position</label></div>
+					<div class="field"><input type="text" id="type-pos" class="long-input" name="type-pos" title="comment_0058" /></div>
+					
+					<div class="label"><label for="phone">Phone</label></div>
+					<div class="field"><input type="text" id="phone" class="long-input" name="phone" title="comment_0052" /></div>
+					<div class="label"><label for="email">Email</label></div>
+					<div class="field"><input type="text" id="email" class="long-input" name="email" title="comment_0053" /></div>
+					<div class="label"><label for="address1">Address</label></div>
+					<div class="field" style="margin: -1px 0 0;"><input type="text" id="address1" class="long-input" name="address1" title="comment_0054" /></div>
+					<div class="field" style="margin: 1px 0 0;"><input type="text" id="address2" class="long-input" name="address2" title="comment_0055" /></div>
+				</div>
+				<div style="float:left;">
+					<div class="label"><label for="zipcode">Zip code</label></div>
+					<div class="field"><input type="text" id="zipcode" name="zipcode" title="comment_0056" /></div>
+				</div>
+				<div style="float:left; margin-left:5px;">
+					<div class="label"><label for="city">City</label></div>
+					<div class="field"><input type="text" id="city" name="city" title="comment_0057" /></div>
+				</div>
+				<div style="clear:left"></div>
+				<div>
+					<div class="label"><label for="idnumber">ID number</label></div>
+					<div class="field"><input type="text" id="idnumber" class="long-input" name="idnumber" title="comment_0058" /></div>
+					<div class="label"><label for="loginname">Login name</label></div>
+					<div class="field"><input type="text" id="loginname" class="long-input" name="loginname" title="comment_0060" /></div>
+					<div class="label"><label for="password">Password</label></div>
+					<div class="field"><input type="text" id="password" class="long-input" name="password" title="comment_0058" /></div>
+				</div>
+				<table id="data-table">
+					<tr>
+						<td id="data1" class="short-cell">5</td>
+						<td>Logins per day average</td>
+					</tr>
+					<tr>
+						<td id="data2" class="short-cell">01:20:30</td>
+						<td>Login time per day average</td>
+					</tr>
+					<tr>
+						<td id="data3" class="short-cell">1.5 MB</td>
+						<td>User database content</td>					
+					</tr>
+					<tr>
+						<td id="data4" class="short-cell">1 MB</td>
+						<td>MB traffic per day average</td>
+					</tr>
+				</table>
+				<div>User added <span id="customer-added">5th May 2010</span></div>
+			</div>
+		</div>
+		<!-- Buttons at the bottom of the Details box -->
+		<div id="details-footer">
+			<a class="button" title="comment_0061">Save</a>
+			<a class="button" title="comment_0062">Delete user</a>
+		</div>
+	</form> <!-- END details -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+</body>
+</html>

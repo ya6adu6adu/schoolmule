@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+ 	<row id="pupil_0" selected="1" call="1" xmlkids="1">
+		<cell>0</cell>
+		<cell>grid_pupil_0.html</cell>
+		<cell>Anna Andersson</cell>
+		<cell>0</cell>
+		<cell xmlcontent="1" bgColor="#8f8">+10, 08:55
+			<option value="0">Present</option>
+			<option value="1">+05, 08:50</option>
+			<option value="2">+10, 08:55</option>
+			<option value="3">+15, 09:00</option>
+			<option value="4">+20, 09:05</option>
+			<option value="5">+25, 09:10</option>
+			<option value="6">+30, 09:15</option>
+			<option value="7">Away</option>
+		</cell>
+		<cell xmlcontent="1">Reason
+			<option value="0">Reason</option>
+		</cell>
+		<cell>1</cell>
+		<cell xmlcontent="1" bgColor="#f88">-05, 09:40
+			<option value="0">Present</option>
+			<option value="1">-05, 09:40</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-15, 08:30</option>
+			<option value="4">-20, 08:25</option>
+			<option value="5">-25, 08:20</option>
+			<option value="6">-30, 08:15</option>
+			<option value="7">Away</option>
+		</cell>
+		<cell xmlcontent="1">Reason
+			<option value="0">Reason</option>
+		</cell>
+        <cell>00:20, 24%</cell>
+		<cell>Anders Hansson</cell>
+		<cell>../../images/doc.png^Add note^javascript:addNote()^_self</cell>
+	</row>
+	<row id="pupil_1">
+		<cell>0</cell>
+		<cell>grid_pupil_1.html</cell>
+		<cell>Peter Petersson</cell>
+		<cell>1</cell>
+		<cell xmlcontent="1" bgColor="#8f8">+15, 09:00
+			<option value="0">Present</option>
+			<option value="1">+05, 08:50</option>
+			<option value="2">+10, 08:55</option>
+			<option value="3">+15, 09:00</option>
+			<option value="4">+20, 09:05</option>
+			<option value="5">+25, 09:10</option>
+			<option value="6">+30, 09:15</option>
+			<option value="7">Away</option>
+		</cell>
+		<cell xmlcontent="1">Reason
+			<option value="0">Reason</option>
+		</cell>
+		<cell>1</cell>
+		<cell xmlcontent="1" bgColor="#f88">-15, 08:30
+			<option value="0">Present</option>
+			<option value="1">-05, 09:40</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-15, 08:30</option>
+			<option value="4">-20, 08:25</option>
+			<option value="5">-25, 08:20</option>
+			<option value="6">-30, 08:15</option>
+			<option value="7">Away</option>
+		</cell>
+		<cell xmlcontent="1">Reason
+			<option value="0">Reason</option>
+		</cell>
+        <cell>00:20, 24%</cell>
+		<cell>Anders Hansson</cell>
+		<cell>../../images/doc.png^Add note^javascript:addNote()^_self</cell>
+	</row>
+	<row id="pupil_2">
+		<cell>0</cell>
+		<cell>grid_pupil_2.html</cell>
+		<cell>Sven Svensson</cell>
+		<cell>0</cell>
+		<cell xmlcontent="1" bgColor="#8f8">+05, 08:50
+			<option value="0">Present</option>
+			<option value="1">+05, 08:50</option>
+			<option value="2">+10, 08:55</option>
+			<option value="3">+15, 09:00</option>
+			<option value="4">+20, 09:05</option>
+			<option value="5">+25, 09:10</option>
+			<option value="6">+30, 09:15</option>
+			<option value="7">Away</option>
+		</cell>
+		<cell xmlcontent="1">Reason
+			<option value="0">Reason</option>
+		</cell>
+		<cell>0</cell>
+		<cell xmlcontent="1" bgColor="#f88">-10, 08:35
+			<option value="0">Present</option>
+			<option value="1">-05, 09:40</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-15, 08:30</option>
+			<option value="4">-20, 08:25</option>
+			<option value="5">-25, 08:20</option>
+			<option value="6">-30, 08:15</option>
+			<option value="7">Away</option>
+		</cell>
+		<cell xmlcontent="1">Reason
+			<option value="0">Reason</option>
+		</cell>
+        <cell>00:20, 24%</cell>
+		<cell>Anders Hansson</cell>
+		<cell>../../images/doc.png^Add note^javascript:addNote()^_self</cell>
+	</row>
+</rows>

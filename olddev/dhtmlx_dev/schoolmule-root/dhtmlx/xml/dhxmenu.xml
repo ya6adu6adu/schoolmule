@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="id0" text="Item 1 (separator below)" />
+	<item id="id1" type="separator" />
+	<item id="id2" text="Item 2" />
+	<item id="id3" text="Item 3" />
+	<item id="id4" text="Item 4 (parent item)">
+		<item id="ch1" text="Child 1" />
+		<item id="ch2" text="Child 2" />
+	</item>
+	<item id="id5" text="Item 5 (disabled item)" enabled="false" />
+</menu>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="Go to group" />
+	<item id="menu_item_1" text="Add group" />
+	<item id="menu_item_2" text="Add objective to this group" />
+	<item id="menu_item_3" text="Hide this group" />
+	<item id="menu_item_4" text="View hidden items" />
+</menu>

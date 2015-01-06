@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="Add new objective" />
+	<item id="menu_item_1" text="Delete" />
+	<item id="menu_item_2" text="Delete objectives" />
+</menu>

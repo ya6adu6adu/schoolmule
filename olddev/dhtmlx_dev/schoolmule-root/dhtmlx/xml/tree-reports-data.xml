@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="General information" id="i00">		
+		<item text="Name" id="i000" />
+		<item text="Surname" id="i001" />
+		<item text="Personal ID" id="i002" />
+		<item text="Age" id="i003" />
+		<item text="Class" id="i004" />
+		<item text="Gender" id="i005" />
+	</item>
+	<item text="Grades" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+	<item text="Attendance" id="i02">
+		<item text="Content" id="i020" />
+	</item>
+	<item text="Submissions" id="i03">
+		<item text="Content" id="i030" />
+	</item>
+</tree> 

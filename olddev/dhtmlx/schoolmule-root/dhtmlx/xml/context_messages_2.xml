@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="Remove folder" />
+	<item id="menu_item_1" text="New folder" />
+	<item id="menu_item_2" text="Delete folder" />
+	<item id="menu_item_3" text="Rename folder" />
+</menu>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My pupils" id="i00">
+		<item text="Content" id="i000" />
+	</item>
+	<item text="By programme" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+	<item text="By mentor" id="i02">
+		<item text="Sven Svensson" id="i020">
+			<item text="ECO-09a" id="i0200">
+				<item text="Anna Andersson" id="i02000" />
+			</item>
+		</item>
+	</item>
+	<item text="By course room" id="i03">
+		<item text="Subject: English" id="i030">
+			<item text="Course room: English first" id="b0300">
+				<item text="ECO10a" id="b03000">
+					<item text="Content" id="b030000" />
+				</item>
+				<item text="ECO10b" id="b03001">
+					<item text="Emil Andersson" id="b030010" />
+					<item text="Linnea Berg" id="b030011" />	
+				</item>
+			</item>
+		</item>
+	</item>
+</tree> 

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+ 	<row id="pupil_0" selected="1" call="1" xmlkids="1">
+		<cell>1</cell>
+		<cell>Anna Andersson</cell>
+		<cell xmlcontent="1">
+			+05, 08:50
+			<option value="1">-15, 08:30</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-05, 09:40</option>
+			<option value="4">+05, 08:50</option>
+			<option value="5">+10, 08:55</option>
+			<option value="6">+15, 09:00</option>
+			<option value="7">+20, 09:05</option>
+			<option value="8">+25, 09:10</option>
+			<option value="9">+30, 09:15</option>
+		</cell>
+        <cell xmlcontent="1">Reason</cell>
+		<cell xmlcontent="1">
+			+05, 08:50
+			<option value="1">-15, 08:30</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-05, 09:40</option>
+			<option value="4">+05, 08:50</option>
+			<option value="5">+10, 08:55</option>
+			<option value="6">+15, 09:00</option>
+			<option value="7">+20, 09:05</option>
+			<option value="8">+25, 09:10</option>
+			<option value="9">+30, 09:15</option>
+		</cell>
+        <cell xmlcontent="1">Reason</cell>
+        <cell>00:20, 24%</cell>
+		<cell>Anders Hansson</cell>
+		<row id="pupil_0_0">
+			<cell>1</cell>
+			<cell><![CDATA[  		
+			<div style="height:65px; padding:4px 0 0 0;">
+				<div style="float:left;">
+					<img src="../../images/pupil.png" alt="Pupil portrait" />
+				</div>
+				<div style="clear:left"></div>
+			</div> 
+			]]></cell>
+			<cell><![CDATA[  		
+			<div style="height:65px; padding:4px 0 0 0;">
+				<div style="float:left;">
+					<img src="../../images/pupil.png" alt="Pupil portrait" />
+				</div>
+				<div style="clear:left"></div>
+			</div> 
+			]]></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell><![CDATA[
+				<div>
+					<div>Absence this studigroup</div>
+					<div style="background:#eee;">256 min, 12 ggr, 17%</div>
+					<div style="margin-top:4px;">Total absence time</div>
+					<div style="background:#eee;">453 min, 34 ggr, 24%</div>
+				</div>
+			]]></cell>
+		</row>
+	</row>
+	<row id="pupil_1">
+		<cell>1</cell>
+		<cell>Peter Petersson</cell>
+		<cell xmlcontent="1">
+			+05, 08:50
+			<option value="1">-15, 08:30</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-05, 09:40</option>
+			<option value="4">+05, 08:50</option>
+			<option value="5">+10, 08:55</option>
+			<option value="6">+15, 09:00</option>
+			<option value="7">+20, 09:05</option>
+			<option value="8">+25, 09:10</option>
+			<option value="9">+30, 09:15</option>
+		</cell>
+        <cell xmlcontent="1">Reason</cell>
+		<cell xmlcontent="1">
+			+05, 08:50
+			<option value="1">-15, 08:30</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-05, 09:40</option>
+			<option value="4">+05, 08:50</option>
+			<option value="5">+10, 08:55</option>
+			<option value="6">+15, 09:00</option>
+			<option value="7">+20, 09:05</option>
+			<option value="8">+25, 09:10</option>
+			<option value="9">+30, 09:15</option>
+		</cell>
+        <cell xmlcontent="1">Reason</cell>
+        <cell>00:20, 24%</cell>
+		<cell>Anders Hansson</cell>
+	</row>
+	<row id="pupil_2">
+		<cell>1</cell>
+		<cell>Sven Svensson</cell>
+		<cell xmlcontent="1">
+			+05, 08:50
+			<option value="1">-15, 08:30</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-05, 09:40</option>
+			<option value="4">+05, 08:50</option>
+			<option value="5">+10, 08:55</option>
+			<option value="6">+15, 09:00</option>
+			<option value="7">+20, 09:05</option>
+			<option value="8">+25, 09:10</option>
+			<option value="9">+30, 09:15</option>
+		</cell>
+        <cell xmlcontent="1">Reason</cell>
+		<cell xmlcontent="1">
+			+05, 08:50
+			<option value="1">-15, 08:30</option>
+			<option value="2">-10, 08:35</option>
+			<option value="3">-05, 09:40</option>
+			<option value="4">+05, 08:50</option>
+			<option value="5">+10, 08:55</option>
+			<option value="6">+15, 09:00</option>
+			<option value="7">+20, 09:05</option>
+			<option value="8">+25, 09:10</option>
+			<option value="9">+30, 09:15</option>
+		</cell>
+        <cell xmlcontent="1">Reason</cell>
+        <cell>00:20, 24%</cell>
+		<cell>Anders Hansson</cell>
+	</row>
+</rows>

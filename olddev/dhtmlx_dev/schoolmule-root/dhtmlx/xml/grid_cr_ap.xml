@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+		<row id="row00">
+			<cell>[DaRo0001]: English essay 01</cell>
+			<cell><![CDATA[
+				<span style="color:red;">Not subm.</span>
+			]]></cell>
+			<cell colspan="5"></cell>
+			<row id="row000">
+				<cell>Swedish A: Reading, Writing</cell>
+				<cell></cell>
+				<cell xmlcontent="1">Percent
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>100%</cell>
+				<cell>50%</cell>
+				<cell>45%</cell>
+				<cell xmlcontent="1" bgColor="#f88">F
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+			<row id="row001">
+				<cell>History A: Cultural history</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Grade
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>A</cell>
+				<cell>E</cell>
+				<cell>D</cell>
+				<cell xmlcontent="1" bgColor="#8f8">D
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+		</row>
+		<row id="row01">
+			<cell>[DaRo0002]: The Spanish armada essay</cell>
+			<cell><![CDATA[
+				<span style="color:green;">1 day early</span>
+			]]></cell>
+			<cell colspan="5"></cell>
+			<row id="row010">
+				<cell>Swedish A: Reading, Writing</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#8f8">E
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+			<row id="row011">
+				<cell>History A: Cultural history</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#f88">F
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+		</row>
+		<row id="row02">
+			<cell>[DaRo0003]: English glossary test 01</cell>
+			<cell><![CDATA[
+				<span style="color:green;">1 day early</span>
+			]]></cell>
+			<cell colspan="5"></cell>
+			<row id="row020">
+				<cell>Swedish A: Reading, Writing</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#8f8">E
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+			<row id="row021">
+				<cell>History A: Cultural history</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#f88">F
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+		</row>
+</rows>

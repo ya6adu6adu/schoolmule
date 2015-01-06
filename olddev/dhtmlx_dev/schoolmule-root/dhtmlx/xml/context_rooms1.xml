@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="New course room" />
+	<item id="menu_item_1" text="Duplicate" />
+	<item id="menu_item_2" text="Delete" />
+	<item id="menu_item_3" text="Merge" />
+	<item id="menu_item_4" text="Save to resources" />
+	<item id="menu_item_5" text="View in course room planning" />
+	<item id="menu_item_6" text="Share / Make private" />
+</menu>

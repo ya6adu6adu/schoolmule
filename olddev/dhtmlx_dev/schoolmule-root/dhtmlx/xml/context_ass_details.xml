@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="Add unit" />
+	<item id="menu_item_1" text="Remove unit" />
+</menu>

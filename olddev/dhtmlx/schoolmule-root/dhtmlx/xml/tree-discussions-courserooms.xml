@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My course rooms discussions" id="i00">
+		<item text="Content" id="i000" />
+	</item>
+	<item text="General discussions" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+	<item text="By programme" id="i02">
+		<item text="Economic 08" id="i020">
+			<item text="Content" id="i0200" />
+		</item>
+		<item text="Economic 09" id="i021">
+			<item text="Subject Math A [m]" id="1b0210">
+				<item text="Mats gillar motorcyclar [m]" id="2b02100" />
+			</item>
+		</item>
+	</item>
+	<item text="By subject" id="i03">
+		<item text="Math" id="i030">
+			<item text="Content" id="i0300" />
+		</item>
+		<item text="Economic 08" id="i031">
+			<item text="Course rooms Math 1" id="i0310" />
+		</item>
+	</item>
+</tree> 

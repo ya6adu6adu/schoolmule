@@ -1,0 +1,28 @@
+.perf_assign_chart{
+	position: relative;
+	top:-6px;
+}
+
+.chart_title{
+	position: relative;
+	top:15px;
+}
+
+.dhx_canvas_text.dhx_axis_title_y{
+	font-size: 11px !important;
+	color:gray !important;
+}
+
+.dhx_canvas_text.dhx_axis_title_x{
+	font-size: 11px !important;
+	color:gray !important;
+}
+
+#grid_development .dhx_canvas_text{
+    white-space: normal !important;
+    width: 40px !important;
+}
+
+#stg_grades_container .dhx_canvas_text div{
+    white-space: normal !important;
+}

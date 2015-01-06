@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My course rooms" id="i00">
+		<item text="English first, 27%" id="i000">
+			<item text="ENGA-ECO10a, 27%" id="i0000">
+				<item text="Week 01, Lesson 001, 17%" id="i00000" />
+				<item text="Week 01, Lesson 002, 24%" id="i00001" select="1" />
+			</item>
+		</item>
+		<item text="English history for beginners, 32%" id="i001">
+			<item text="Content" id="i0010" />
+		</item>
+	</item>
+	<item text="Shared course rooms" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+</tree> 

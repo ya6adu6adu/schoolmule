@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My course rooms" id="i00">
+		<item text="English first" id="i000">
+			<item text="Content" id="i0000" />
+		</item>
+		<item text="Swedish for beginners" id="i001">
+			<item text="Content" id="i0010" />
+		</item>
+		<item text="Math course 1" id="i002">
+			<item text="Content" id="i0020" />
+		</item>
+	</item>
+	<item text="Shared course rooms" id="i01">
+		<item text="Sorted by teachers" id="i010">
+			<item text="Content" id="i0100" />
+		</item>
+		<item text="Sorted by subjects" id="i011">
+			<item text="English" id="i0110">
+				<item text="English first" id="i01100" />
+			</item>
+		</item>
+	</item>
+</tree> 

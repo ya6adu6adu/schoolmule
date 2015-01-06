@@ -1,0 +1,294 @@
+/*
+#editor1{
+	height:100%;
+}
+
+#leftpart{
+	overflow-y: auto;
+	overflow-x: hidden;
+	color: #666;
+	height:100%;
+	width:460px;
+	border-right: 1px solid #aaa;
+}
+
+.leftPart{
+	position:relative;
+	left:-10px;
+	margin-top:15px;
+	padding:0;
+ 	width:460px;
+ 	height:650px;
+}
+
+.leftPart div{
+	margin: 0;
+	padding: 0;
+}
+
+.mainBlock{
+	width: 100%;
+	height: 100%;
+}
+
+.mainBlock .imageBlock {
+	width: 170px;
+	height: 220px;
+	background-color: #EEEEEE;
+}
+
+.mainBlock input{
+	width: 200px;
+	display: block;
+	margin-top: 13px;
+}
+
+.mainBlock label{
+	width: 200px;
+	display: block;
+	margin-top: 13px;
+}
+
+.mainBlock .mainBlockRight{
+	position:relative;
+	top:-10px;
+	width: 220px;
+	height: 220px;
+}
+
+.sexBlock{
+	position: relative;
+	top:10px;
+}
+
+.protId{
+	position: relative;
+	top:15px;
+}
+
+.years input{
+	width: 88px;
+}
+
+.years{
+	position: relative;
+	top:-15px;
+	left: 48px;
+}
+
+.accValid{
+	position: relative;
+	top:25px;
+}
+
+.accounValid{
+	position: relative;
+	top:-15px;
+	left:48px;
+}
+
+.accounValid input{
+	width: 110px;
+}
+
+.address{
+	position: relative;
+	top:20px;
+}
+
+.address input{
+	width: 390px;
+}
+
+.city{
+	position: relative;
+	top:30px;
+}
+.city input{
+	width: 184px;
+}
+
+.customItems{
+	z-index:1000;
+	display: block;
+	position: relative;
+	top:40px;
+}
+
+.customItems input[type="text"]{
+	width: 355px;
+}
+
+.button{
+	position: relative;
+	top:2px;
+	left:4px;
+}
+
+.secondAddr{
+	position: relative;
+	left:-4px;
+}
+
+.leftPart input[type="text"]{
+	border: 1px solid #ccc4cf;
+	background: #f7f7f7;
+	color: #666;
+	font-size: 11px;
+	padding: 1px;
+	height: 13px;
+}
+.rightPart input[type="text"]{
+	border: 1px solid #ccc4cf;
+	background: #f7f7f7;
+	color: #666;
+	font-size: 11px;
+	padding: 1px;
+	height: 13px;
+}
+
+
+.sexBlock div{
+	color: #666;
+	font-size: 12px;
+}
+
+#rightpart{
+	padding-top:15px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	height:100%;
+	position:absolute;
+	left: 457px;
+	width:441px;
+
+}
+
+.rightPart{
+	margin-top:2px;
+	position:relative;
+	left:-20px;
+	width: 456px;
+}
+
+.buttonsBlock{
+	z-index:1000;
+	position:relative;
+	left:7px;
+	background-color:#F0F0F0;
+	border: 1px solid #909090;
+	width: 410px;
+	height: 21px;
+	margin-left: 2px;
+}
+
+
+.buttons{
+	margin-left: 200px;
+}
+
+.frizeaccess{
+	position: relative;
+	top:7px;
+	left: 33px;
+
+}
+
+.checkboxstyle div{
+	color: #666 !important;
+	font-size: 11px;
+	position: relative;
+	top:1px;
+}
+
+.frizeaccess div{
+	color: #666 !important;
+	font-size: 11px;
+	position: relative;
+	top:1px;
+}
+
+.guardBool{
+	position: relative;
+	top:15px
+}
+
+.guards_info{
+	position: relative;
+	top:10px;
+}
+
+.guards_info input{
+	width: 184px;
+}
+
+.guardName input{
+	width: 240px;
+}
+
+.guardLabel{
+	position: relative;
+	top:-5px;
+	color: #666666;
+}
+
+.guardLabel div{
+	color: #333333 !important;
+}
+
+.br_block{
+	margin-bottom:20px;
+	width: 200px;
+	height: 30px;
+}
+
+.sexBlock .dhxform_label_nav_link{
+	color: #666 !important;
+	font-size: 11px !important;
+	position: relative;
+	top:2px;
+}
+
+.guardBool .dhxform_label_nav_link{
+	color: #666 !important;
+	font-size: 11px !important;
+	position: relative;
+	top:2px;
+}
+
+.blockButtons{
+	position: relative;
+	left:80px;
+	top:3px;
+}
+
+.UploaderItem{
+	position: relative;
+	left:400px;
+	top:300px;
+}
+
+#editor1 .button {
+	font-size: 17px;
+	width: 30px;
+	padding-top: 1px;
+}
+
+.customItems .button {
+	position: relative;
+	top:4px;
+}
+
+.brClass{
+
+	width: 300px;
+	height: 20px;
+}
+
+#loadImage{
+	position: relative;
+	top:-1px;
+	left:850px;
+}
+
+*/

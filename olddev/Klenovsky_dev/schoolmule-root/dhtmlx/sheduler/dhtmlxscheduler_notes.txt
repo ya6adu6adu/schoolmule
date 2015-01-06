@@ -1,0 +1,1 @@
+- Edit menu is always hidden, should be included in the upcoming version

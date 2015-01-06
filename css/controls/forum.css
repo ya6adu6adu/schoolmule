@@ -1,0 +1,278 @@
+.forumUploader{
+	position: relative;
+	top:-2px;
+	left:-20px;
+}
+
+
+.forum-main{
+	font: 11px Arial, Helvetica, sans-serif;
+	background-color:#F0F0EE;
+	margin-left:-1px;
+	margin-top:-1px;
+	width: 269px;
+	overflow-x: auto;
+	position:absolute;
+	top:0;
+	bottom: 180px;
+	border-left: 2px solid #c5c5c5;
+}
+
+.forum-cont{
+    width: 269px;
+	margin-left:-1px;
+	height: 180px;
+	position:absolute;
+	bottom:0px;
+	border-top: 2px solid #c5c5c5;
+	border-left: 2px solid #c5c5c5;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+ .login-name{
+	font-weight: bold;
+	color: #055A78;
+}
+ .comment{}
+
+ .file{
+	font: 11px Arial, Helvetica, sans-serif;
+	position: relative;
+	left: 10px;
+	text-decoration: none;
+	color: #454544;
+}
+
+.file:hover{
+	color:#055A78;
+	cursor: pointer;
+}
+
+.post{
+	border-bottom: 1px solid #808080;
+	margin:10px !important;
+    position: relative;
+}
+
+.date{
+	font: 9px Arial, Helvetica, sans-serif;
+}
+
+.dhxform_obj_dhx_web fieldset.dhxform_fs legend.fs_legend{
+	font-size: 11px !important;
+}
+
+.dhxform_obj_dhx_web div.dhxform_btn td.btn_m div.btn_txt{
+	font-size: 11px !important;
+}
+
+.dhxform_obj_dhx_web .dhxform_textarea{
+	font-size: 11px !important;
+}
+
+.file img{
+	position: relative;
+	top:4px;
+	left:-3px;
+}
+
+.forum-cont .button_upload{
+	display: none;
+}
+
+.forum-cont .button_browse{
+	right:40px !important;
+}
+
+.forum-cont .dhx_file.dhx_file_added{
+	font: 11px Arial, Helvetica, sans-serif !important;
+	height: 18px !important;
+}
+
+.forum-cont .dhx_file_param.dhx_file_name{
+	width: 160px;
+}
+
+.forum-cont .button_clear{
+	right:15px !important;
+}
+
+.dhxform_base_nested .dhxform_base{
+	margin: 0 !important;
+}
+
+.dhxform_base_nested .dhxform_base .dhxform_item_label_left.forumUploader{
+	padding: 0 !important;
+}
+
+.dhxform_base_nested .dhxform_base .dhxform_item_label_left.forumUploader .dhx_file_uploader{
+	margin: 0 !important;
+}
+.forum-cont  .dhxform_fs{
+  	padding: 0 10px 0 0 !important;
+ }
+
+
+
+#reload_comments{
+	margin-top:-1px;
+	width: 27px;
+	height: 16px;
+	float:right;
+	margin-right:10px;
+	background: url(../../gfx/reload.png) no-repeat;
+    cursor: pointer;
+}
+
+#reload_comments:hover{
+
+}
+
+.reloaded{
+	background-color: rgb(189, 226, 248);
+}
+
+.forum-cont .dhx_file_param.dhx_file_progress{
+	display: none;
+}
+
+.downloadButton{
+    position: absolute;
+    bottom:0px;
+    left:90px;
+    width: 50px;
+}
+
+.linkbutton{
+    position: absolute;
+    bottom:10px;
+    left: 7px;
+    background-color: #f7f7f7;
+    width: 19px;
+    height: 19px;
+    background: url("../../gfx/link_icon_submission_area.png");
+    cursor: pointer;
+}
+
+.link_title,.link_src{
+    width: 99%;
+}
+
+.comment a{
+    color: #666;
+}
+
+.annotate_butt{
+    width: 12px;
+    height: 12px;
+    border: 1px solid #666;
+    background-color: #f7f7f7;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+}
+
+.link_btn_cont{
+    position: absolute;
+    width: 33px;
+    height: 41px;
+    top: 16px;
+    left: 229px;
+    border: 1px solid #8b8b8b ;
+}
+
+.dhx_upload_files{
+    width: 239px !important;
+}
+.link_title_field{
+    position: relative;
+    top:-8px;
+    padding-right: 3px;
+    padding-left: 4px;
+    width: auto;
+    color: #646464;
+    font-family: Tahoma;
+    font-size: 11px;
+    background-color: #FFFFFF;
+}
+
+.link_title_field.performance_link{
+    position: absolute;
+    margin-top: -8px;
+}
+
+.dhx_upload_controls{
+    position: relative;
+    left: 40px;
+}
+
+#comments_tiny_main.hover {
+    background: #ddd;
+    border-color: #aaa;
+}
+
+#comments_tiny_main.error {
+    background: #faa;
+    border-color: #f00;
+}
+
+.upload_progress{
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    background-color: #8B9BA8;
+    color: #FFF;
+    left:50%;
+    top:50%;
+    margin-left: -100px;
+    margin-top: -25px;
+    border-radius:2px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    vertical-align: middle;
+    line-height: 50px;
+    text-align: center;
+}
+
+.file_item .annotate_file{
+    float: right;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    position: absolute;
+    cursor: pointer;
+}
+
+.file_item .annotate_file.passed{
+    background: url("../../gfx/Annotate_passed.png");
+}
+
+.file_item .annotate_file.not_passed{
+    background: url("../../gfx/Annotate_not_passed.png");
+}
+
+.file_item .annotate_file.not_annotate{
+    background: url("../../gfx/Annotate_not_annotated.png");
+}
+
+.file_item .annotate_file.save_only{
+    background: url("../../gfx/Annotate_saved_only.png");
+}
+
+
+.file_item .file_name{
+    position: relative;
+    top:0;
+    display: inline-block;
+    width: 205px;
+    overflow: hidden;
+}
+
+.file_item > img{
+    vertical-align: top;
+}
+
+.file_item img.file_type_icon:hover, .file_item .file_name:hover{
+    cursor: pointer;
+}

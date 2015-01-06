@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="De(Re)activate submissions" />
+	<item id="menu_item_1" text="Expand all" />
+	<item id="menu_item_2" text="Collapse all" />
+	<item id="menu_item_3" text="Download content" />
+	<item id="menu_item_4" text="Download latest content" />
+	<item id="menu_item_5" text="Delete submissions content" />
+	<item id="menu_item_6" text="Delete submissions" />
+</menu>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Reports</title>
+
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/accordion.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxmenu_dhx_schoolmule.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxtree.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid_dhx_schoolmule.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxchart.css">
+	
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script type="text/javascript" src="../../js/accordion.js"></script>
+	
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	
+	<!--
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	-->
+	
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+	<script src="../../dhtmlx/dhtmlxtree.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu_ext.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxgrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxgridcell.js"></script>
+	<script src="../../dhtmlx/dhtmlxtreegrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxchart.js"></script>
+	
+	<script type="text/javascript">
+	
+		function resizeMainBoxBody() {
+			var footer = document.getElementById("overview-footer");
+			$("#main-box-body").height(footer.offsetTop - 42);
+		}
+		
+		$(document).ready(function() {
+		
+			initHideButton();
+			initAccordion("#accord", 3);
+			resizeMainBoxBody();
+			
+			$(window).resize(function(){
+				calcAccSizes(3);
+				resizeMainBoxBody();
+			});
+			
+			var tree1 = new dhtmlXTreeObject("tree-box1","100%","100%",0);
+			tree1.setSkin("dhx_black");
+			tree1.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			tree1.loadXML("../../dhtmlx/xml/tree-reports1.xml");
+			
+            var menu1 = new dhtmlXMenuObject();
+            menu1.renderAsContextMenu();
+            menu1.loadXML("../../dhtmlx/xml/context_reports1.xml");
+			
+            var menu2 = new dhtmlXMenuObject();
+            menu2.renderAsContextMenu();
+            menu2.loadXML("../../dhtmlx/xml/context_reports2.xml");
+			
+            var menu3 = new dhtmlXMenuObject();
+            menu3.renderAsContextMenu();
+            menu3.loadXML("../../dhtmlx/xml/context_reports3.xml");
+			
+			tree1.attachEvent("onRightClick", function(id, e){
+				menu1.hideContextMenu();
+				menu2.hideContextMenu();
+				menu3.hideContextMenu();
+				if (id[0]=='1') {
+					menu1.showContextMenu(e.clientX, e.clientY);
+					tree1.selectItem(id);
+				}
+				if (id[0]=='2') {
+					menu2.showContextMenu(e.clientX, e.clientY);
+					tree1.selectItem(id);
+				}
+				if (id[0]=='3') {
+					menu3.showContextMenu(e.clientX, e.clientY);
+					tree1.selectItem(id);
+				}
+			});
+			
+			tree1.attachEvent("onClick",function(id){
+				if (tree1.getUserData(id,"href")!= undefined) {
+					window.open(tree1.getUserData(id,"href"), '_self');
+				}
+				return true;
+			});
+			
+			tree1.attachEvent("onXLE",function(tree, id){
+				tree1.openItem("3lev0_0_0_0_0");
+				tree1.openItem("3lev0_0_0_1_0");
+				tree1.openItem("lev0_0_1_0");
+				tree1.openItem("lev0_0_3_0_0_0");
+				tree1.selectItem("lev0_0_3_0_0_0");
+			});
+			
+			$("#search-btn").click(function () {
+				$("#box-caption").text('Search results');
+				$("#overview-body").html(
+				'<div id="main-box-header"><span style="float:right;">3 strings found</span>String searched:</div>'+
+				'<div id="gridbox"></div>');
+				var mygrid = new dhtmlXGridObject('gridbox');
+				mygrid.selMultiRows = true;
+				mygrid.imgURL = "../../dhtmlx/imgs/icons_greenfolders/";
+				mygrid.setHeader("String found here,Item type,Name of item,Item belongs to");
+				mygrid.setInitWidths("200,150,150,150");
+				mygrid.setColAlign("left,left,left,left");
+				mygrid.setColTypes("tree,ed,ed,ed");
+				mygrid.init();
+				mygrid.setSkin("dhx_skyblue");
+				mygrid.loadXML("../../dhtmlx/xml/grid_search_reports.xml");
+			});
+			
+			var loginTree = new dhtmlXTreeObject("login-treebox","100%","100%",0);
+			loginTree.setSkin("dhx_black");
+			loginTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			loginTree.loadXML("../../dhtmlx/xml/tree-login.xml");
+			//loginTree.enableCheckBoxes(true, false);
+			//loginTree.enableThreeStateCheckboxes(true);
+			
+			// CONTEXT MENU
+            var loginMenu = new dhtmlXMenuObject();
+            loginMenu.renderAsContextMenu();
+			loginMenu.contextAutoHide = false;
+			loginMenu.addNewChild(loginMenu.topId, 0, "login_menu_item_0", "Change school (admins)", false);
+			loginMenu.addNewChild(loginMenu.topId, 1, "login_menu_item_1", "Child 1 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 2, "login_menu_item_2", "Child 2 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 3, "login_menu_item_3", "Account settings", false);
+			loginMenu.addNewChild(loginMenu.topId, 4, "login_menu_item_4", "Log out", false);
+			loginMenu.addNewSeparator("login_menu_item_3");
+			loginMenu.attachEvent("onClick", function(id, zoneId, casState){
+				if (id=="login_menu_item_0") {
+					loginTree.openItem("i000");
+					loginTree.openItem("i001");
+					$('#login-dialog').dialog('open');
+				}
+			});
+			
+			$("#login-dd").click(function () {
+				loginMenu.showContextMenu($("#login-dd").offset().left - 115, $("#login-dd").offset().top + 11);
+			});
+
+			
+			// UI-dialog code
+			$('#login-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Change": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			var stdGrid = new dhtmlXGridObject('std-gridbox');
+			stdGrid.selMultiRows = true;
+			stdGrid.imgURL = "../../dhtmlx/imgs/icons_greenfolders/";
+			stdGrid.setHeader("Name,Surname,Age,Pupilgroup,Sex");
+			stdGrid.setInitWidths("100,100,100,100,100");
+			stdGrid.setColAlign("left,left,left,left,left");
+			stdGrid.setColTypes("ed,ed,ed,ed,ed");
+			stdGrid.setColSorting("str,str,str,str,str");
+			stdGrid.init();
+			stdGrid.setSkin("dhx_skyblue");
+			stdGrid.loadXML("../../dhtmlx/xml/grid_std_report.xml");
+			
+			setInputFocus("#header-text", "#999", "#666", "Header text");
+			
+		});
+		
+	</script>
+</head>
+
+<body>
+
+<div id="login-dialog" title="Change school" style="display:none">
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="login-treebox" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<div style="float: right;">
+				<img id="login-dd" src="../../images/new_header_dropdown.png" alt="" />
+			</div>
+			<div style="float: left; padding-right: 8px;">
+				<div id="school-name">ECOActive school Lund</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li><a href="sm-settings-appearance.html">School manager</a></li>
+		<li><a href="calendar.html">Calendar</a></li>
+		<li><a href="course-objectives.html">Course rooms</a></li>
+		<li><a href="attendance.html">Attendance</a></li>
+		<li><a href="discussions.html">Discussions and messages</a></li>
+		<li><a href="grades.html">Grades and pupil development</a></li>
+		<li><a href="reports.html" class="fm-active">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-active" onclick="menu2click(this)" title="comment_0011">Create reports</li>
+		</ul>
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Reports navigation
+		</div>
+		
+		<div id="nav-header">
+			<div id="nav-buttons-left">
+				<input id="search" type="text" style="width:220px;margin-right:5px;border:1px solid #666;" title="comment_0021" />
+				<a id="search-btn" class="button" title="comment_0024">Search</a>
+			</div>
+		</div>
+		
+		<div id="nav-body">
+			<div class="acc-container" id="accord">
+			
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Present view</span><div class="i-arrow arrow-exp"></div>
+					</div>
+					<div class="i-body i-first first-expanded">
+						<div class="i-content">
+							<div style="margin:4px 4px;">
+								<span style="float:right;">(My chartsets)</span>
+								<span>Chartset 1...</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Reports</span><div class="i-arrow arrow-exp"></div>
+					</div>
+					<div class="i-body i-expanded" style="height:0px;">
+						<div class="i-content" id="tree-box1"></div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Charts and lists</span><div class="i-arrow arrow-clp"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!-- Buttons at the bottom of the Details box -->
+		<div id="details-footer">
+		</div>
+	</div> <!-- END details -->
+	
+	<div id="main-content">
+		<div class="box-caption">
+			<div class="expand_btn" id="hide-navigation" title="comment_0016"></div>
+			<span class="after_expand_btn">Report</span>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="top:24px">
+
+			<div id="main-box-body">
+				<div style="font-size:14px; font-weight: bold;">Betygsrapporter, teacher Klas Klasson</div>
+				<div class="label" style="height: 50px; margin-right:2px;"><textarea id="header-text" style="width:100%;" name="header-text" rows="3" cols="50"></textarea></div>
+				<div id="std-gridbox" style="margin-top:8px; height:300px;"></div>
+			</div>
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Share reportset</a>
+				<a class="button" title="comment_0036">Cancel</a>
+			</div>
+			<div id="buttons-right">
+				<img class="pointer" src="../../images/export.png" alt="Export" />
+				<img class="pointer" style="margin-left:2px;" src="../../images/print-icon.png" alt="Print" />
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+<script type="text/javascript">
+	setLeftTab(15); //make menu item active
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Assignments by courseroom" id="lev0_0">
+		<item text="Content" id="lev0_0_0" />
+	</item>
+	<item text="Assignments by deadline" id="lev0_1">
+		<item text="Past deadline" id="lev0_1_0">
+			<item text="Content" id="lev0_1_0_0" />
+		</item>
+		<item text="Ongoing" id="lev0_1_1">
+			<item text="Content" id="lev0_1_1_0" />
+		</item>
+		<item text="Not yet active" id="lev0_1_2">
+			<item text="Content" id="lev0_1_2_0" />
+		</item>
+	</item>
+	<item text="Assignments by status" id="lev0_2">
+		<item text="With not submitted" id="lev0_2_0">
+			<item text="Content" id="lev0_2_0_0" />
+		</item>
+		<item text="With late submissions" id="lev0_2_1">
+			<item text="Content" id="lev0_2_1_0" />
+		</item>
+		<item text="With not corrected submissions [>]" id="lev0_2_2">
+			<userdata name="href">course-rooms-list.html</userdata>
+			<item text="DR005: Analys Astrid Lindgren" id="lev0_2_2_0">
+				<item text="Submissions [>]" id="lev0_2_2_0_0">
+					<userdata name="href">course-rooms-submissions.html</userdata>
+				</item>
+			</item>
+		</item>
+		<item text="With not passed submissions" id="lev0_2_3">
+			<item text="Content" id="lev0_2_3_0" />
+		</item>
+	</item>
+</tree>

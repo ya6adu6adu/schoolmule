@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<row id="row0">
+		<cell>Anna</cell>
+		<cell>Andersson</cell>
+		<cell>18</cell>
+		<cell>MPL10a</cell>
+        <cell>F</cell>
+	</row>
+	<row id="row1">
+		<cell>Peter</cell>
+		<cell>Petersson</cell>
+		<cell>18</cell>
+		<cell>MPL10b</cell>
+        <cell>M</cell>
+	</row>
+	<row id="row2">
+		<cell>Linus</cell>
+		<cell>Linusson</cell>
+		<cell>17</cell>
+		<cell>MPL09c</cell>
+        <cell>M</cell>
+	</row>
+</rows>

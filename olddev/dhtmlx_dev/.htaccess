@@ -1,0 +1,5 @@
+AuthName "This folder is protected"
+AuthType Basic
+AuthUserFile /customers/schoolmule.com/schoolmule.com/httpd.www/dhtmlx_dev/a.htpasswd
+AuthGroupFile /dev/null
+require valid-user 

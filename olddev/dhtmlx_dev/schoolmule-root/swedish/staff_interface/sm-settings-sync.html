@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Courseroom</title>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Michroma|Terminal+Dosis+Light|Cabin+Sketch|Oswald|EB+Garamond|Amaranth|Pacifico|MedievalSharp|Candal|Corben|Dancing+Script|Cuprum|Lekton|Bentham|Gruppo|Orbitron|Arimo|Permanent+Marker|UnifrakturMaguntia|Tangerine" />
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/script.js"></script>
+	
+	<!--
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	-->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/dhtmlxtree.css">
+</head>
+
+<body>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<!-- Admin image -->
+			<img src="../../images/noimage.png" alt="schooladmin teachers interface" />
+			<div id="login-content">
+				<div id="login-caption">Teachers interface</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+				<!-- School name field -->
+				<select class="styled" name="school" title="comment_0001">
+					<option>School 1</option>
+					<option>School 2</option>
+				</select><br />
+				<a id="acc-set" href="#">Account settings</a><span id="acc-divider"> | </span><a id="sign" href="#">Sign out</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li title="comment_0002" style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li title="comment_0003"><a href="sm-settings-appearance.html">School manager</a></li>
+		<li title="comment_0004"><a href="calendar.html">Calendar</a></li>
+		<li title="comment_0005"><a href="course-objectives.html">Course rooms</a></li>
+		<li title="comment_0006"><a href="attendance.html">Attendance</a></li>
+		<li title="comment_0007"><a href="discussions.html">Discussions and messages</a></li>
+		<li title="comment_0009"><a href="grades.html">Grades and pupil development</a></li>
+		<li title="comment_0010"><a href="reports.html">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0011">People and resources</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0012">Programme structure</li>
+			<li class="item-active" onclick="menu2click(this)" title="comment_0013">Settings</li>
+		</ul>
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Settings navigation
+		</div>
+		
+		<ul id="settings-menu">
+			<a href="sm-settings-appearance.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Appearance</span>
+				</li>
+			</a>
+			<a href="sm-settings-system.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">System</span>
+				</li>
+			</a>
+			<a href="sm-settings-import.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Import pupils by programme</span>
+				</li>
+			</a>
+			<a href="sm-settings-discussions.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Discussions and messages settings</span>
+				</li>
+			</a>
+			<a href="sm-settings-files.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">File handling</span>
+				</li>
+			</a>
+			<a href="sm-settings-grading.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Grading</span>
+				</li>
+			</a>
+			<a href="sm-settings-contacts.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Contacts</span>
+				</li>
+			</a>
+			<a href="sm-settings-sync.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item selectedTreeRow">Import from or sync to sheduler software</span>
+				</li>
+			</a>
+		</ul>
+		
+		<!-- Buttons at the bottom of the Details (or accord) box -->
+		<div id="details-footer">
+		</div>
+	</div> <!-- END accord -->
+	
+	<div id="main-content">
+		<div class="box-caption">
+			Import from or sync to sheduler software
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="padding: 4px 16px; top: 24px;">
+		
+		<div class="first-col" style="width: 320px;">
+			<div>
+				<div class="label"><label>Software to import from or sync to</label></div>
+				<div class="field lang-select">
+					<select class="styled" name="software" title="comment_0047">
+						<option>Software 1</option>
+						<option>Software 2</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		
+		<div style="clear:left"></div>
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Cancel</a>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+<script type="text/javascript">
+	setLeftTab(3); //make menu item active
+</script>
+
+</body>
+</html>

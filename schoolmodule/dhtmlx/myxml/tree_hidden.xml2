@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+	<tree id="0">
+		<item text="My view (Staff)" id="lev0_0">
+			<item text="Content" id="lev0_0_0" />
+		</item>
+		<item text="This pupil ()" id="lev0_1">
+			<item text="Columns" id="lev0_1_0"><item text="Quality column" id="lev0_1_0_9 qualityBox 1" />
+			</item>
+		<item text="Groups and objectives" id="lev0_1_1">
+			<item text="" id="lev0_1_1_16 group ">
+			</item>
+			
+		</item>
+		<item text="Assignments and performances" id="lev0_1_2">
+			
+		</item>
+	</item>
+
+	<item text="All pupils in studygroup ()" id="lev0_2">
+	</item>
+
+	<item text="All pupils in course (English 1)" id="lev0_3">
+
+		<item text="Content" id="lev0_3_0" />
+
+	</item>
+</tree>

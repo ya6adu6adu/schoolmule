@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<row id="row0" pupil="">
+		<cell colspan="7">SWEA-MPL10a</cell>
+		<row id="row00" pupil="Anna Andersson">
+			<cell>Anna Andersson</cell>
+			<cell><![CDATA[
+				<span style="color:red;">-2 weeks</span>
+			]]></cell>
+			<cell colspan="5"></cell>
+			<row id="row000" pupil="Anna Andersson">
+				<cell>Swedish A: Reading, Writing</cell>
+				<cell></cell>
+				<cell xmlcontent="1">Percent
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>100%</cell>
+				<cell>50%</cell>
+				<cell>45%</cell>
+				<cell xmlcontent="1" bgColor="#f88">F
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+			<row id="row001" pupil="Anna Andersson">
+				<cell>History A: Cultural history</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Grade
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>A</cell>
+				<cell>E</cell>
+				<cell>D</cell>
+				<cell xmlcontent="1" bgColor="#8f8">D
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+		</row>
+		<row id="row01" pupil="Sven Svensson">
+			<cell>Sven Svensson</cell>
+			<cell><![CDATA[
+				<span style="color:green;">1 day</span>
+			]]></cell>
+			<cell colspan="5"></cell>
+			<row id="row010" pupil="Sven Svensson">
+				<cell>Swedish A: Reading, Writing</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#8f8">E
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+			<row id="row011" pupil="Sven Svensson">
+				<cell>History A: Cultural history</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#f88">F
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+		</row>
+	</row>
+	<row id="row1" pupil="">
+		<cell colspan="7">SWEA-MPL10b</cell>
+		<row id="row10" pupil="Peter Petersson">
+			<cell>Peter Petersson</cell>
+			<cell><![CDATA[
+				<span style="color:green;">1 day</span>
+			]]></cell>
+			<cell colspan="5"></cell>
+			<row id="row100" pupil="Peter Petersson">
+				<cell>Swedish A: Reading, Writing</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#8f8">E
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+			<row id="row101" pupil="Peter Petersson">
+				<cell>History A: Cultural history</cell>				
+				<cell></cell>
+				<cell xmlcontent="1">Points
+					<option value="1">Points</option>
+					<option value="2">Grade</option>
+					<option value="3">Pass</option>
+					<option value="4">Percent</option>
+					<option value="5">Text, assessed</option>
+					<option value="6">Text, not assessed</option>
+					<option value="7">No evaluation</option>
+					<option value="8">New unit</option>
+				</cell>
+				<cell>25</cell>
+				<cell>12</cell>
+				<cell>16</cell>
+				<cell xmlcontent="1" bgColor="#f88">F
+					<option value="1">A</option>
+					<option value="2">B</option>
+					<option value="3">C</option>
+					<option value="4">D</option>
+					<option value="5">E</option>
+					<option value="6">F</option>
+					<option value="7">Fx</option>
+				</cell>
+			</row>
+		</row>
+	</row>
+</rows>

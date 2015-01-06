@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Pie chart type" id="i00">
+		<item text="3D" id="i000" />
+		<item text="2D" id="i001" />
+	</item>
+	<item text="Borders" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+	<item text="Color suits" id="i02">
+		<item text="Aqua (blue, magenta..)" id="i020" />
+		<item text="Wood (brown, yellow..)" id="i021" />
+	</item>	
+	<item text="Font design" id="i03">
+		<item text="Fonts" id="i030">
+			<item text="Content" id="i0300" />
+		</item>
+		<item text="Font color" id="i031">
+			<item text="Content" id="i0310" />
+		</item>
+	</item>	
+</tree> 

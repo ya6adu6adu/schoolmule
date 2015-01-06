@@ -1,0 +1,110 @@
+tr.norowselected , tr.norowselected td{
+	background: 0 !important;
+	color: rgb(68, 64, 64) !important;
+}
+
+
+tr.norowselected td[bgcolor="#FFFFFF"]{
+	background: #FFFFFF !important;
+	color: rgb(68, 64, 64) !important;
+}
+
+tr.norowselected td[bgcolor="#F5F5F5"]{
+	background: #F5F5F5 !important;
+	color: rgb(68, 64, 64) !important;
+}
+
+tr.norowselected td[bgcolor="white"]{
+	background: #FFFFFF !important;
+	color: rgb(68, 64, 64) !important;
+}
+
+tr.norowselected td[bgcolor="#FEF5CA"]{
+	color: rgb(68, 64, 64) !important;
+	background: #FFFFFF !important;
+}
+
+tr.norowselected td[bgcolor="#88ff88"]{
+	color: rgb(68, 64, 64) !important;
+	background: #88ff88 !important;
+}
+
+tr.norowselected td[bgcolor="#ff8888"]{
+	color: rgb(68, 64, 64) !important;
+	background: #ff8888 !important;
+}
+
+#assignment_garade .treegrid_cell img, #assessment_garade .treegrid_cell img{
+	margin-right: 4px !important;
+}
+
+#assess_grid .treegrid_cell img{
+	margin-right: 4px !important;
+}
+
+#grid_setup_database .treegrid_cell img, #assessment_garade .treegrid_cell img{
+	margin-right: 4px !important;
+}
+
+#grid_setup_database .treegrid_cell img{
+	margin-right: 4px !important;
+}
+
+#stg_grades .treegrid_cell img{
+    margin-right: 4px !important;
+}
+
+#grid_search .treegrid_cell img{
+    margin-right: 4px !important;
+}
+
+.development_charts{
+    background-color: #FFFFFF;
+
+    height: 100% !important;
+    margin-left: 90px;
+    background-color: #f8f7f5;
+}
+
+.development_charts .ovjecive_chart{
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.development_charts .assignment_charts{
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+.development_iup{
+    width: 100%;
+    height: 100%;
+
+}
+.development_iup div{
+    /*height: 90px;*/
+    margin-left: 93px;
+    margin-top: 7px;
+    margin-right: 43px;
+}
+
+.development_iup div textarea{
+    width: 100%;
+    min-height: 70px;
+    background-color: #FFFFFF;
+}
+
+#setup_grid .rowselected td, #setup_grid .cellselected{
+    background-color: #FFFFFF !important;
+    background-image: none;
+    color: #666;
+}
+
+img[src='dhtmlx/dhtmlxGrid/codebase/imgs/add.png']{
+    opacity: 0.4;
+}
+
+.display_none{
+    display: none !important;
+}

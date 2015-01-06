@@ -1,0 +1,333 @@
+#pupil_StudyGroup{
+	cursor: pointer;
+}
+.unit, .unit1{
+	min-height:17px;
+	height:18px;
+	/*padding-left:6px;*/
+	text-align:center;
+	vertical-align: top;
+    position: relative;
+}
+
+.objective_name{
+    display: inline-block;
+    height: 15px !important;
+    overflow: hidden;
+    width: 100%;
+}
+
+.objectiveName, .objectiveName_hide{
+	/*width: 222px;*/
+	text-align:left;
+	/*min-height:17px;
+	height: 17px;*/
+	padding:6px 0px 0px 6px;
+	vertical-align: top;
+    position: relative;
+}
+.quality{
+	color:green;
+	/*font-weight:bold;*/
+	font-size:20px;
+}
+.group, #tdgroup{
+	text-align:left;
+	vertical-align:top;
+	padding:24px 0px 0px 6px;
+	width: 12%;
+    /*min-width: 84px;*/
+}
+.table_unit{
+	width: 100%;
+	border:#F5FFFA;
+}
+.tableGroup{
+	width: 98%;
+	border:#F5FFFA;
+	margin-left: 1%;
+	background-color:#f2f2f2;
+	margin-top: 2px;
+}
+.headerTable{
+	width: 100%;
+	border-color: grey;
+	border:#F5FFFA;
+	background-color:#f2f2f2;
+	border-color: grey;
+}
+.mainTable{
+	width: 100%;
+	border:#F5FFFA;
+	background-color:#f2f2f2;
+	border-color: grey;
+}
+.assesment_F,.assesment_E,.assesment_D,.assesment_C,.assesment_B,.assesment_A{
+	color: #c4c2a9;
+	background-color:#f5eab2;
+	width: 16%;
+	text-align:center;
+	font-weight: bold;
+}
+/*.assesment_F1,.assesment_E1,.assesment_D1,.assesment_C1,.assesment_B1,.assesment_A1{*/
+.assesment_F1,.assesment_E1,.assesment_D1,.assesment_C1,.assesment_B1,.assesment_A1{
+	color: #c4c2a9;
+	background-color:#f5eab2;
+	/*color: white;
+	cursor:pointer;
+	font-weight: bold;*/
+}
+.quality_assesment_hide{
+	display:none;
+}
+.quality_assesment{
+	display:none;
+	position:absolute;
+	z-index:1000;
+	width: 20px;
+	background-color: #EEEEEE;
+	text-align: left;
+	border: 1px solid silver;
+}
+
+#menu1, #menu2, #menu3{
+/*#quality_assesment{*/
+	display: none;
+	position: absolute;
+	z-index: 999;
+	background-color: #EEEEEE;
+	border: 1px solid silver;
+	width: 145px;
+	height: 18px;
+}
+#menu2{
+	width: 195px;
+	/*height: 38px;*/
+    height: auto;
+}
+#menu3{
+	width: 165px;
+	height: 18px;
+}
+#menu1, #menu2, #menu3 div{
+	font-family: Arial;
+	font-size: 10px;
+	font-weight: normal;
+	color: #444444;
+	white-space: nowrap;
+	text-align: left;
+}
+
+#menu1 a{text-decoration: none; color: #444444;}
+#menu2 a{text-decoration: none; color: #444444;}
+#menu3 a{text-decoration: none; color: #444444;}
+
+#mask {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 9000;
+	display: block;
+}
+.quality_assesment li{
+	cursor:pointer;
+}
+#liA, #liB, #liC, #liD, #liE, #liF, #liFx{
+	padding-top: 1px;
+	padding-bottom: 1px;
+	cursor: default;
+}
+.assesmentliA, .assesmentliB, .assesmentliC, .assesmentliD, .assesmentliE, .assesmentliF, .assesmentliFx{
+	padding-top: 1px;
+	padding-bottom: 1px;
+	cursor:pointer;
+}
+.notpass, .pass{
+	padding-top: 1px;
+	padding-bottom: 1px;
+	cursor: default;
+}
+.aa{
+	display: inline-block;
+}
+#tdassesment{
+	display: block;
+}
+.tdassesment, .tdresult, .tdpass, .tdmax, .tdunit{
+	text-align: center;
+	cursor: default;
+	vertical-align: top;
+	padding-top: 1px;
+}
+#confirmDelete{
+	margin-top: 3px;
+	text-align: left;
+}
+#new_assesment{
+	font-weight: bold;
+}
+
+/*
+.objname{
+	border: 0;
+}
+
+.tdobjective{
+	border: 0;
+}
+
+.objectiveName{
+	border: 0;
+}
+
+.heightresult{
+	border: 0;
+}
+
+.tdassign{
+	border: 0;
+}
+
+.tdquality{
+	border: 0;
+}
+
+.heightresult{
+	border: 0;
+}
+
+#callChangeResult{
+	border:0 !important;
+
+#highlightAssesment{
+	border:0 !important;
+}
+
+.new_assesment{
+	border: 0;
+}
+
+#heightAssesment{
+	border: 0 !important;
+}
+*/
+
+.headerTable{
+	border: 1px solid rgb(179, 179, 179);
+}
+
+#tdgroup{
+	max-width: 1px;
+    overflow: hidden;
+}
+.tdobjective , .tdassign , .tdunit , .tdmax , .tdpass , .tdresult2{
+    overflow: visible;
+    max-width: 1px;
+}
+
+.headerTable td{
+	border-right: 1px solid rgb(179, 179, 179);
+}
+
+.tdobjective{
+	border-left: 1px solid rgb(179, 179, 179);
+}
+
+.mainTable{
+	border: 1px solid rgb(179, 179, 179);
+}
+
+.group{
+	border-right: 1px solid rgb(179, 179, 179);
+}
+
+.mainTable .tdobjective{
+	border-top: 1px solid rgb(179, 179, 179);
+	border-right: 1px solid rgb(179, 179, 179);
+	border-bottom: 2px solid rgb(179, 179, 179);
+}
+
+.mainTable .amountAssign{
+	border: 1px solid rgb(179, 179, 179);
+}
+
+.mainTable .tdassign{
+	border-right: 1px solid rgb(179, 179, 179);
+	border-top: 1px solid rgb(179, 179, 179);
+	border-bottom: 1px solid rgb(179, 179, 179);
+}
+
+.mainTable .tdquality{
+	border-right: 1px solid rgb(179, 179, 179);
+	border-top: 1px solid rgb(179, 179, 179);
+	border-bottom: 2px solid rgb(179, 179, 179);	
+}
+
+.tdassesment{
+    border-bottom: 1px solid rgb(179, 179, 179);
+}
+.mainTable .amountAssign{
+	border: 1px solid rgb(179, 179, 179);
+}
+
+.mainTable .objectiveName{
+	width:40%;
+	border-bottom: 1px solid rgb(179, 179, 179) !important;
+	/*border-left: 1px solid rgb(179, 179, 179) !important;*/
+}
+
+.mainTable #emptyResult{
+	border-bottom: 1px solid rgb(179, 179, 179) !important;
+}
+
+.mainTable #table_unit td{
+	border-left: 1px solid rgb(179, 179, 179);
+}
+
+.tdresult div{
+	overflow: hidden;
+}
+
+.tdresult div{
+	
+	max-width: 42px;
+	/*
+	min-width: 42px;
+	*/
+	max-height: 16px;
+}
+.tdobjective {
+	min-width: 93px;
+}
+
+.tdassign{
+	min-width: 152px;
+}
+.amountAssign{
+
+	width: 100%;
+}
+
+.Assignment .heightresult td{
+	border-bottom: 1px solid rgb(179, 179, 179);
+}
+
+.heightresult .tdunit{
+	width: 16.4% !important;
+}
+
+.heightresult .tdmax{
+	width: 15.2% !important;
+}
+
+.heightresult .tdpass{
+	width: 15.2% !important;
+}
+
+.heightresult .tdresult{
+	width: 15.2% !important;
+}
+
+.heightresult .tdassesment{
+	width: 38% !important;
+}

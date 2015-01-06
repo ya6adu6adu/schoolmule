@@ -1,0 +1,26 @@
+.template{
+	
+	/*height:100%;*/
+	background:#F0F0EE;
+	padding: 4px 9px 4px;
+	
+}
+
+select.styled {
+	position: relative;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	z-index: auto;
+}
+
+#main-box-header{
+	height: 88px;
+	width: 869.1px;
+	cursor: default;
+	border: 0;
+	overflow: hidden !important;
+	text-align: left;
+	color: #666;
+	font: 11px Arial, Helvetica, sans-serif;
+        line-height: 14px;
+}

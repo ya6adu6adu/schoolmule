@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My course rooms" id="i00">
+		<item text="English for beginners [m]" id="1i000">
+			<item text="Content" id="i0000" />
+		</item>
+		<item text="Swedish literature [>]" id="i001">
+			<userdata name="href">course-rooms.html</userdata>
+			<item text="Courseroom elements" id="i0010">
+				<item text="1. Childstories" id="i00100">
+					<item text="1.a Astrid Lindgren" id="i001000">
+						<item text="DR001: Read Pippi [>]" id="i0010000">
+							<userdata name="href">course-rooms-ass-details.html</userdata>
+							<item text="Submissions [>]" id="i00100000">
+								<userdata name="href">course-rooms-submissions.html</userdata>
+							</item>
+						</item>
+						<item text="DR002: Analyse Pippi" id="i0010001">
+							<item text="Submissions" id="i00100010" />
+						</item>
+					</item>
+					<item text="1.b Tove Jansson" id="i001001">
+						<item text="Content" id="i0010010" />
+					</item>
+				</item>
+				<item text="2. Travelstories (linked)" id="i00101">
+					<item text="Content" id="i001010" />
+				</item>
+			</item>			
+			<item text="Studygroups in courseroom" id="i0110">
+				<item text="SWE1-10a (Swedish 1)" id="i01100">
+					<item text="Peter Petersson" id="i011000" />
+				</item>
+			</item>
+		</item>
+	</item>
+	<item text="Shared course rooms" id="i01">
+		<item text="Sorted by teachers" id="i010">
+			<item text="Content" id="i0100" />
+		</item>
+		<item text="Sorted by subjects" id="i011">
+			<item text="English" id="b0110">
+				<item text="English first" id="b01100" />
+			</item>
+		</item>
+	</item>
+</tree> 

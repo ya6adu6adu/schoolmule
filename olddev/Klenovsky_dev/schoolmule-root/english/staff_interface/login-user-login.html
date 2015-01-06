@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Super admin login</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {	
+			// Dialog			
+			$('#dialog1').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 200,
+				resizable: false,
+				buttons: {
+					"Send password": function() { 
+						//$(this).dialog("close"); 
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+			
+			$('#dialog2').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 200,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			// Dialog Link
+			$('#dialog_btn').click(function(){
+				$('#dialog1').dialog('open');
+				$("#wrong").show();
+				$("#captcha-wrap").show();					
+			});
+				
+			// Dialog Link
+			$('#dialog_link').click(function(){
+				$('#dialog2').dialog('open');
+				$('#dialog2').css("min-height", "30px"); // if height of content div is too small
+				return false;
+			});
+		
+		});
+	</script>
+</head>
+<body>
+
+<!-- ui-dialog -->
+<div id="dialog1" title="Confirm" style="display:none">
+	<div id="username-query"> <!-- Dialog content -->
+		<p>Please enter your username. A message containing your password will be sent to your registered email account.</p>
+		<div>
+			<div class="label"><label for="lost-name">Username (Email for parents)</label></div>
+			<div class="field"><input type="text" id="lost-name" class="login-input" name="lost-name" title="comment_0101" /></div>
+			<div class="field" id="lost-wrong">wrong username</div>
+		</div>
+		<div id="lost-captcha-wrap" style="display:none;"><img src="../../images/captcha.jpg" alt="" /></div>
+	</div>
+</div>
+	
+<!-- ui-dialog -->
+<div id="dialog2" title="Information" style="display:none">
+	<p>A message containing your password has been sent to your registered email account.</p>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<form id="user-login-form">
+		<h2>Login</h2>
+		<div> <!-- It is a container for labels and inputs -->
+			<div class="label"><label for="name">Username (Email for parents)</label></div>
+			<div class="field"><input type="text" id="name" class="login-input" name="username" title="comment_0101" /></div>
+			<div class="label"><label for="password">Password</label></div>
+			<div class="field"><input type="password" id="password" class="login-input" name="password" title="comment_0102" /></div>
+			<div class="field" id="wrong" style="display:none;">wrong username or password</div>
+		</div>
+		<div id="captcha-wrap" style="display:none;"><img src="../../images/captcha.jpg" alt="" /></div>
+		<div id="button-wrap">
+			<a id="dialog_btn" class="button" title="comment_0103">Sign in</a>
+			<a a href="#" id="dialog_link" class="usual-link btn-row-right">Lost your password?</a>
+		</div>
+	</form>
+
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+</div> <!-- END footer -->
+
+</body>
+</html>

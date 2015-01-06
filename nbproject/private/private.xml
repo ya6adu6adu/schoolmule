@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="4">
+        <file>
+            <url>js/pages/course_objectives.js</url>
+            <bookmark id="3">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+            <bookmark id="4">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+            <bookmark id="2">
+                <name/>
+                <line>0</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/_pageshead.php</file>
+            <file>file:/var/www/connectors/grid_assignments_tree.php</file>
+            <file>file:/var/www/css/controls/tabs.css</file>
+            <file>file:/var/www/js/controls/tabs.js</file>
+            <file>file:/var/www/olddev/grid_assignments.js</file>
+            <file>file:/var/www/js/pages/course_objectives.js</file>
+            <file>file:/var/www/__pages.php</file>
+            <file>file:/var/www/js/controls/window.js</file>
+            <file>file:/var/www/lang/en.xml</file>
+            <file>file:/var/www/js/instances/grid_search.js</file>
+            <file>file:/var/www/css/pages.css</file>
+            <file>file:/var/www/js/grid_assignments_progress.js</file>
+            <file>file:/var/www/css/controls/layout.css</file>
+            <file>file:/var/www/js/instances/grid_assignments.js</file>
+        </group>
+    </open-files>
+</project-private>

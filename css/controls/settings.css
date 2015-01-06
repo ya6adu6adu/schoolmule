@@ -1,0 +1,11 @@
+.settingsBlock input{
+	width: 259px;
+}
+
+.settingsBlock{
+	padding: 8px 16px 8px;
+}
+
+.setting{
+	margin-top: 8px;
+}

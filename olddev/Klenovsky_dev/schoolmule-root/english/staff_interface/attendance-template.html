@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Attendance</title>
+
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/accordion.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxmenu_dhx_schoolmule.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxtree.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxcombo.css">
+	
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid_dhx_schoolmule.css">
+	
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxchart.css">
+	
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script type="text/javascript" src="../../js/accordion.js"></script>
+	
+	
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	
+	<!--
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	-->
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+	<script src="../../dhtmlx/dhtmlxtree.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu_ext.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxgrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxgridcell.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid_excell_sub_row.js"></script>
+	<script src="../../dhtmlx/dhtmlxcombo.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid_excell_combo.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid_filter.js"></script>
+	<script src="../../dhtmlx/dhtmlxtreegrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid_ssc.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxchart.js"></script>
+	
+	<script type="text/javascript">
+		
+		function resizeTiny() { return; }
+		function resizeMainBoxBody() { return; }
+		var mygrid;
+		function resizeGrid() {
+			if (!mygrid) return;
+			mygrid.loadSizeFromCookie();
+		}
+		
+		$(document).ready(function() {
+		
+			initHideButton();
+		
+			initAccordion("#accord", 2);
+			
+			$(window).resize(function(){
+				calcAccSizes("#accord", 2);
+			});
+			
+
+			
+
+			
+
+			
+
+
+
+
+
+
+			
+			$("#search-btn").click(function () {
+				alert('You just clicked search button');
+			});
+			
+			var loginTree = new dhtmlXTreeObject("login-treebox","100%","100%",0);
+			loginTree.setSkin("dhx_black");
+			loginTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			loginTree.loadXML("../../dhtmlx/xml/tree-login.xml");
+			//loginTree.enableCheckBoxes(true, false);
+			//loginTree.enableThreeStateCheckboxes(true);
+			
+			// Login context menu
+            var loginMenu = new dhtmlXMenuObject();
+            loginMenu.renderAsContextMenu();
+			loginMenu.contextAutoHide = false;
+			loginMenu.addNewChild(loginMenu.topId, 0, "login_menu_item_0", "Change school (admins)", false);
+			loginMenu.addNewChild(loginMenu.topId, 1, "login_menu_item_1", "Child 1 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 2, "login_menu_item_2", "Child 2 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 3, "login_menu_item_3", "Account settings", false);
+			loginMenu.addNewChild(loginMenu.topId, 4, "login_menu_item_4", "Log out", false);
+			loginMenu.addNewSeparator("login_menu_item_3");
+			loginMenu.attachEvent("onClick", function(id, zoneId, casState){
+				if (id=="login_menu_item_0") {
+					loginTree.openItem("i000");
+					loginTree.openItem("i001");
+					$('#login-dialog').dialog('open');
+				}
+			});
+			
+			$("#login-dd").click(function () {
+				loginMenu.showContextMenu($("#login-dd").offset().left - 115, $("#login-dd").offset().top + 11);
+			});
+
+			// UI-dialog code
+			$('#login-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Change": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+		});
+		
+	</script>
+</head>
+
+<body>
+
+<div id="login-dialog" title="Change school" style="display:none">
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="login-treebox" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<div style="float: right;">
+				<img id="login-dd" src="../../images/new_header_dropdown.png" alt="" />
+			</div>
+			<div style="float: left; padding-right: 8px;">
+				<div id="school-name">ECOActive school Lund</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li><a href="sm-settings-appearance.html">School manager</a></li>
+		<li><a href="calendar.html">Calendar</a></li>
+		<li><a href="course-objectives.html">Course rooms</a></li>
+		<li><a href="attendance.html" class="fm-active">Attendance</a></li>
+		<li><a href="discussions.html">Discussions and messages</a></li>
+		<li><a href="grades.html">Grades and pupil development</a></li>
+		<li><a href="reports.html">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-active" onclick="menu2click(this)" title="comment_0011">Set attendance</li>
+		</ul>
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Attendance navigation
+		</div>
+		
+		<div id="nav-header">
+			<div id="nav-buttons-left">
+				<input id="search" type="text" style="width:220px;margin-right:5px;border:1px solid #666;" title="comment_0021" />
+				<a id="search-btn" class="button" title="comment_0024">Search</a>
+			</div>
+		</div>
+		
+		<div id="nav-body">
+			<div class="acc-container" id="accord">
+			
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Present view</span><div class="i-arrow arrow-clp"></div>
+					</div>
+					<div class="i-body i-first">
+						<div class="i-content">
+						</div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Course rooms</span><div class="i-arrow arrow-clp"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						<div class="i-content" id="tree-box1"></div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!-- Buttons at the bottom of the Details box -->
+		<div id="details-footer">
+		</div>
+	</div> <!-- END details -->
+	
+	<div id="main-content">
+		<div class="box-caption" style="text-indent:20px">
+			<img class="pointer" id="hide-navigation" src="../../images/collapse.png" alt="Hide details" title="comment_0016" />
+			<img src="../../images/expand.png" alt="collapse" style="display:none" />
+			<span id="box-caption">Attendance</span>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="top:24px">
+		
+			<div id="main-box-header" style="border-bottom:1px solid #aaa;">
+				<div style="float:left;">
+					<div>&nbsp;</div>
+				</div>
+				<div style="clear:left"></div>
+				<div style="position: absolute; right: 8px; top: 3px;">
+					<div class="field">
+						<select class="styled" style="width: 127px;" name="weight" title="comment_0030">
+							<option>Expand all</option>
+							<option>Expand pupils with absence this lesson</option>
+							<option>Collapse all</option>
+							<option>Put pupils with absence this lesson at top</option>
+							<option>Sort alpabetically</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<div id="gridbox" style="width:100%;"></div>
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Cancel</a>
+			</div>
+			<div style="position: absolute; right: 8px; top: 4px;">
+				<div class="field">
+					Default absence reason: 
+					<select class="styled" style="width: 127px;" name="weight" title="comment_0030">
+						<option>Reason</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+<script type="text/javascript">
+	setLeftTab(9); //make menu item active
+</script>
+
+</body>
+</html>

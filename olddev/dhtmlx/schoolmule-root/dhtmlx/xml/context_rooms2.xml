@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="New folder" />
+	<item id="menu_item_1" text="Import files" />
+	<item id="menu_item_2" text="Export" />
+	<item id="menu_item_3" text="Insert in course" />
+	<item id="menu_item_4" text="Delete" />
+</menu>

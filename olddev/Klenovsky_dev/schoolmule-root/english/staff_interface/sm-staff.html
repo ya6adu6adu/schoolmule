@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Staff</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxtree.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxmenu_dhx_schoolmule.css">
+	
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script src="../../js/autoresize.jquery.min.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+	<script src="../../dhtmlx/dhtmlxtree.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu_ext.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Delete row dialog		
+			$('#delete-row-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 200,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+			
+			// Dialog			
+			$('#fields-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 150,
+				resizable: false,
+				buttons: {
+					"View": function() { 
+						//deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+			// Open dialog link/btn
+			$('#fields-btn').click(function(){
+				$('#fields-dialog').dialog('open');
+			});
+			// Add 'Check all' checkbox to fields-dialog
+			$("#fields-dialog ~ .ui-dialog-buttonpane").css("position", "relative");
+			$("#fields-dialog ~ .ui-dialog-buttonpane").append('<div id="check-all-div" style="position: absolute; top: 6px;"><input type="checkbox" name="check-all" title="Check all"/></div>');
+			$('#check-all-div input').click(function(){
+				if (this.checked) { $('#fields-dialog input').attr("checked", "checked"); }
+				else { $('#fields-dialog input').removeAttr("checked"); }
+			});
+			
+			// Dialog			
+			$('#save-filter-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 275,
+				resizable: false,
+				buttons: {
+					"Save": function() { 
+						//deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+			// Open dialog link/btn
+			$('#save-filter-btn').click(function(){
+				$('#save-filter-dialog').dialog('open');
+				$('#save-filter-dialog').css("min-height", "18px"); // if height of content div is too small
+			});
+			
+			// Dialog			
+			$('#delete-filter-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 275,
+				resizable: false,
+				buttons: {
+					"Delete": function() { 
+						//deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+			// Open dialog link/btn
+			$('#delete-filter-btn').click(function(){
+				$('#delete-filter-dialog').dialog('open');
+				$('#delete-filter-dialog').css("min-height", "18px"); // if height of content div is too small
+			});
+		
+			$('textarea#courses').autoResize({
+				// On resize:
+				onResize : function() {
+					$(this).css({opacity:0.8});
+				},
+				// After resize:
+				animateCallback : function() {
+					$(this).css({opacity:1});
+				},
+				// animation:
+				animateDuration : 150,
+				// More extra space:
+				extraSpace : 0
+			});
+			
+			var loginTree = new dhtmlXTreeObject("login-treebox","100%","100%",0);
+			loginTree.setSkin("dhx_black");
+			loginTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			loginTree.loadXML("../../dhtmlx/xml/tree-login.xml");
+			//loginTree.enableCheckBoxes(true, false);
+			//loginTree.enableThreeStateCheckboxes(true);
+			
+			// CONTEXT MENU
+            var loginMenu = new dhtmlXMenuObject();
+            loginMenu.renderAsContextMenu();
+			loginMenu.contextAutoHide = false;
+			loginMenu.addNewChild(loginMenu.topId, 0, "login_menu_item_0", "Change school (admins)", false);
+			loginMenu.addNewChild(loginMenu.topId, 1, "login_menu_item_1", "Child 1 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 2, "login_menu_item_2", "Child 2 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 3, "login_menu_item_3", "Account settings", false);
+			loginMenu.addNewChild(loginMenu.topId, 4, "login_menu_item_4", "Log out", false);
+			loginMenu.addNewSeparator("login_menu_item_3");
+			loginMenu.attachEvent("onClick", function(id, zoneId, casState){
+				if (id=="login_menu_item_0") {
+					loginTree.openItem("i000");
+					loginTree.openItem("i001");
+					$('#login-dialog').dialog('open');
+				}
+			});
+			
+			$("#login-dd").click(function () {
+				loginMenu.showContextMenu($("#login-dd").offset().left - 115, $("#login-dd").offset().top + 11);
+			});
+
+			
+			// UI-dialog code
+			$('#login-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Change": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+		});
+	</script>
+</head>
+<body>
+
+<!-- ui-dialog -->
+<div id="delete-row-dialog" title="Confirm" style="display:none">
+	<p>Do you really want to delete this row?</p>
+</div>
+
+<!-- ui-dialog -->
+<div id="fields-dialog" title="Choose fields" style="display:none">
+	<input type="checkbox" name="choose-fields-cb1" />Phone<br />
+	<input type="checkbox" name="choose-fields-cb2" />Email<br />
+	<input type="checkbox" name="choose-fields-cb3" />Address<br />
+	<input type="checkbox" name="choose-fields-cb4" />Zip code<br />
+	<input type="checkbox" name="choose-fields-cb5" />City<br />
+	<input type="checkbox" name="choose-fields-cb6" />ID number<br />
+	<input type="checkbox" name="choose-fields-cb7" />Courses<br />
+	<input type="checkbox" name="choose-fields-cb8" />Information<br />
+	<input type="checkbox" name="choose-fields-cb9" />Login name<br />
+</div>
+
+<!-- ui-dialog -->
+<div id="save-filter-dialog" title="Save current filter" style="display:none">
+	<input type="text" class="long-input" name="save-filter-name" title="comment_0051" />
+</div>
+
+<!-- ui-dialog -->
+<div id="delete-filter-dialog" title="Delete current filter" style="display:none">
+	<input type="text" class="long-input" name="delete-filter-name" title="comment_0051" />
+</div>
+
+<div id="login-dialog" title="Change school" style="display:none">
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="login-treebox" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<div style="float: right;">
+				<img id="login-dd" src="../../images/new_header_dropdown.png" alt="" />
+			</div>
+			<div style="float: left; padding-right: 8px;">
+				<div id="school-name">ECOActive school Lund</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li><a href="sm-settings-appearance.html" class="fm-active">School manager</a></li>
+		<li><a href="calendar.html">Calendar</a></li>
+		<li><a href="course-objectives.html">Course rooms</a></li>
+		<li><a href="attendance.html">Attendance</a></li>
+		<li><a href="discussions.html">Discussions and messages</a></li>
+		<li><a href="grades.html">Grades and pupil development</a></li>
+		<li><a href="reports.html">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0011">Rooms</li>
+			<li class="item-active" onclick="menu2click(this)" title="comment_0012">Staff</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0013">Pupils</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0014">School structure</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0015">Settings</li>
+		</ul>
+		<div id="left-tab">School manager</div>
+	</div>
+	
+	<div id="overview">
+		<div class="box-caption">
+			Staff overview
+			<img class="pointer" id="hide-details" src="../../images/expand.png" alt="Hide details" onclick="hideElement()" title="comment_0016" />
+			<img src="../../images/collapse.png" alt="collapse" style="display:none" />
+		</div>
+		<!-- Here is all inputs of Overview header -->
+		<div id="overview-header">
+			<input type="checkbox" class="row3" title="comment_0034" />
+			<div id="buttons-left">
+				<a class="button" id="fields-btn" title="comment_0018">Fields</a>
+				<input id="search" type="text" style="width:175px" title="comment_0021" />
+				<span id="num-span" title="comment_0022">15 / 25</span>
+				<a class="button" title="comment_0023">Clear</a>
+				<a class="button" title="comment_0024">Search</a>
+			</div>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body">
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<input type="checkbox" class="row3" title="comment_0034" />
+			<div id="buttons-left">
+				<a class="button" title="comment_0035">Send message</a>
+				<a class="button" title="comment_0037">Export staff</a>
+				<a class="button" title="comment_0038">Print</a>
+				<a class="button" title="comment_0039">Delete</a>
+			</div>
+			<a class="button row3right" title="comment_0040">Add staff</a>
+			<a class="button row3right" title="comment_0041">Import staff</a>
+		</div>
+	</div> <!-- END overview -->
+	
+	<form id="details" action="#">
+		<div class="box-caption">
+			Staff details
+		</div>
+		<div id="details-header" style="height: 178px; padding: 6px 8px 0;">
+			<!-- Image and inputs of the Details box -->
+			<label for="school">School</label><br />
+			<input type="text" id="school" class="xl-input" name="school" title="comment_0044" /><br />
+			<div id="details-image">
+				<div id="details-image-stub">
+					Drag portrait<br />
+					here<br />
+					95 x 114<br />
+					or <a class="usual-link" href="">upload</a>
+				</div>
+			</div>
+			<div id="details-header-data">
+				<div> <!-- It is a container for labels and inputs -->
+					<div class="label"><label for="name">Name</label></div>
+					<div class="field"><input type="text" id="name" class="medium-input" name="name" title="comment_0045" /></div>
+					<div class="label"><label for="surname">Surname</label></div>
+					<div class="field"><input type="text" id="surname" class="medium-input" name="surname" title="comment_0046" /></div>
+				</div>
+				<div>
+					<div class="label"><label>Position</label></div>
+					<div class="field medium-select">
+						<select class="styled" name="position" title="comment_0047">
+							<option>Teacher</option>
+							<option>Director</option>
+						</select>
+					</div>
+				</div>
+				
+				<div style="float:left;">
+					<div class="label"><label for="sex">Sex</label></div>
+					<div class="field">
+						<select id="sex" class="styled" name="sex" title="comment_0050">
+							<option>F</option>
+							<option>M</option>
+						</select>
+					</div>
+				</div>	
+				<div style="float:left; margin-left: 8px;">
+					<div class="label"><label for="worktime">Worktime %</label></div>
+					<div class="field"><input type="text" id="worktime" name="worktime" title="comment_0051" /></div>
+				</div>
+				<div style="clear:left"></div>
+								
+			</div>
+		</div>
+		<!-- Inputs in the scrollable area of the Details box -->
+		<div id="details-body-wrap">
+			<div id="details-body">
+				<div> <!-- It is a container for labels and inputs -->
+
+					<div class="multi-field-wrap">
+						<div class="multi-field">
+							<div class='multi-field-first'>
+								<div class="multi-field-label">
+									<label for="phone">Phone</label>
+									<span class="add-link" onclick="addField(this.parentNode.parentNode.parentNode)">add</span>
+								</div>
+								<input type="text" id="phone" class="long-input" name="phone" title="comment_0052" />
+							</div>				
+							<div style="clear:left"></div>
+						</div>
+					</div>
+					
+					<div class="multi-field-wrap">
+						<div class="multi-field">
+							<div class='multi-field-first'>
+								<div class="multi-field-label">
+									<label for="email">Email</label>
+									<span class="add-link" onclick="addField(this.parentNode.parentNode.parentNode)">add</span>
+								</div>
+								<input type="text" id="email" class="long-input" name="email" title="comment_0053" />
+							</div>				
+							<div style="clear:left"></div>
+						</div>
+					</div>
+				
+					<div class="label"><label for="address1">Address</label></div>
+					<div class="field" style="margin: -1px 0 0;"><input type="text" id="address1" class="long-input" name="address1" title="comment_0054" /></div>
+					<div class="field" style="margin: 1px 0 0;"><input type="text" id="address2" class="long-input" name="address2" title="comment_0055" /></div>
+				</div>
+				<div style="float:left;">
+					<div class="label"><label for="zipcode">Zip code</label></div>
+					<div class="field"><input type="text" id="zipcode" name="zipcode" title="comment_0056" /></div>
+				</div>
+				<div style="float:left; margin-left:5px;">
+					<div class="label"><label for="city">City</label></div>
+					<div class="field"><input type="text" id="city" name="city" title="comment_0057" /></div>
+				</div>
+				<div style="clear:left"></div>
+				<div>
+					<div class="label"><label for="idnumber">ID number</label></div>
+					<div class="field"><input type="text" id="idnumber" class="long-input" name="idnumber" title="comment_0058" /></div>
+					
+					<div class="label"><label for="courses">Courses</label></div>
+					<div class="field" style="height: auto;">
+						<textarea id="courses" class="autosize" name="courses" rows="3" cols="50" title="comment_0059"></textarea>
+					</div>
+					
+					<div class="label"><label for="information">Information</label></div>
+					<div class="field"><input type="text" id="information" class="long-input" name="information" title="comment_0059" /></div>
+					<div class="label"><label for="loginname">Login name</label></div>
+					<div class="field"><input type="text" id="loginname" class="long-input" name="loginname" title="comment_0060" /></div>
+				</div>
+				<div style="padding: 8px 0 0;">
+					<input type="checkbox" name="reset-pwd" title="comment_0034" />Reset users password to default password
+					<br />User must change password on next login.
+				</div>
+				<table id="data-table">
+					<tr>
+						<td id="data1" class="short-cell">011:23</td>
+						<td>Total login time this term</td>
+					</tr>
+					<tr>
+						<td id="data2" class="short-cell">015:56</td>
+						<td>Total lecture time this term to date</td>
+					</tr>
+					<tr>
+						<td id="data3" class="short-cell">45</td>
+						<td>Total logins this term</td>					
+					</tr>
+					<tr>
+						<td id="data4" class="short-cell">58</td>
+						<td>Total lectures this term to date</td>
+					</tr>
+				</table>
+				<div>Staff account created <span id="customer-added">5th May 2010</span></div>
+			</div>
+		</div>
+		<!-- Buttons at the bottom of the Details box -->
+		<div id="details-footer">
+			<a class="button" title="comment_0061">Save</a>
+			<a class="button" title="comment_0062">View report</a>
+			<a class="button details-right" title="comment_0063">Delete staff</a>
+		</div>
+	</form> <!-- END details -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+</body>
+</html>

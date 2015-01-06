@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<row id="result_0">
+		<cell>My course rooms</cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<row id="result_0_0">
+			<cell>Columbus was a sailor...</cell>
+			<cell>Course room element</cell>
+			<cell>1400 to 1500</cell>
+			<cell>Course room: History 1 (D.R.)</cell>	
+		</row>
+	</row>
+	<row id="result_1">
+		<cell>Pupil development</cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<row id="result_1_0">
+			<cell>Columbus Smithson</cell>
+			<cell>Objectives progress</cell>
+			<cell>Columbus Smithson</cell>
+			<cell>Course room: History 1 (A.G.)</cell>
+		</row>
+	</row>
+	<row id="result_2">
+		<cell>Assignments</cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<row id="result_2_0">
+			<cell>Columbus Smithson</cell>
+			<cell>Submission</cell>
+			<cell>AAnd 001: History essay</cell>
+			<cell>Course room: History 1 (A.G.)</cell>
+		</row>
+	</row>
+	<row id="result_3">
+		<cell>Resources</cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<row id="result_3_0">
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</row>
+	</row>
+</rows>

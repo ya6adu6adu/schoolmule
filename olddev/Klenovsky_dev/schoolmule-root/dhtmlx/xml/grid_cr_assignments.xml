@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+ 	<row id="row0" selected="1" call="1" xmlkids="1" checked="1">
+		<cell xmlcontent="1">Points
+			<option value="1">Points</option>
+			<option value="2">Grade</option>
+			<option value="3">Pass</option>
+			<option value="4">Percent</option>
+			<option value="5">Text, assessed</option>
+			<option value="6">Text, not assessed</option>
+			<option value="7">No evaluation</option>
+			<option value="8">New unit</option>
+		</cell>
+		<cell>25</cell>
+		<cell>12</cell>
+        <cell>0</cell>
+		<cell>History A</cell>
+		<cell>Cultural history</cell>
+		<cell><![CDATA[
+			<img class="plus_img pointer" src="../../images/grid_plus.gif" alt="image" />
+		]]></cell>
+	</row>
+	<row id="row1">
+		<cell xmlcontent="1">Pass
+			<option value="1">Points</option>
+			<option value="2">Grade</option>
+			<option value="3">Pass</option>
+			<option value="4">Percent</option>
+			<option value="5">Text, assessed</option>
+			<option value="6">Text, not assessed</option>
+			<option value="7">No evaluation</option>
+			<option value="8">New unit</option>
+		</cell>
+		<cell>Passed</cell>
+		<cell>Passed</cell>
+		<cell>1</cell>
+		<cell>History A</cell>
+		<cell>Cultural history</cell>
+		<cell><![CDATA[
+			<img class="minus_img pointer" src="../../images/grid_minus.gif" alt="image" />
+		]]></cell>
+	</row>
+	<row id="row2">
+		<cell xmlcontent="1">Percent
+			<option value="1">Points</option>
+			<option value="2">Grade</option>
+			<option value="3">Pass</option>
+			<option value="4">Percent</option>
+			<option value="5">Text, assessed</option>
+			<option value="6">Text, not assessed</option>
+			<option value="7">No evaluation</option>
+			<option value="8">New unit</option>
+		</cell>
+		<cell>100%</cell>
+		<cell>45%</cell>
+		<cell>0</cell>
+		<cell>Swedish A</cell>
+		<cell>Reading Writing</cell>
+		<cell><![CDATA[
+			<img class="minus_img pointer" src="../../images/grid_minus.gif" alt="image" />
+		]]></cell>
+	</row>
+	<row id="row3">
+		<cell xmlcontent="1">Grade
+			<option value="1">Points</option>
+			<option value="2">Grade</option>
+			<option value="3">Pass</option>
+			<option value="4">Percent</option>
+			<option value="5">Text, assessed</option>
+			<option value="6">Text, not assessed</option>
+			<option value="7">No evaluation</option>
+			<option value="8">New unit</option>
+		</cell>
+		<cell>A</cell>
+		<cell>E</cell>
+		<cell>1</cell>
+		<cell>Swedish A</cell>
+		<cell>Reading Writing</cell>
+		<cell><![CDATA[
+			<img class="minus_img pointer" src="../../images/grid_minus.gif" alt="image" />
+		]]></cell>
+	</row>
+</rows>

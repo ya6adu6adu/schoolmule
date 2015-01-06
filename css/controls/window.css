@@ -1,0 +1,15 @@
+#add-dialog{
+	display:none;
+}
+
+.dialog-container{
+
+}
+
+.add-box{
+	background: #f7f7f7;
+	height: 340px;
+	border: 1px solid #999;
+	overflow: auto;
+	background: #f7f7f7;
+}

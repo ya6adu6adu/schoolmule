@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Teachers" id="i00">
+		<item text="Programmes [m]" id="1i000">
+			<item text="Economic 08" id="i0000">
+				<item text="Content" id="i00000" />
+			</item>
+			<item text="Economic 09" id="i0001">
+				<item text="Peter Petersson" id="i00010" />
+				<item text="Johan Ek" id="i00011" />
+			</item>
+		</item>
+		<item text="Subjects and course rooms" id="i001">
+			<item text="Mathematics" id="i0010">
+				<item text="Course room: Math 1" id="i00100">
+					<item text="Sven Svensson" id="i001000" />
+				</item>
+			</item>
+		</item>
+	</item>
+	<item text="Mentors" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+	<item text="Other personell" id="i02">
+		<item text="Administrators" id="i020">
+			<item text="Content" id="i0200" />
+		</item>
+	</item>
+</tree> 

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<data>
+	<event id="2">
+		<start_date>2011-06-28 00:00:00</start_date>
+		<end_date>2011-06-29 00:00:00</end_date>
+		<text><![CDATA[French Open]]></text>
+		<details><![CDATA[Philippe-Chatrier Court Paris, FRA]]></details>
+	</event>
+	<event id="3">
+		<start_date>2011-06-30 01:00:00</start_date>
+		<end_date>2011-06-30 05:00:00</end_date>
+		<text><![CDATA[Aegon Championship]]></text>
+		<details><![CDATA[The Queens Club London, ENG]]></details>
+	</event>
+</data>

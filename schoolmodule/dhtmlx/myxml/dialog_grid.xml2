@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+	<rows>
+	
+					<row id="row16_0 18">
+						<cell>Läsa/Skriva</cell>
+						<cell>20%</cell>
+					</row>
+					<row id="row16_1 19">
+						<cell>Tala/Höra</cell>
+						<cell>20%</cell>
+					</row>
+					<row id="row16_2 32">
+						<cell>Kommunikationens innehåll</cell>
+						<cell>20%</cell>
+					</row>
+					<row id="row16_3 33">
+						<cell>Produktion och interaktion</cell>
+						<cell>20%</cell>
+					</row>
+	</rows>

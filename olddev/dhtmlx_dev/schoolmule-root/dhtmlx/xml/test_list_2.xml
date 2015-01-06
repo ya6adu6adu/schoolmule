@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+ 	<row id="customer0" selected="1" call="1" xmlkids="1">
+		<cell>Edmund Edmundsson</cell>
+        <cell>123456789</cell>
+        <cell>987654321</cell>
+        <cell>0-123-456-789</cell>
+        <cell>edmund@mail.com</cell>
+        <cell>Sweden</cell>
+        <cell>Stockholm school</cell>
+	</row>
+	<row id="customer1">
+		<cell>John Doe</cell>
+		<cell>123456789</cell>
+		<cell>987654321</cell>
+        <cell>(2)</cell>
+        <cell>(2)</cell>
+		<cell>USA</cell>
+		<cell>(3)</cell>
+        <row id="customer1-0">
+        	<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell>0-123-456-789</cell>
+			<cell>john@mail.com</cell>
+			<cell></cell>
+			<cell>New York school</cell>
+        </row>
+        <row id="customer1-1">
+        	<cell></cell>
+ 			<cell></cell>
+			<cell></cell>
+			<cell>0-123-456-790</cell>
+			<cell>john@doe.us</cell>
+			<cell></cell>
+			<cell>Chicago school</cell>
+        </row>
+        <row id="customer1-2">
+        	<cell></cell>
+ 			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell>Miami school</cell>
+        </row>
+	</row>
+	<row id="customer2">
+		<cell>Ivan Ivanov</cell>
+ 		<cell>123456789</cell>
+		<cell>987654321</cell>
+        <cell>0-123-456-789</cell>
+        <cell>ivan@mail.com</cell>
+		<cell>Russia</cell>
+		<cell>Moscow school</cell>
+	</row>
+</rows>

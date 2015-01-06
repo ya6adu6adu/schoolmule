@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<row id="row0" selected="1" call="1" xmlkids="1">
+		<cell>Group: English language</cell>
+		<cell>(47%)</cell>
+		<row id="row0_0">
+			<cell>Reading</cell>
+			<cell>12%</cell>
+		</row>
+		<row id="row0_1">
+			<cell>Writing</cell>
+			<cell>35%</cell>
+		</row>
+	</row>
+	<row id="row1">
+		<cell>Group: English literature history</cell>
+		<cell>(42%)</cell>
+		<row id="row1_0">
+			<cell>Child stories</cell>
+			<cell>12%</cell>
+		</row>
+		<row id="row1_1">
+			<cell>1800-1900</cell>
+			<cell>30%</cell>
+		</row>
+	</row>
+</rows>

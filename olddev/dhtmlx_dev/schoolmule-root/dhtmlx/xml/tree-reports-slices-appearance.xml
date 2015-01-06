@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+		<item text="Slices type" id="i000">
+			<item text="Content" id="i0000" />
+		</item>
+		<item text="Slice colors" id="i001">
+			<item text="Content" id="i0010" />
+		</item>
+		<item text="Text" id="i002">
+			<item text="Content" id="i0020" />
+		</item>
+</tree> 

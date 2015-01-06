@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="Reply" />
+	<item id="menu_item_1" text="Delete" />
+	<item id="menu_item_2" text="Mark as unread" />
+	<item id="menu_item_3" text="Mark as read" />
+	<item id="menu_item_4" text="Create event" />
+</menu>

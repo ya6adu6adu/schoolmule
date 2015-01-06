@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="By building" id="i00">
+		<item text="Building Pippi" id="i000">
+			<item text="Content" id="i0000" />
+		</item>
+		<item text="Building Rasmus" id="i001">
+			<item text="Content" id="i0010" />
+		</item>
+	</item>
+	<item text="By resourse type" id="i01">
+		<item text="Class room" id="i010">
+			<item text="Content" id="i0100" />
+		</item>
+		<item text="Group room" id="i011">
+			<item text="Sal 2 (10)" id="i0110" />
+			<item text="Sal 3 (8)" id="i0111" />
+		</item>
+	</item>
+</tree> 

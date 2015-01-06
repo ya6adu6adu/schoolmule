@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="LBS Schools" id="i00">
+		<item text="LBS Stockholm" id="i000">
+			<item text="LBS School 1" id="i0000" />
+			<item text="LBS School 2" id="i0001" />
+		</item>
+		<item text="LBS Lund" id="i001">
+			<item text="LBS School 3" id="i0010" />
+			<item text="LBS School 4" id="i0011" />
+		</item>
+	</item>
+</tree> 

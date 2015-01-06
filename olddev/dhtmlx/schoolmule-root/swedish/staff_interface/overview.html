@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Overview</title>
+
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Michroma|Terminal+Dosis+Light|Cabin+Sketch|Oswald|EB+Garamond|Amaranth|Pacifico|MedievalSharp|Candal|Corben|Dancing+Script|Cuprum|Lekton|Bentham|Gruppo|Orbitron|Arimo|Permanent+Marker|UnifrakturMaguntia|Tangerine" />
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/script.js"></script>
+	
+	<!--
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	-->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+</head>
+
+<body>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<!-- Admin image -->
+			<img src="../../images/noimage.png" alt="schooladmin teachers interface" />
+			<div id="login-content">
+				<div id="login-caption">Teachers interface</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+				<!-- School name field -->
+				<select class="styled" name="school" title="comment_0001">
+					<option>School 1</option>
+					<option>School 2</option>
+				</select><br />
+				<a id="acc-set" href="#">Account settings</a><span id="acc-divider"> | </span><a id="sign" href="#">Sign out</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li title="comment_0002" style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li title="comment_0003"><a href="sm-settings-appearance.html">School manager</a></li>
+		<li title="comment_0004"><a href="calendar.html">Calendar</a></li>
+		<li title="comment_0005"><a href="course-objectives.html">Course rooms</a></li>
+		<li title="comment_0006"><a href="attendance.html">Attendance</a></li>
+		<li title="comment_0007"><a href="discussions.html">Discussions and messages</a></li>
+		<li title="comment_0009"><a href="grades.html">Grades and pupil development</a></li>
+		<li title="comment_0010"><a href="reports.html">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-active" title="comment_0011">Overview</li>
+		</ul>
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Overview navigation
+		</div>
+		
+		<div id="nav-header">
+			<div id="nav-buttons-left">
+				<input id="search" type="text" style="width:220px;margin-right:5px;border:1px solid #666;" title="comment_0021" />
+				<a class="button" title="comment_0024">Search</a>
+			</div>
+		</div>
+		
+		<div id="nav-body">
+
+		</div>
+		
+		<!-- Buttons at the bottom of the Details box -->
+		<div id="details-footer">
+		</div>
+	</div> <!-- END details -->
+	
+	<div id="main-content">
+		<div class="box-caption" style="text-indent:20px">
+			<img class="pointer" id="hide-navigation" src="../../images/collapse.png" alt="Hide details" onclick="hideNavigation()" title="comment_0016" />
+			<img src="../../images/expand.png" alt="collapse" style="display:none" />
+			Overview
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="top:24px">
+
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Share</a>
+				<a class="button" title="comment_0036">Cancel</a>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+<script type="text/javascript">
+	setLeftTab(1); //make menu item active
+</script>
+
+</body>
+</html>

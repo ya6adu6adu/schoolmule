@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<row id="result_0">
+		<cell>My course rooms</cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<row id="result_0_0">
+			<cell>English first</cell>
+			<cell>Lesson 02</cell>
+			<cell>Week 01</cell>
+			<cell>English first</cell>
+			<cell>Glossaries 1</cell>
+		</row>
+		<row id="result_0_1">
+			<cell>English history for beginners</cell>
+			<cell>Lesson 01</cell>
+			<cell>Week 01</cell>
+			<cell>English history for beginners</cell>
+			<cell>1800th century</cell>
+		</row>
+	</row>
+	<row id="result_1">
+		<cell>Shared course rooms</cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<cell></cell>
+		<row id="result_1_0">
+			<cell>English first</cell>
+			<cell>Lesson 02</cell>
+			<cell>Week 01</cell>
+			<cell>English first</cell>
+			<cell>Glossaries 1</cell>
+		</row>
+	</row>
+</rows>

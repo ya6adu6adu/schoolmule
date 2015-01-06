@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+		<item text="Pupils" id="i010">
+			<item text="Content" id="i0100" />
+		</item>
+		<item text="Teachers" id="i011">
+			<item text="Content" id="i0110" />
+		</item>
+		<item text="Programme" id="i012">
+			<item text="Content" id="i0120" />
+		</item>
+		<item text="Pupilgroups" id="i013">
+			<item text="Content" id="i0130" />
+		</item>
+		<item text="Studygroups" id="i014">
+			<item text="Eng1-MPL10a" id="i0140" />
+			<item text="Eng1-MPL10b" id="i0141" />
+		</item>
+</tree> 

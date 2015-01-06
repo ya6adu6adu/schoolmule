@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My reports" id="lev0_0">
+		<item text="Report 1 [m] [>]" id="1lev0_0_0">
+			<userdata name="href">reports.html</userdata>
+			<item text="X,Y chart 1 [m] [>]" id="2lev0_0_0_0">
+				<userdata name="href">reports-xy.html</userdata>
+				<item text="Graph 1 [m] [>]" id="3lev0_0_0_0_0">
+					<userdata name="href">reports-graph.html</userdata>
+				</item>
+				<item text="Graph 2 [m]" id="3lev0_0_0_0_1" />
+				<item text="Graph 3 [m]" id="3lev0_0_0_0_2" />
+			</item>
+			<item text="Pie chart 1 [m] [>]" id="2lev0_0_0_1">
+				<userdata name="href">reports-pie.html</userdata>
+				<item text="Slices 1 [m] [>]" id="3lev0_0_0_1_0">
+					<userdata name="href">reports-slices.html</userdata>
+				</item>
+			</item>
+		</item>
+		<item text="Report 2" id="lev0_0_1">
+			<item text="List 1 [>]" id="lev0_0_1_0">
+				<userdata name="href">reports-list.html</userdata>
+			</item>
+			<item text="X,Y chart 2" id="lev0_0_1_1">
+				<item text="Graph 4" id="lev0_0_1_1_0" />
+			</item>
+			<item text="Pie chart 2" id="lev0_0_1_2">
+				<item text="Slices 1" id="lev0_0_1_2_0" />
+			</item>
+		</item>
+		<item text="Reportset 3" id="lev0_0_2">
+			<item text="Content" id="lev0_0_2_0" />
+		</item>
+		<item text="Standardised reportsets" id="lev0_0_3">
+			<item text="Betygsrapporter" id="lev0_0_3_0">
+				<item text="Teacher Klas Klasson" id="lev0_0_3_0_0">
+					<item text="101225 [>]" id="lev0_0_3_0_0_0">
+						<userdata name="href">reports-std.html</userdata>
+					</item>
+					<item text="110610" id="lev0_0_3_0_0_1" />
+				</item>
+				<item text="Teacher Hans Hansson" id="lev0_0_3_0_1">
+					<item text="Content" id="lev0_0_3_0_1_0" />
+				</item>
+			</item>
+			<item text="SCB reportsets" id="lev0_0_3_1">
+				<item text="Content" id="lev0_0_3_1_0" />
+			</item>
+			<item text="VHS reportsets" id="lev0_0_3_2">
+				<item text="Content" id="lev0_0_3_2_0" />
+			</item>
+			<item text="Kommunen reportsets" id="lev0_0_3_3">
+				<item text="Content" id="lev0_0_3_3_0" />
+			</item>
+		</item>
+	</item>
+	<item text="Shared reports" id="lev0_1">
+		<item text="Content" id="lev0_1_0" />
+	</item>
+</tree>

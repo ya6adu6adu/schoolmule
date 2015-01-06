@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My studygroups" id="i00">
+		<item text="Course room: French A [m]" id="1i000">
+			<item text="French for beginners" id="i0000" />
+			<item text="French verbs" id="i0001" />
+		</item>
+		<item text="Course room: English history" id="i001">
+			<item text="Content" id="i0010" />
+		</item>
+	</item>
+	<item text="By programme" id="i01">
+		<item text="Economic 08" id="i010">
+			<item text="Content" id="i0100" />
+		</item>
+		<item text="Economic 09" id="i011">
+			<item text="Subject: Mathematics" id="b0110">
+				<item text="Course room: Math 1" id="b01100">
+					<item text="MATH1-ECO09a" id="b011000" />
+					<item text="MATH1-ECO09b" id="b011001" />
+				</item>
+			</item>
+		</item>
+	</item>
+	<item text="By teacher" id="i02">
+		<item text="Erik Eriksson" id="i020">
+			<item text="Content" id="i0200" />
+		</item>
+		<item text="Sven Svensson" id="i021">
+			<item text="Subject: English" id="b0210">
+				<item text="Course room: English first" id="b02100">
+					<item text="ENG1-ECO10a" id="b021000" />
+					<item text="ENG1-ECO10b" id="b021001" />
+				</item>
+				<item text="Course room: English history" id="b02101">
+					<item text="Content" id="b021010" />
+				</item>
+			</item>
+		</item>
+	</item>
+</tree> 

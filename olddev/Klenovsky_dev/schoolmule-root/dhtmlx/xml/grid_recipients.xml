@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+	<row id="row_0">
+		<cell>1</cell>
+		<cell>Anna Andersson</cell>
+		<cell xmlcontent="true">Staff
+			<option value="1">Staff</option>
+			<option value="2">Pupil</option>
+			<option value="3">Admin</option>
+		</cell>
+		<cell xmlcontent="true">Group 1
+			<option value="1">Group 1</option>
+			<option value="2">Group 2</option>
+			<option value="3">Group n...</option>
+		</cell>
+	</row>
+	<row id="row_1">
+		<cell>0</cell>
+		<cell>Peter Petersson</cell>
+		<cell xmlcontent="true">Pupil
+			<option value="1">Staff</option>
+			<option value="2">Pupil</option>
+			<option value="3">Admin</option>
+		</cell>
+		<cell xmlcontent="true">Group 1
+			<option value="1">Group 1</option>
+			<option value="2">Group 2</option>
+			<option value="3">Group n...</option>
+		</cell>
+	</row>
+	<row id="row_2">
+		<cell>1</cell>
+		<cell>Sven Svensson</cell>
+		<cell xmlcontent="true">Admin
+			<option value="1">Staff</option>
+			<option value="2">Pupil</option>
+			<option value="3">Admin</option>
+		</cell>
+		<cell xmlcontent="true">Group 1
+			<option value="1">Group 1</option>
+			<option value="2">Group 2</option>
+			<option value="3">Group n...</option>
+		</cell>
+	</row>
+</rows>

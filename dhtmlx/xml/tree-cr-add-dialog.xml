@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Swedish A" id="i00">
+		<item text="Languages" id="i000">
+			<item text="Reading" id="i0000" />
+			<item text="Writing" id="i0001" />
+		</item>
+		<item text="Swedish literature history" id="i001">
+			<item text="1600 - 1700 knowledge" id="i0010" />
+			<item text="1800 - 1900 knowledge" id="i0011" />
+		</item>
+	</item>
+</tree> 

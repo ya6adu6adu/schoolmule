@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Settings - System</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Delete row dialog
+			$('#delete-row-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 200,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+
+<!-- ui-dialog -->
+<div id="delete-row-dialog" title="Confirm" style="display:none">
+	<p>Do you really want to delete this row?</p>
+</div>
+
+<div id="container">
+<div id="page-wrap" class="backend">
+
+	<div id="header" class="backend">
+		<h1>Schoolmule Backend administration</h1>
+		<img class="backend" src="../../images/schoolmule_logo_big.png" alt="SchoolMULE" />
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li title="comment_0002" style="padding-left: 16px;"><a href="backend-customers.html">Customers</a></li>
+		<li title="comment_0003"><a href="backend-schools.html">Schools</a></li>
+		<li title="comment_0004"><a href="backend-administrators.html">Administrators</a></li>
+		<li title="comment_0005"><a href="backend-users.html">Users</a></li>
+		<li title="comment_0006"><a href="#">Statistics</a></li>
+		<li title="comment_0007"><a href="backend-settings-system.html">Settings</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<div id="left-tab">Settings</div>
+	</div>
+	
+	<div id="overview" class="backend" style="right: 16px;">
+		<div id="overview-tabs" class="tabs">
+			<ul>
+				<li class="divider" style="border-left: 1px solid #aaa;"></li>
+				<li><a class="tab tab-active" href="backend-settings-system.html" title="comment_0042">System</a></li>
+				<li class="divider"></li>
+				<li><a class="tab tab-inactive" href="backend-settings-contacts.html" title="comment_0043">Contacts</a></li>
+			</ul>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="padding: 6px 16px 8px; top: 27px;">
+		
+			<div class="lower">
+				<div class="label"><label for="loginname">Super administrator login name</label></div>
+				<div class="field"><input type="text" id="loginname" class="long-input" style="margin-right: 8px;" name="loginname" title="comment_0058" /><a class="button" title="comment_0036">Randomize</a></div>
+
+				<div class="label"><label for="admin-pwd">Super administrator password</label></div>
+				<div class="field"><input type="text" id="admin-pwd" class="long-input" style="margin-right: 8px;" name="admin-pwd" title="comment_0060" /><a class="button" title="comment_0036">Randomize</a></div>
+
+				<div class="label"><label>Max dropdowns when filtering</label></div>
+				<div class="field long-select">
+					<select class="styled" name="maxdrop" title="comment_0030">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+				</div>
+				
+				<div class="label"><label for="timeout">User inactivity login timeout, min</label></div>
+				<div class="field"><input type="text" id="timeout" class="long-input" style="margin-right: 8px;" name="timeout" title="comment_0060" /></div>
+			</div>
+			
+			<div class="multi-field-wrap">
+				<div class="multi-field">
+					<div class='multi-field-first'>
+						<div class="multi-field-label">
+							<label>Defined modules</label>
+						</div>
+						<input type="text" class="long-input" name="defmod" title="comment_0058" />
+					</div>
+					<div class='multi-field-next'>
+						<div class="multi-field-label">
+							<label>Relative URL</label>
+							<span class="add-link" onclick="addDual(this.parentNode.parentNode.parentNode)">add</span>
+						</div>
+						<input type="text" class="long-input" name="rel-url" title="comment_0058" />
+					</div>				
+					<div style="clear:left"></div>
+				</div>
+			</div>
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 16px;">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Cancel</a>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="A" />
+	<item id="menu_item_1" text="B" />
+	<item id="menu_item_2" text="C" />
+	<item id="menu_item_3" text="D" />
+	<item id="menu_item_4" text="E" />
+	<item id="menu_item_5" text="F" />
+	<item id="menu_item_6" text="Fx" />
+</menu>

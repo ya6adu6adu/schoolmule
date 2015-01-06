@@ -1,0 +1,21 @@
+#color-box {	
+	background: #FFEAA3;
+	float:left;display:inline;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #666;
+	margin-right:3px;
+}
+.clear 
+{
+    clear:both;display:block;
+    height:0px;font-size:0;
+    overflow:hidden;
+}
+#lblTitle {
+	font-size: 12px;
+	font-weight: bold;
+	margin-top: -4px;
+	padding-bottom: 4px;
+}
+#divColorCode { text-transform: uppercase; }

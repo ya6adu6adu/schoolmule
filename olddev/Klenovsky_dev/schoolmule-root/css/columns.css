@@ -1,0 +1,52 @@
+.rightback  {
+width: 100%;
+float:left;
+background-color: green;
+overflow:hidden;
+position:relative;
+}
+.contentback  {
+float:left;
+background-color:blue;
+width: 100%;
+position:relative;
+right: 300px;    /* width of right sidebar */
+}
+.leftback  {
+width: 100%;
+position:relative;
+right: 400px; /* width of the  content area */
+float:left;
+background-color: #f00;
+}
+
+.container  {
+width: 900px;
+margin-left: auto;
+margin-right:auto;
+}
+
+.leftsidebar  {
+float:left;
+width: 200px;
+overflow:hidden;
+position:relative;
+left: 700px;
+}
+
+.content  {
+float:left;
+width: 400px;
+overflow:hidden;
+position:relative;
+left: 700px;
+}
+
+.rightsidebar  {
+float:left;
+overflow:hidden;
+width: 300px;
+background-color:#333;
+position:relative;
+left: 700px;
+}

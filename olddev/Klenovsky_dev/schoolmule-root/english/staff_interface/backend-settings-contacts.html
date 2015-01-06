@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Settings - Contacts</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style-old.css" />
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Delete row dialog
+			$('#delete-row-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 200,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+
+<!-- ui-dialog -->
+<div id="delete-row-dialog" title="Confirm" style="display:none">
+	<p>Do you really want to delete this row?</p>
+</div>
+
+<div id="container">
+<div id="page-wrap" class="backend">
+
+	<div id="header" class="backend">
+		<h1>Schoolmule Backend administration</h1>
+		<img class="backend" src="../../images/schoolmule_logo_big.png" alt="SchoolMULE" />
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li title="comment_0002" style="padding-left: 16px;"><a href="backend-customers.html">Customers</a></li>
+		<li title="comment_0003"><a href="backend-schools.html">Schools</a></li>
+		<li title="comment_0004"><a href="backend-administrators.html">Administrators</a></li>
+		<li title="comment_0005"><a href="backend-users.html">Users</a></li>
+		<li title="comment_0006"><a href="#">Statistics</a></li>
+		<li title="comment_0007"><a href="backend-settings-system.html">Settings</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<div id="left-tab">Settings</div>
+	</div>
+	
+	<div id="overview" class="backend" style="right: 16px;">
+		<div id="overview-tabs" class="tabs">
+			<ul>
+				<li class="divider" style="border-left: 1px solid #aaa;"></li>
+				<li><a class="tab tab-inactive" href="backend-settings-system.html" title="comment_0042">System</a></li>
+				<li class="divider"></li>
+				<li><a class="tab tab-active" href="backend-settings-contacts.html" title="comment_0043">Contacts</a></li>
+			</ul>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="padding: 6px 16px 8px; top: 27px;">
+		
+		<div style="float:left">
+			<div> <!-- It is a container for labels and inputs -->
+				<div class="label"><label for="address1">Schoolmule address</label></div>
+				<div class="field" style="margin: -1px 0 0;"><input type="text" id="address1" class="long-input" style="margin-right: 8px;" name="address1" title="comment_0054" /></div>
+				<div class="field" style="margin: 1px 0 0;"><input type="text" id="address2" class="long-input" style="margin-right: 8px;" name="address2" title="comment_0055" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"><label for="zipcode">Zip code</label></div>
+				<div class="field"><input type="text" id="zipcode" name="zipcode" title="comment_0056" /></div>
+			</div>
+			<div style="float:left; margin-left:5px;">
+				<div class="label"><label for="city">City</label></div>
+				<div class="field"><input type="text" id="city" name="city" title="comment_0057" /></div>
+			</div>
+			<div style="clear:left"></div>				
+			<div>
+				<div class="label"><label>Country</label></div>
+				<div class="field long-select">
+					<select class="styled" name="country" title="comment_0030">
+						<option>Sweden</option>
+						<option>United States</option>
+						<option>Zimbabwe</option>
+					</select>
+				</div>
+				
+					<div class="multi-field-wrap">
+						<div class="multi-field">
+							<div class='multi-field-first'>
+								<div class="multi-field-label">
+									<label for="phone">Phone</label>
+									<span class="add-link" onclick="addField(this.parentNode.parentNode.parentNode)">add</span>
+								</div>
+								<input type="text" id="phone" class="long-input" name="phone" title="comment_0052" />
+							</div>				
+							<div style="clear:left"></div>
+						</div>
+					</div>
+					
+					<div class="multi-field-wrap">
+						<div class="multi-field">
+							<div class='multi-field-first'>
+								<div class="multi-field-label">
+									<label for="email">Email</label>
+									<span class="add-link" onclick="addField(this.parentNode.parentNode.parentNode)">add</span>
+								</div>
+								<input type="text" id="email" class="long-input" name="email" title="comment_0053" />
+							</div>				
+							<div style="clear:left"></div>
+						</div>
+					</div>
+				
+			</div>
+		</div>
+			
+		<div style="float:left; margin-left:8px;">
+			<div>
+				<div class="label"><label for="idnumber">Company ID number</label></div>
+				<div class="field"><input type="text" id="idnumber" class="long-input" style="margin-right: 8px;" name="idnumber" title="comment_0058" /></div>
+				<div class="label"><label for="vat-id">VAT ID</label></div>
+				<div class="field"><input type="text" id="vat-id" class="long-input" style="margin-right: 8px;" name="vat-id" title="comment_0058" /></div>
+				<div class="label"><label for="website">Website</label></div>
+				<div class="field"><input type="text" id="website" class="long-input" style="margin-right: 8px;" name="website" title="comment_0058" /></div>
+			</div>
+		</div>
+		
+		<div style="clear:left"></div>
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 16px;">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Cancel</a>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+</body>
+</html>

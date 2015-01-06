@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Parent registration</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />	
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script src="../../js/script.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// Delete row dialog		
+			$('#delete-row-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 200,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						deleteField(row);
+						$(this).dialog("close");
+					}, 
+					"Cancel": function() { 
+						$(this).dialog("close"); 
+					} 
+				}
+			});
+			
+			// Dialog			
+			$('#dialog1').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 385,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});				
+			$('#dialog2').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 300,
+				resizable: false,
+				buttons: {
+					"Ok": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});				
+			// Dialog Link
+			$('#dialog_btn1').click(function(){
+				$('#dialog1').dialog('open');			
+			});				
+			// Dialog Link
+			$('#dialog_btn2').click(function(){
+				$('#dialog2').dialog('open');			
+			});		
+		});
+	</script>
+</head>
+<body>
+
+<!-- ui-dialog -->
+<div id="delete-row-dialog" title="Confirm" style="display:none">
+	<p>Do you really want to delete this row?</p>
+</div>
+
+<!-- ui-dialog -->
+<div id="dialog1" title="Password rules" style="display:none">
+	<p>
+		The password must be at least 8 characters long.<br />
+		The password must contain at least...<br />
+	</p>
+	<p style="padding-left:10px;">
+		One alpha character [a-zA-Z]<br />
+		One numeric character [0-9]<br />
+		One special character from this set<br />
+		! @ $ % ^ & * ( ) - _ = + [ ] ; : ‘ “ , < . > / ?
+	</p>
+	<p>
+		The password must not...
+	</p>
+	<p style="padding-left:10px;">
+		Contain spaces.<br />
+		Begin with an exclamation [!] or a question mark [?]<br />
+		Contain your login ID.<br />
+		The first 3 characters cannot be the same.<br />
+		The sequence of the first 3 characters cannot be in your login ID.<br />
+		The first 8 characters cannot be the same as in your previous password.
+	</p>
+	<p>
+		Passwords are treated as case sensitive.
+	</p>
+</div>
+
+<!-- ui-dialog -->
+<div id="dialog2" title="Information" style="display:none">
+	A confirmation link have been sent to your email. Please confirm your account by clicking this link.<br />
+	<br />
+	After your account has been activated you can access information regarding 
+	<span class="info-name" id="info-name1">Anna Andersson</span>
+	at Hockrill gymnasium, London, England, and
+	<span class="info-name" id="info-name2">Peter Petersson</span>, at UHA school in Brighton, England.
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<form id="user-login-form" style="width: 192px;">
+		<h2>Parent registration</h2>
+		<div> <!-- It is a container for labels and inputs -->
+			<div class="label"><label for="school">School</label></div>
+			<div class="field"><input type="text" id="school" class="login-input" name="school" title="comment_0101" /></div>
+			<div class="label"><label for="pupil">Pupil</label></div>
+			<div class="field"><input type="text" id="pupil" class="login-input" name="pupil" title="comment_0101" /></div>
+			<div class="label"><label for="p-email">Parent email (login username)</label></div>
+			<div class="field"><input type="text" id="p-email" class="login-input" name="p-email" title="comment_0101" /></div>
+			<div class="label"><label for="pwd1">Choose password</label></div>
+			<div class="field"><input type="password" id="pwd1" class="login-input" name="pwd1" title="comment_0102" /></div>
+			<div class="label"><label for="pwd2">Repeat password</label></div>
+			<div class="field"><input type="password" id="pwd2" class="login-input" name="pwd2" title="comment_0102" /></div>
+			<div class="label"><label for="p-name">Parent name</label></div>
+			<div class="field"><input type="text" id="p-name" class="login-input" name="p-name" title="comment_0101" /></div>
+			<div class="label"><label for="p-surname">Parent surname</label></div>
+			<div class="field"><input type="text" id="p-surname" class="login-input" name="p-surname" title="comment_0101" /></div>
+		</div>
+		<div style="margin-top:12px;">
+			<input type="radio" name="p-type" checked="checked" /> Parent
+			<input type="radio" name="p-type" style="margin-left: 8px;" /> Guardian
+		</div>
+		<div>
+			<div class="multi-field-wrap">
+				<div class="multi-field">
+					<div class='multi-field-first'>
+						<div class="multi-field-label">
+							<label for="phone">Phone</label>
+							<span class="add-link" onclick="addField(this.parentNode.parentNode.parentNode)">add</span>
+						</div>
+						<input type="text" id="phone" class="login-input" name="phone" title="comment_0052" />
+					</div>				
+					<div style="clear:left"></div>
+				</div>
+			</div>			
+			
+			<div class="label"><label for="address1">Address</label></div>
+			<div class="field" style="margin: -1px 0 0;"><input type="text" id="address1" class="login-input" name="address1" title="comment_0054" /></div>
+			<div class="field" style="margin: 1px 0 0;"><input type="text" id="address2" class="login-input" name="address2" title="comment_0055" /></div>
+		</div>
+		<div style="float:left;">
+			<div class="label"><label for="zipcode">Zip code</label></div>
+			<div class="field"><input type="text" id="zipcode" name="zipcode" title="comment_0056" /></div>
+		</div>
+		<div style="float:left; margin-left:5px;">
+			<div class="label"><label for="login-city">City</label></div>
+			<div class="field"><input type="text" id="login-city" name="city" title="comment_0057" /></div>
+		</div>
+		<div style="clear:left"></div>
+		<div id="wrong" style="display:none;">wrong password format</div>
+
+		<div class="label"><label>Prefer to be contacted by</label></div>
+		<div class="field login-select">
+			<select class="styled" name="contact" title="comment_0030">
+				<option>SMS</option>
+				<option>Phone</option>
+				<option>E-mail</option>
+				<option>Letter</option>
+			</select>
+		</div>
+		
+		<div id="button-wrap">
+			<a id="dialog_btn1" class="button" title="comment_0103">Sign up</a>
+			<a id="dialog_btn2" class="button btn-row-right" title="comment_0103">Cancel registration</a>
+		</div>
+	</form>
+
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+</div> <!-- END footer -->
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+html, body	{ height:100%; width: 100%;  margin: 0; padding: 0; min-width: 1024px;}
+body { overflow:hidden; }
+
+div {
+   box-sizing: border-box;
+}
+
+#dialogflexpaper{
+    width: 100%;
+    height: 100%;
+    padding-left: 242px;
+    /*padding-left: 200px;*/
+    /*position: absolute;*/
+}
+
+#flexpaper_buttons{
+    position: absolute;
+    left: 0;
+    background-color: #FFFFFF;
+    width: 242px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+/*    height: 100%;
+    width: 200px;
+    background-color: #FFFFFF;
+    float: left;*/
+
+}
+
+#result_cunter{
+    width: 210px;
+    height: 210px;
+    padding: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    position: absolute;
+    background: #fffffa;
+    z-index: 1000;
+    border-radius: 5px;
+    border: 1px #666 solid;
+    display: none;
+}
+
+#result_cunter .number{
+    width: 18px;
+    height: 18px;
+    padding-top: 2px;
+    cursor: pointer;
+    margin: 1px;
+    float: left;
+    text-align: center;
+}
+
+
+#result_cunter .number:hover{
+    background-color: #FFF19F;
+}
+
+#flexpaper_buttons div.save_buttons{
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -98px;
+}
+
+.comments{
+    position: absolute;
+    top: 395px;
+    bottom: 115px;
+}
+
+.fullbtn{
+    width: 196px;
+}
+
+#results_grid{
+    width: 205px;
+    height: 94px;
+    margin: 0 auto;
+}
+
+.nav_buttons{
+    height: auto;
+    width: 200px;
+    margin: 0 auto;
+}
+.nav_buttons .navbutt{
+    float: left;
+    width: 48%;
+}
+
+input[type="text"], input[type="password"] {
+    height: 17px !important;
+}
+
+.ui-dialog-titlebar{
+    height: 25px !important;
+}
+
+.runitsel{
+    width: 200px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc4cf;
+}
+
+.runitinp{
+    width: 200px;
+    height: 56px;
+    height: 50%;
+}
+
+
+
+.subm_total{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.runitbtn{
+    width: 26px;
+}
+
+.annbutton{
+    width: 95px;
+    margin-right: 3px;
+}
+
+.buttoncont{
+    margin-bottom: 7px;
+}
+
+.main_label{
+    margin-bottom: 1px;
+    display: block;
+}
+
+#toolbar_paperViwer_annotations_popup{
+    left: 0 !important;
+}
+
+#paperViwer textarea.flexpaper_note_textarea{
+    font-size: 11px !important;
+}
+
+/*
+.page_pic{
+    display: block;
+    width: 19px;
+    height: 19px;
+    background: url("../images/flexpaper/View_page.png");
+}*/
+
+.flex_pic{
+    cursor: pointer;
+    position: relative;
+}
+
+.remove_note{
+    width: 15px;
+    height: 15px;
+    display: block;
+    background: url(../images/close.png) !important;
+   /* background: url("../images/flexpaper/cancel.png");*/
+    float: right;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.remove_note:hover{
+    background: url(../images/close.png) -15px -15px !important;
+}
+
+#search_input{
+    width: 154px;
+    position: relative;
+    top:-6px;
+    height: 19px !important;
+}
+
+#slider a{
+    top:-4px;
+    cursor: pointer;
+}
+
+.flexpaper_note div:first-child{
+    max-height: 18px !important;
+    min-height: 18px !important;
+}
+
+.select-item{
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    display: inline;
+    background-color: #ffff00;
+    opacity: 0.2;
+}
+
+
+.selected{
+    display: inline !important;
+}
+
+.hover-item{
+    background-color: #ffff00 !important;
+    opacity: 0.2 !important;
+    display: inline !important;
+}

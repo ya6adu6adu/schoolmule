@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="Sent messages (#nbr unread)" id="i00">
+		<item text="To: Subject: date" id="i000" />
+		<item text="MC-mats, tedmo, Bla bla: April 06, 2011" id="i001" />
+		<item text="MC-mats, testing still, April 06, 2011" id="i002" />
+	</item>
+	<item text="Old messages" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+</tree> 

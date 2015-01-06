@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="My surveys" id="i00">
+		<item text="Tests on Mondays or Wednesdays?" id="i000" />
+	</item>
+	<item text="Other surveys" id="i01">
+		<item text="Content" id="i010" />
+	</item>
+</tree> 

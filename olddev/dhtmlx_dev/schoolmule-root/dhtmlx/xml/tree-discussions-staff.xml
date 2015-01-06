@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="By subject" id="i00">
+		<item text="Maths" id="i000" />
+	</item>
+	<item text="By position" id="i01">
+		<item text="Mentor" id="i010">
+			<item text="Content" id="i0100" />
+		</item>
+		<item text="Teacher" id="i011">
+			<item text="Mats gillar motorcyclar" id="i0110" />
+		</item>
+		<item text="Admin" id="i012">
+			<item text="Content" id="i0120" />
+		</item>
+	</item>
+	<item text="By pupil groups" id="i02">
+		<item text="Content" id="i020" />
+	</item>
+</tree> 

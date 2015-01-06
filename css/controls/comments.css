@@ -1,0 +1,38 @@
+
+.forum-main-comm{
+    font: 11px Arial, Helvetica, sans-serif;
+    background-color:#F0F0EE;
+    margin-left:-1px;
+    margin-top:-1px;
+    width:65%;
+    overflow-x: auto;
+    position:absolute;
+    top:25px;
+    bottom: 0px;
+    border-right: 1px solid #c5c5c5;
+    border-left: 1px solid #c5c5c5;
+}
+
+.forum-cont-comm{
+    margin-left:-1px;
+    margin-top:-1px;
+    border-left: 1px solid #c5c5c5;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position:absolute;
+    left: 65%;
+    right: 0px;
+    top: 25px;
+    bottom: 0px;
+}
+/*
+.forum-cont-comm .dhxform_base{
+    width: 94.7%;
+}
+*/
+
+/*
+.forum-cont-comm .dhxform_base textarea{
+    width: 93.6%;
+}
+*/

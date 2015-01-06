@@ -1,0 +1,17 @@
+objective progress module implementation(no database) - 4
+start objective progress module implementation (database) - 4
+submission plugin editing - 7
+tree select item functional - 6
+result unit grig instance editing - 6 
+tree window bug fix - 1
+assessmet grid structure editing and menu fixes - 5
+tree small fixes - 1
+add mark as submitted functional - 4
+submission plugin reload functional - 2
+submission plugin link functional - 2
+edit all grides editing functional - 6
+pupil grades edit, assessments heade instance edit - 4
+removing projector to full resolution bug fix - 2
+oth. fisxes of issues list - 2
+
+

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="menu_item_0" text="Go to assignment" />
+	<item id="menu_item_1" text="Add assignment" />
+	<item id="menu_item_2" text="Add performance" />
+	<item id="menu_item_3" text="Hide this assignment/performance" />
+	<item id="menu_item_4" text="View hidden items" />
+</menu>

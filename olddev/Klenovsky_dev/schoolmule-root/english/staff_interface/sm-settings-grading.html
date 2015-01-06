@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Courseroom</title>
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxtree.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxmenu_dhx_schoolmule.css">
+	
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+	<script src="../../dhtmlx/dhtmlxtree.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu_ext.js"></script>
+	
+	<!--
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	-->
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	
+	<script type="text/javascript">
+		function fillGrades() {
+			var i, j, g = 0, selectId, inputId, option, s = '', opt;
+			for(i = 1; i < 13; i++) {
+				selectId = 'gr-sel'+ i;
+				option = document.getElementById(selectId).getElementsByTagName("option");
+				inputId = 'gr-lev'+ i;
+				if (!option[3].selected) {
+					for(j = 0; j < 3; j++) {
+						if (option[j].selected) opt = option[j].childNodes[0].nodeValue;
+					}
+					s += document.getElementById(inputId).value + ' (' + opt + '), ';
+					g++;
+				}
+			}
+			s = g + ' Grades: ' + s;
+			if (g) {
+				s = s.slice(0, -2);
+				s += '.';
+			}
+			document.getElementById('grades').innerHTML = s;
+		}
+		
+		function menu1click(x) {
+			var e=document.getElementById("left-tab");
+			e.innerHTML=x.innerHTML;
+			var w=x.offsetWidth;
+			var s=new String();
+			s=6+w+'px solid #8B9BA8';
+			e.parentNode.style.borderLeft=s;
+			s=-w+10+"px";
+			e.style.left=s;
+		}
+
+		function menu2click(x) {
+			var i;
+			var items=document.getElementById("second-menu").childNodes[1].childNodes;
+			for (i in items) items[i].className="item-inactive";
+			x.className="item-active";
+		}
+
+		function menu3click(x) {
+			var i;
+			var items=document.getElementById("overview-tabs").childNodes[1].childNodes;
+			for (i in items) {
+				if ((items[i].nodeName == "LI")&&(items[i].className != "divider")) {
+				if (items[i].childNodes[0].nodeName == "A")
+					items[i].childNodes[0].className="tab tab-inactive";
+				}
+			}
+			x.className="tab tab-active";
+		}
+		
+		document.write('<style type="text/css">select.styled { position: relative; opacity: 0; filter: alpha(opacity=0); z-index: 5; } </style>');
+
+		var Custom = {
+			init: function() {
+				// This part is for setting Menu1 active item
+				var e=document.getElementById("left-tab");
+				if (e != null) {
+					var x=document.getElementById("first-menu").childNodes[3]; // Change index to select other menu item
+					e.innerHTML=x.innerHTML;
+					var w=x.offsetWidth;
+					var s=new String();
+					s=6+w+'px solid #8B9BA8';
+					e.parentNode.style.borderLeft=s;
+					s=-w+10+"px";
+					e.style.left=s;
+				}
+				
+				var inputs = document.getElementsByTagName("select"), span = Array(), textnode, option, active;
+				for(a = 0; a < inputs.length; a++) {
+					if(inputs[a].className == "styled") {
+						option = inputs[a].getElementsByTagName("option");
+						active = option[0].childNodes[0].nodeValue;
+						textnode = document.createTextNode(active);
+						for(b = 0; b < option.length; b++) {
+							if(option[b].selected == true) {
+								textnode = document.createTextNode(option[b].childNodes[0].nodeValue);
+							}
+						}
+						span[a] = document.createElement("span");
+						span[a].className = "select";
+						span[a].style.width = inputs[a].offsetWidth - 23 + "px";
+						span[a].id = "select" + inputs[a].name;
+						span[a].appendChild(textnode);
+						inputs[a].parentNode.insertBefore(span[a], inputs[a]);
+						if(!inputs[a].getAttribute("disabled")) {
+							inputs[a].onchange = Custom.choose;
+						} else {
+							inputs[a].previousSibling.className = inputs[a].previousSibling.className += " disabled";
+						}
+					}
+				}
+				
+				fillGrades();
+			},
+			choose: function() {
+				option = this.getElementsByTagName("option");
+				for(d = 0; d < option.length; d++) {
+					if(option[d].selected == true) {
+						document.getElementById("select" + this.name).childNodes[0].nodeValue = option[d].childNodes[0].nodeValue;
+					}
+				}
+				if (this.name.slice(0, 6) == "gr-sel") fillGrades();
+			}
+		}
+
+		window.onload = Custom.init;
+		
+		$(document).ready(function() {
+		
+			var loginTree = new dhtmlXTreeObject("login-treebox","100%","100%",0);
+			loginTree.setSkin("dhx_black");
+			loginTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			loginTree.loadXML("../../dhtmlx/xml/tree-login.xml");
+			//loginTree.enableCheckBoxes(true, false);
+			//loginTree.enableThreeStateCheckboxes(true);
+			
+			// CONTEXT MENU
+            var loginMenu = new dhtmlXMenuObject();
+            loginMenu.renderAsContextMenu();
+			loginMenu.contextAutoHide = false;
+			loginMenu.addNewChild(loginMenu.topId, 0, "login_menu_item_0", "Change school (admins)", false);
+			loginMenu.addNewChild(loginMenu.topId, 1, "login_menu_item_1", "Child 1 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 2, "login_menu_item_2", "Child 2 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 3, "login_menu_item_3", "Account settings", false);
+			loginMenu.addNewChild(loginMenu.topId, 4, "login_menu_item_4", "Log out", false);
+			loginMenu.addNewSeparator("login_menu_item_3");
+			loginMenu.attachEvent("onClick", function(id, zoneId, casState){
+				if (id=="login_menu_item_0") {
+					loginTree.openItem("i000");
+					loginTree.openItem("i001");
+					$('#login-dialog').dialog('open');
+				}
+			});
+			
+			$("#login-dd").click(function () {
+				loginMenu.showContextMenu($("#login-dd").offset().left - 115, $("#login-dd").offset().top + 11);
+			});
+
+			
+			// UI-dialog code
+			$('#login-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Change": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+		
+		});
+	</script>
+	
+	<style type="text/css">
+		textarea { width: 202px; }
+		.first-col { width: 206px; }
+		.n-col { width: 206px; margin-left: 20px; }
+	</style>
+</head>
+
+<body>
+
+<div id="login-dialog" title="Change school" style="display:none">
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="login-treebox" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<div style="float: right;">
+				<img id="login-dd" src="../../images/new_header_dropdown.png" alt="" />
+			</div>
+			<div style="float: left; padding-right: 8px;">
+				<div id="school-name">ECOActive school Lund</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li><a href="sm-settings-appearance.html" class="fm-active">School manager</a></li>
+		<li><a href="calendar.html">Calendar</a></li>
+		<li><a href="course-objectives.html">Course rooms</a></li>
+		<li><a href="attendance.html">Attendance</a></li>
+		<li><a href="discussions.html">Discussions and messages</a></li>
+		<li><a href="grades.html">Grades and pupil development</a></li>
+		<li><a href="reports.html">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0011">People and resources</li>
+			<li class="item-inactive" onclick="menu2click(this)" title="comment_0012">Programme structure</li>
+			<li class="item-active" onclick="menu2click(this)" title="comment_0013">Settings</li>
+		</ul>
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Settings navigation
+		</div>
+		
+		<ul id="settings-menu">
+			<a href="sm-settings-appearance.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Appearance</span>
+				</li>
+			</a>
+			<a href="sm-settings-system.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">System</span>
+				</li>
+			</a>
+			<a href="sm-settings-import.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Import pupils by programme</span>
+				</li>
+			</a>
+			<a href="sm-settings-discussions.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Discussions and messages settings</span>
+				</li>
+			</a>
+			<a href="sm-settings-files.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">File handling</span>
+				</li>
+			</a>
+			<a href="sm-settings-grading.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item selectedTreeRow">Grading</span>
+				</li>
+			</a>
+			<a href="sm-settings-contacts.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Contacts</span>
+				</li>
+			</a>
+			<a href="sm-settings-sync.html">
+				<li>
+					<img src="../../dhtmlx/imgs-tree/csh_schoolmule/leaf.gif" alt="" />
+					<span class="settings-item standartTreeRow">Import from or sync to sheduler software</span>
+				</li>
+			</a>
+		</ul>
+		
+		<!-- Buttons at the bottom of the Details (or accord) box -->
+		<div id="details-footer">
+		</div>
+	</div> <!-- END accord -->
+	
+	<div id="main-content">
+		<div class="box-caption">
+			Grading
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="padding: 4px 16px; top: 24px; overflow: auto;">
+		
+		<div class="first-col">
+		
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev1">Grade level 1</label></div>
+				<div class="field"><input type="text" id="gr-lev1" class="grade-input" name="gr-lev1" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel1" class="styled" name="gr-sel1" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc1">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc1" name="dsc1" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev2">Grade level 2</label></div>
+				<div class="field"><input type="text" id="gr-lev2" class="grade-input" name="gr-lev2" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel2" class="styled" name="gr-sel2" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc2">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc2" name="dsc2" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+			
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev3">Grade level 3</label></div>
+				<div class="field"><input type="text" id="gr-lev3" class="grade-input" name="gr-lev3" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel3" class="styled" name="gr-sel3" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc3">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc3" name="dsc3" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+			
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev4">Grade level 4</label></div>
+				<div class="field"><input type="text" id="gr-lev4" class="grade-input" name="gr-lev4" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel4" class="styled" name="gr-sel4" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc4">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc4" name="dsc4" rows="3" cols="50"></textarea></div>
+			</div>
+			
+		</div>
+		
+		<div class="n-col">
+
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev5">Grade level 5</label></div>
+				<div class="field"><input type="text" id="gr-lev5" class="grade-input" name="gr-lev5" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel5" class="styled" name="gr-sel5" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc5">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc5" name="dsc5" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+			
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev6">Grade level 6</label></div>
+				<div class="field"><input type="text" id="gr-lev6" class="grade-input" name="gr-lev6" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel6" class="styled" name="gr-sel6" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc6">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc6" name="dsc6" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+			
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev7">Grade level 7</label></div>
+				<div class="field"><input type="text" id="gr-lev7" class="grade-input" name="gr-lev7" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel7" class="styled" name="gr-sel7" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc7">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc7" name="dsc7" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev8">Grade level 8</label></div>
+				<div class="field"><input type="text" id="gr-lev8" class="grade-input" name="gr-lev8" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel8" class="styled" name="gr-sel8" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc8">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc8" name="dsc8" rows="3" cols="50"></textarea></div>
+			</div>
+			
+		</div>
+		
+		<div class="n-col">
+			
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev9">Grade level 9</label></div>
+				<div class="field"><input type="text" id="gr-lev9" class="grade-input" name="gr-lev9" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel9" class="styled" name="gr-sel9" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc9">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc9" name="dsc9" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+			
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev10">Grade level 10</label></div>
+				<div class="field"><input type="text" id="gr-lev10" class="grade-input" name="gr-lev10" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel10" class="styled" name="gr-sel10" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc10">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc10" name="dsc10" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev11">Grade level 11</label></div>
+				<div class="field"><input type="text" id="gr-lev11" class="grade-input" name="gr-lev11" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel11" class="styled" name="gr-sel11" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc11">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc11" name="dsc11" rows="3" cols="50"></textarea></div>
+			</div>
+			<div class="hr"></div>
+			
+			<div style="float:left;">
+				<div class="label"><label for="gr-lev12">Grade level 12</label></div>
+				<div class="field"><input type="text" id="gr-lev12" class="grade-input" name="gr-lev12" onchange="fillGrades()" title="comment_0048" /></div>
+			</div>
+			<div style="float:left;">
+				<div class="label"></div>
+				<div class="field grade-select">
+					<select id="gr-sel12" class="styled" name="gr-sel12" title="comment_0047">
+						<option>Passed</option>
+						<option>Not passed</option>
+						<option>No data</option>
+						<option>Not used</option>
+					</select>
+				</div>
+			</div>
+			<div style="clear:left"></div>
+			<div>
+				<div class="label"><label for="dsc12">Description</label></div>
+				<div class="field" style="height: 54px;"><textarea id="dsc12" name="dsc12" rows="3" cols="50"></textarea></div>
+			</div>
+			
+		</div>
+		
+		<div style="clear:left"></div>
+		
+		<div id="grades" style="margin-top:10px;" onclick="fillGrades()">
+		</div>
+		
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">Save</a>
+				<a class="button" title="comment_0037">Cancel</a>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+<script type="text/javascript">
+	setLeftTab(3); //make menu item active
+</script>
+
+</body>
+</html>

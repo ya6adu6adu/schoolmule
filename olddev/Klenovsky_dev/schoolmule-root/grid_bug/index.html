@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Attendance</title>
+
+	<link rel="stylesheet" type="text/css" href="dhtmlx/skins/dhtmlxcombo.css">
+	<link rel="stylesheet" type="text/css" href="dhtmlx/skins/dhtmlxgrid.css">
+	<link rel="stylesheet" type="text/css" href="dhtmlx/skins/dhtmlxgrid_dhx_schoolmule.css">
+	<link rel="stylesheet" type="text/css" href="dhtmlx/skins/dhtmlxchart.css">
+	
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	
+	<!--
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	-->
+	
+	<script src="dhtmlx/dhtmlxcommon.js"></script>
+	<script src="dhtmlx/dhtmlxgrid.js"></script>
+	<script src="dhtmlx/dhtmlxgridcell.js"></script>
+	<script src="dhtmlx/dhtmlxgrid_excell_sub_row.js"></script>
+	<script src="dhtmlx/dhtmlxcombo.js"></script>
+	<script src="dhtmlx/dhtmlxgrid_excell_combo.js"></script>
+	<script src="dhtmlx/dhtmlxgrid_filter.js"></script>
+	<script src="dhtmlx/dhtmlxtreegrid.js"></script>
+	<script src="dhtmlx/dhtmlxgrid_ssc.js"></script>
+	
+	<script src="dhtmlx/dhtmlxchart.js"></script>
+	
+	<script type="text/javascript">
+		
+		$(document).ready(function() {
+			attendanceGrid = new dhtmlXGridObject('gridbox');
+			attendanceGrid.selMultiRows = true;
+			//attendanceGrid.enableHeaderImages(true);
+			attendanceGrid.imgURL = "dhtmlx/imgs/icons_attendance_2/";
+			attendanceGrid.setHeader(",Pupil,<img src='dhtmlx/imgs/icons_attendance_2/pupil_active.gif'>,<img src='dhtmlx/imgs/icons_attendance_2/pupil_inactive.gif'>,Came,Reason,<img src='dhtmlx/imgs/icons_attendance_2/pupil_active.gif'>,<img src='dhtmlx/imgs/icons_attendance_2/pupil_inactive.gif'>,Went,Reason,Absence,Signed,Note");
+			attendanceGrid.setInitWidthsP("3,15,3,3,10,10,3,3,10,10,10,15,5");
+			attendanceGrid.setColAlign("left,left,left,left,left,left,left,left,left,left,left,left,center");
+			attendanceGrid.setColTypes("sub_row_ajax,ro,ch,ch,co,co,ch,ch,co,co,ro,ro,img");
+			attendanceGrid.init();
+			attendanceGrid.setSkin("dhx_skyblue");
+			attendanceGrid.enableEditEvents(true,false,true);
+			attendanceGrid.loadXML("dhtmlx/xml/grid_attendance.xml");
+			
+			attendanceGrid.attachEvent("onSubAjaxLoad", function(id,content){
+			
+				if (id == "pupil_0") {
+			
+					var data0 = [
+							{ view:15 },
+							{ view:18 },
+							{ view:22 },
+							{ view:25 },
+							{ view:22 },
+							{ view:20 },
+							{ view:23 },
+							{ view:25 },
+							{ view:26 },
+							{ view:27 },
+							{ view:28 },
+							{ view:29 },
+							{ view:30 },
+							{ view:29 },
+							{ view:27 },
+							{ view:25 },
+							{ view:24 },
+							{ view:25 },
+							{ view:23 },
+							{ view:22 }
+					];
+					
+					var prevChart0 =  new dhtmlXChart({
+						view:"bar",
+						container:"absenceChart0",
+						value:"#view#",
+						color:"#ccc",
+						border:false,
+						width:15,
+						padding:{top:0,bottom:6,left:10,right:10},
+					yAxis:{
+					template:" "
+					},
+					xAxis: {
+						template:" ",
+						title:""
+					}
+					});
+					
+					prevChart0.parse(data0,"json");
+				
+				}
+				
+				if (id == "pupil_1") {
+				
+					var data1 = [
+							{ view:15 },
+							{ view:16 },
+							{ view:17 },
+							{ view:20 },
+							{ view:22 },
+							{ view:20 },
+							{ view:23 },
+							{ view:25 },
+							{ view:23 },
+							{ view:24 },
+							{ view:24 },
+							{ view:25 },
+							{ view:25 },
+							{ view:26 },
+							{ view:27 },
+							{ view:28 },
+							{ view:29 },
+							{ view:29 },
+							{ view:30 },
+							{ view:30 }
+					];
+					
+					var prevChart1 =  new dhtmlXChart({
+						view:"bar",
+						container:"absenceChart1",
+						value:"#view#",
+						color:"#ccc",
+						border:false,
+						width:20,
+						padding:{top:0,bottom:6,left:10,right:10},
+					yAxis:{
+					template:" "
+					},
+					xAxis: {
+						template:" ",
+						title:""
+					}
+					});
+					
+					prevChart1.parse(data1,"json");
+					
+				}
+				
+				if (id == "pupil_2") {
+				
+					var data2 = [
+							{ view:30 },
+							{ view:28 },
+							{ view:27 },
+							{ view:25 },
+							{ view:22 },
+							{ view:20 },
+							{ view:20 },
+							{ view:25 },
+							{ view:22 },
+							{ view:21 },
+							{ view:20 },
+							{ view:19 },
+							{ view:19 },
+							{ view:15 },
+							{ view:18 },
+							{ view:18 },
+							{ view:18 },
+							{ view:17 },
+							{ view:16 },
+							{ view:15 }
+					];
+		
+					var prevChart2 =  new dhtmlXChart({
+						view:"bar",
+						container:"absenceChart2",
+						value:"#view#",
+						color:"#ccc",
+						border:false,
+						width:20,
+						padding:{top:0,bottom:6,left:10,right:10},
+					yAxis:{
+					template:" "
+					},
+					xAxis: {
+						template:" ",
+						title:""
+					}
+					});			
+					
+					prevChart2.parse(data2,"json");
+				
+				}
+			
+			});
+			
+			// Setting height for image in grid header
+			$(".hdrcell:has(img)").height(14);
+			
+		});
+		
+	</script>
+</head>
+
+<body>	
+	<div id="gridbox" style="width:800px; height:400px;"></div>
+</body>
+</html>

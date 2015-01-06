@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<menu>
+	<item id="login_menu_item_0" text="Change school (admins)" />
+	<item id="login_menu_item_1" text="Child 1 (parents)" />
+	<item id="login_menu_item_2" text="Child 2 (parents)" />
+	<item id="login_menu_item_3" text="Account settings" />
+	<item id="login_menu_item_4" text="Log out" />
+</menu>

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Course rooms - Course rooms</title>
+	
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Michroma|Terminal+Dosis+Light|Cabin+Sketch|Oswald|EB+Garamond|Amaranth|Pacifico|MedievalSharp|Candal|Corben|Dancing+Script|Cuprum|Lekton|Bentham|Gruppo|Orbitron|Arimo|Permanent+Marker|UnifrakturMaguntia|Tangerine" />
+	<link rel="stylesheet" type="text/css" href="../../css/jquery-ui-1.8.9.custom.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/accordion.css" />
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxmenu_dhx_schoolmule.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxtree.css">
+	
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid.css">
+	<link rel="stylesheet" type="text/css" href="../../dhtmlx/skins/dhtmlxgrid_dhx_schoolmule.css">	
+	
+	<script type="text/javascript" src="../../js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery-ui-1.8.9.custom.min.js"></script>
+	
+	<!--
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+	-->
+	<script type="text/javascript" src="../../js/script.js"></script>
+	<script type="text/javascript" src="../../js/accordion.js"></script>
+	
+	<script src="../../dhtmlx/dhtmlxcommon.js"></script>
+	<script src="../../dhtmlx/dhtmlxtree.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu.js"></script>
+	<script src="../../dhtmlx/dhtmlxmenu_ext.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid.js"></script>
+	<script src="../../dhtmlx/dhtmlxgridcell.js"></script>
+	<script src="../../dhtmlx/dhtmlxcombo.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid_excell_combo.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid_filter.js"></script>
+	<script src="../../dhtmlx/dhtmlxgrid_ssc.js"></script>
+	
+	<script src="../../tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+	
+	<script type="text/javascript">
+	
+		function resizeMainBoxBody() {
+			if (!$("#main-box-body")) return;
+			var mc = document.getElementById("main-content");
+			$("#main-box-body").height(mc.offsetHeight - 125);
+		}
+	
+		function resizeTiny() {
+			if (!tinyMCE) return;
+			var footer = document.getElementById("overview-footer");
+			var mc = document.getElementById("main-content");
+			tinyMCE.get("editor1").theme.resizeTo(
+				Math.floor(footer.clientWidth/100*70-1),
+				mc.offsetHeight - 267
+			);
+			tinyMCE.get("editor2").theme.resizeTo(
+				Math.floor(footer.clientWidth/100*30-1),
+				mc.offsetHeight - 267
+			);
+		}
+		
+		var mygrid;
+		
+		function resizeGrid() {
+			if (!mygrid) return;
+			mygrid.loadSizeFromCookie();
+		}
+		
+		tinyMCE.init({
+				mode : "textareas",
+				theme : "advanced",
+				skin : "schoolmule",
+				editor_selector : "mce1",
+
+				plugins : "preview,fullscreen,print,paste,searchreplace,lists,template,directionality,pagebreak,table,advlist,emotions,inlinepopups,style,gallery,flash,assignment,courseroom,audio,insertfile,video,iframe",
+				
+				theme_advanced_buttons1 : "code,|,preview,fullscreen,|,print,|,cut,copy,paste,pastetext,pasteword,|,undo,redo,|,search,replace,|,removeformat,|,tablecontrols,|,hr,pagebreak",
+				theme_advanced_buttons2 : "bold,italic,underline,strikethrough,|,sub,sup,|,bullist,numlist,|,outdent,indent,|,justifyleft,justifycenter,justifyright,justifyfull,|,ltr,rtl,|,template,|,link,unlink,anchor,|,image,gallery,flash,video,audio,insertfile,iframe,|,courseroom,assignment",
+				theme_advanced_buttons3 : "styleselect,formatselect,fontselect,fontsizeselect,forecolor,backcolor,emotions,charmap,|,styleprops",
+				
+				theme_advanced_fonts : "Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats;"+
+					"Michroma=Michroma, serif;Terminal Dosis Light=Terminal Dosis Light, serif;Cabin Sketch=Cabin Sketch, serif;Oswald=Oswald, serif;EB Garamond=EB Garamond, serif;"+
+					"Amaranth=Amaranth, serif;Pacifico=Pacifico, serif;MedievalSharp=MedievalSharp, serif;Candal=Candal, serif;Corben=Corben, serif;"+
+					"Dancing Script=Dancing Script, serif;Cuprum=Cuprum, serif;Lekton=Lekton, serif;Bentham=Bentham, serif;Gruppo=Gruppo, serif;"+
+					"Orbitron=Orbitron, serif;Arimo=Arimo, serif;Permanent Marker=Permanent Marker, serif;UnifrakturMaguntia=UnifrakturMaguntia, serif;Tangerine=Tangerine, serif",
+				
+				theme_advanced_toolbar_location : "top",
+				theme_advanced_toolbar_align : "left",
+				
+				//extended_valid_elements : "div",
+				
+				content_css : "http://fonts.googleapis.com/css?family=Michroma|Terminal+Dosis+Light|Cabin+Sketch|Oswald|EB+Garamond|Amaranth|Pacifico|MedievalSharp|Candal|Corben|Dancing+Script|Cuprum|Lekton|Bentham|Gruppo|Orbitron|Arimo|Permanent+Marker|UnifrakturMaguntia|Tangerine",
+				
+				// Style formats
+				style_formats : [
+					{title : 'Bold text', inline : 'b'},
+					{title : 'Red text', inline : 'span', styles : {color : '#ff0000'}},
+					{title : 'Red header', block : 'h1', styles : {color : '#ff0000'}},
+					{title : 'Example 1', inline : 'span', classes : 'example1'},
+					{title : 'Example 2', inline : 'span', classes : 'example2'},
+					{title : 'Table styles'},
+					{title : 'Table row 1', selector : 'tr', classes : 'tablerow1'}
+				],
+				
+				width : "100%",
+				oninit : "resizeTiny"
+		});
+		
+		tinyMCE.init({
+			mode : "textareas",
+			theme : "advanced",
+			skin : "schoolmule",
+			editor_selector : "mce2",
+			plugins : "flash,audio,insertfile",
+			theme_advanced_buttons1 : "bold,|,link,unlink,|,image,audio,flash,insertfile",					
+			theme_advanced_toolbar_location : "top",
+			theme_advanced_toolbar_align : "left",					
+			width : "100%",
+			oninit : "resizeTiny"
+		});
+	
+		$(document).ready(function() {
+		
+			initHideButton();
+			initAccordion("#accord", 5);
+			resizeMainBoxBody();
+			
+			$(window).resize(function(){
+				calcAccSizes("#accord", 5);
+				resizeMainBoxBody();
+				resizeTiny();
+			});
+			
+			// CONTEXT MENU for the TreeGrid
+            var menu_treegrid = new dhtmlXMenuObject();
+            menu_treegrid.renderAsContextMenu();
+            menu_treegrid.loadXML("../../dhtmlx/xml/context_ass_details.xml");
+				
+			var crTree = new dhtmlXTreeObject("tree-box1","100%","100%",0);
+			crTree.setSkin("dhx_black");
+			crTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			crTree.loadXML("../../dhtmlx/xml/tree-courserooms.xml");
+			
+			var pdTree = new dhtmlXTreeObject("tree-box2","100%","100%",0);
+			pdTree.setSkin("dhx_black");
+			pdTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			pdTree.loadXML("../../dhtmlx/xml/tree-pupil-development.xml");
+			
+			var asTree = new dhtmlXTreeObject("tree-box3","100%","100%",0);
+			asTree.setSkin("dhx_black");
+			asTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			asTree.loadXML("../../dhtmlx/xml/tree-assignments.xml");
+			
+			var rsTree = new dhtmlXTreeObject("tree-box4","100%","100%",0);
+			rsTree.setSkin("dhx_black");
+			rsTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			rsTree.loadXML("../../dhtmlx/xml/tree-resources.xml");
+
+            var menu1 = new dhtmlXMenuObject();
+            menu1.renderAsContextMenu();
+            menu1.loadXML("../../dhtmlx/xml/context_rooms1.xml");
+			
+            var menu2 = new dhtmlXMenuObject();
+            menu2.renderAsContextMenu();
+            menu2.loadXML("../../dhtmlx/xml/context_rooms2.xml");
+			
+			crTree.attachEvent("onRightClick", function(id, e){
+				menu1.hideContextMenu();
+				menu2.hideContextMenu();
+				if (id[0]=='1') {
+					menu1.showContextMenu(e.clientX, e.clientY);
+					crTree.selectItem(id);
+				}
+			});
+			
+			rsTree.attachEvent("onRightClick", function(id, e){
+				menu1.hideContextMenu();
+				menu2.hideContextMenu();
+				if (id[0]=='2') {
+					menu2.showContextMenu(e.clientX, e.clientY);
+					rsTree.selectItem(id);
+				}
+			});
+			
+			crTree.attachEvent("onClick",function(id){
+				if (crTree.getUserData(id,"href")!= undefined) window.open(crTree.getUserData(id,"href"), '_self');
+				return true;
+			});
+			
+			pdTree.attachEvent("onClick",function(id){
+				if (pdTree.getUserData(id,"href")!= undefined) window.open(pdTree.getUserData(id,"href"), '_self');
+				return true;
+			});
+			
+			asTree.attachEvent("onClick",function(id){
+				if (asTree.getUserData(id,"href")!= undefined) window.open(asTree.getUserData(id,"href"), '_self');
+				return true;
+			});
+			
+			asTree.attachEvent("onXLE",function(tree, id){
+				tree.openItem("lev0_2_2_0");
+				tree.selectItem("lev0_2_2_0");
+			});
+			
+			var loginTree = new dhtmlXTreeObject("login-treebox","100%","100%",0);
+			loginTree.setSkin("dhx_black");
+			loginTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			loginTree.loadXML("../../dhtmlx/xml/tree-login.xml");
+			//loginTree.enableCheckBoxes(true, false);
+			//loginTree.enableThreeStateCheckboxes(true);
+			
+			var addTree = new dhtmlXTreeObject("add-treebox","100%","100%",0);
+			addTree.setSkin("dhx_black");
+			addTree.setImagePath("../../dhtmlx/imgs-tree/csh_schoolmule/");
+			addTree.loadXML("../../dhtmlx/xml/tree-cr-add-dialog.xml");
+			addTree.enableCheckBoxes(true, false);
+			addTree.enableThreeStateCheckboxes(true);
+			
+			// CONTEXT MENU
+            var loginMenu = new dhtmlXMenuObject();
+            loginMenu.renderAsContextMenu();
+			loginMenu.contextAutoHide = false;
+			loginMenu.addNewChild(loginMenu.topId, 0, "login_menu_item_0", "Change school (admins)", false);
+			loginMenu.addNewChild(loginMenu.topId, 1, "login_menu_item_1", "Child 1 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 2, "login_menu_item_2", "Child 2 (parents)", false);
+			loginMenu.addNewChild(loginMenu.topId, 3, "login_menu_item_3", "Account settings", false);
+			loginMenu.addNewChild(loginMenu.topId, 4, "login_menu_item_4", "Log out", false);
+			loginMenu.addNewSeparator("login_menu_item_3");
+			loginMenu.attachEvent("onClick", function(id, zoneId, casState){
+				if (id=="login_menu_item_0") {
+					loginTree.openItem("i000");
+					loginTree.openItem("i001");
+					$('#login-dialog').dialog('open');
+				}
+			});
+			
+			mygrid = new dhtmlXGridObject('gridbox');
+			mygrid.selMultiRows = true;
+			mygrid.imgURL = "../../dhtmlx/imgs/icons_attendance/";
+			mygrid.setHeader("Assignment result units,Max,Pass,Mandatory,Course,Course objectives,");
+			//mygrid.setInitWidths("180,100,100,60,100,100,28");
+			mygrid.setInitWidthsP("25,15,15,10,15,15,5");
+			//mygrid.setColAlign("left,left,left,left,left,left");
+			mygrid.setColTypes("co,ed,ed,ch,ed,ed,ro");
+			//mygrid.setColSorting("str,str,str,str,str,str");
+			mygrid.init();
+			mygrid.setSkin("dhx_skyblue");
+			mygrid.loadXML("../../dhtmlx/xml/grid_cr_assignments.xml");
+			mygrid.enableEditEvents(true,false,true);
+			mygrid.enableTooltips("false,false,false,false,false,false,false");
+			
+			mygrid.attachEvent("onEditCell", function(stage,rId,cInd,nValue,oValue){
+				if ((cInd == 4)||(cInd == 5)) {
+					addTree.openItem("i000");
+					addTree.openItem("i001");
+					$('#add-dialog').dialog('open');
+					return false;
+				}
+				return true;
+			});
+			
+			mygrid.attachEvent("onXLE", function(){
+				/*
+				$(".dlg_img").click(function () {
+					addTree.openItem("i000");
+					addTree.openItem("i001");
+					$('#add-dialog').dialog('open');
+				});
+				*/
+				$(".plus_img").click(function () {
+					alert("Function adding row");
+				});
+				$(".minus_img").click(function () {
+					alert("Function deleting row");
+				});
+			});
+			//enabling menu
+			mygrid.enableContextMenu(menu_treegrid);
+			mygrid.attachEvent("onBeforeContextMenu",function(rowId,celInd,obj){
+				obj.selectRowById(rowId);
+				return true;
+			});
+			
+			$("#login-dd").click(function () {
+				loginMenu.showContextMenu($("#login-dd").offset().left - 115, $("#login-dd").offset().top + 11);
+			});
+
+			
+			// UI-dialog code
+			$('#login-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Change": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			$('#add-dialog').dialog({
+				autoOpen: false,
+				modal: true,
+				width: 360,
+				resizable: false,
+				buttons: {
+					"Add to assignment": function() { 
+						$(this).dialog("close");
+					},
+					"Clear": function() { 
+						$(this).dialog("close");
+					},
+					"Cancel": function() { 
+						$(this).dialog("close");
+					}
+				}
+			});
+			
+			$("#view-sbm").click(function () {
+				window.open('course-rooms-submissions.html', '_self');
+			});
+		
+		});
+	</script>
+	<style type="text/css">
+		div.gridbox_dhx_skyblue table.obj tr td { border-width: 1px; }
+		div.gridbox table.obj td { border-color: white lightgrey lightgrey white; }
+		div.gridbox table.obj tr td { padding-left: 3px; }
+	</style>
+</head>
+
+<body>
+
+<div id="login-dialog" title="Change school" style="display:none">
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="login-treebox" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="add-dialog" title="Add course objectives to assignment" style="display:none">
+	<div>Choose course objectives</div>
+	<div style="height: 340px; border: 1px solid #999; overflow: auto; background: #f7f7f7;">
+		<div id="add-treebox" style="background: #f7f7f7;"></div>
+	</div>
+</div>
+
+<div id="container">
+<div id="page-wrap">
+
+	<div id="header">
+		<div id="logo"></div> <!-- School logo. Image filename is in CSS as background -->
+		<div id="login">
+			<div style="float: right;">
+				<img id="login-dd" src="../../images/new_header_dropdown.png" alt="" />
+			</div>
+			<div style="float: left; padding-right: 8px;">
+				<div id="school-name">ECOActive school Lund</div>
+				<div id="teacher-name">Edmund Edmundsson</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- First top menu -->
+	<ul id="first-menu">
+		<li style="padding-left: 16px;"><a href="overview.html">Overview</a></li>
+		<li><a href="sm-settings-appearance.html">School manager</a></li>
+		<li><a href="calendar.html">Calendar</a></li>
+		<li><a href="course-objectives.html" class="fm-active">Course rooms</a></li>
+		<li><a href="attendance.html">Attendance</a></li>
+		<li><a href="discussions.html">Discussions and messages</a></li>
+		<li><a href="grades.html">Grades and pupil development</a></li>
+		<li><a href="reports.html">Charts and reports</a></li>
+	</ul>
+	
+	<!-- Second top menu -->
+	<div id="second-menu">
+		<ul>
+			<li class="item-inactive" title="comment_0011"><a href="course-objectives.html">Course objectives</a></li>
+			<li class="item-inactive" title="comment_0012"><a href="course-planning.html">Planning</a></li>
+			<li class="item-active" title="comment_0013"><a href="course-rooms.html">Course rooms</a></li>
+		</ul>
+		<div id="left-tab"></div>
+	</div>
+	
+	<div id="navigation">
+		<div class="box-caption">
+			Course room navigation
+		</div>
+		
+		<div id="nav-header">
+			<div id="nav-buttons-left">
+				<input id="search" type="text" style="width:220px;margin-right:5px;border:1px solid #666;" title="comment_0021" />
+				<a class="button" title="comment_0024">Search</a>
+			</div>
+		</div>
+		
+		<div id="nav-body">
+			<div class="acc-container" id="accord">
+			
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Present view</span><div class="i-arrow arrow-exp"></div>
+					</div>
+					<div class="i-body i-first first-expanded">
+						<div class="i-content">
+							<div style="margin:4px 4px;">Assignment DR005</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Course rooms</span><div class="i-arrow arrow-clp"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						<div class="i-content" id="tree-box1"></div>
+					</div>
+				</div>
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Assignments</span><div class="i-arrow arrow-exp"></div>
+					</div>
+					<div class="i-body i-expanded" style="height:0px;">
+						<div class="i-content" id="tree-box3"></div>
+					</div>
+				</div>				
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Pupil development</span><div class="i-arrow arrow-clp"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						<div class="i-content" id="tree-box2"></div>
+					</div>
+				</div>				
+				
+				<div class="acc-item">
+					<div class="i-head">
+						<span class="i-title">Resources</span><div class="i-arrow arrow-clp"></div>
+					</div>
+					<div class="i-body" style="height:0px;">
+						<div class="i-content" id="tree-box4"></div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<!-- Buttons at the bottom of the Details box -->
+		<div id="details-footer">
+		</div>
+	</div> <!-- END details -->
+	
+	<div id="main-content">
+		<div class="box-caption">
+			<div class="expand_btn" id="hide-navigation" title="comment_0016"></div>
+			<span class="after_expand_btn">Assignment details</span>
+		</div>
+		
+		<!-- Here is content div of Overview box -->
+		<div id="overview-body" style="top:24px">
+			<div id="main-box-header" style="border-bottom: 1px solid #aaa;">
+			
+				<div style="float:left; max-width:200px;">
+					<div><strong>Name: </strong>Swedish essay 1</div>
+					<div><strong>ID: </strong>3223</div>
+					<div><strong>Course room: </strong>Swedish litterature</div>
+					<div><strong>Element: </strong>1. Childstories</div>
+				</div>
+				<div style="float:left; margin-left:10px; max-width:170px;">					
+					<div><strong>Subm. total: </strong>62</div>
+					<div><strong>Subm. submitted: </strong>15</div>
+					<div><strong>Subm. not assessed: </strong>5</div>
+					<div><strong>Subm. not passed: </strong>2</div>
+				</div>
+				
+				<div style="float: right; margin-left: 10px;">
+				
+					<div style="float:left; margin-top: -1px; line-height:19px;">					
+						<div style="text-align:right;"><strong>Publication:</strong></div>
+						<div style="text-align:right;"><strong>Activation:</strong></div>
+						<div style="text-align:right;"><strong>Deadline:</strong></div>
+					</div>
+				
+					<div style="float:left; margin-left:5px;">
+						<div>
+							<select id="goal" class="styled" style="width:140px;" name="goal" title="comment_0050">
+								<option>Always</option>
+								<option>Untill deadline</option>
+								<option>Forward from activation</option>
+								<option>Activation to deadline</option>
+							</select>
+						</div>
+								
+						<div style="margin-top: 2px;">			
+							<select id="prognose" class="styled" style="width:140px;" name="prognose" title="comment_0050">
+								<option>Always</option>
+								<option>With element</option>
+								<option>Next lesson</option>
+								<option>At lesson #</option>
+								<option>At week #</option>
+								<option>At date #</option>
+								<option>Now</option>
+							</select>
+						</div>		
+
+						<div style="margin-top: 2px;">
+							<select id="grade" class="styled" style="width:140px;" name="grade" title="comment_0050">
+								<option>No deadline</option>
+								<option>After # lessons</option>
+								<option>After # weeks</option>
+								<option>Before lesson #</option>
+								<option>During lesson #</option>
+								<option>At date #</option>
+								<option>Now</option>
+							</select>
+						</div>
+					</div>
+						
+				</div>
+				
+				<div style="clear:left"></div>
+			</div>
+			
+			<div id="main-box-body" style="padding:0; overflow:hidden;">
+				<div id="gridbox" style="height:88px; width:100%;"></div>
+				
+				<div style="float:left; width:70%;">
+					<div class="box-caption">Assignment description for pupils</div>
+					<form action="preview.php" method="post" style="overflow:auto; border-right:1px solid #aaa;">
+						<textarea id="editor1" class="mce1" name="editor1" rows="3" cols="50"></textarea>
+					</form> <!-- END overview-body -->
+				</div>
+				<div style="float:left; width:30%;">
+					<div class="box-caption">Teachers private notes</div>
+					<form action="preview.php" method="post" style="overflow:auto;">
+						<textarea id="editor2" class="mce2" name="editor2" rows="3" cols="50"></textarea>
+					</form> <!-- END overview-body -->
+				</div>
+				<div style="clear:left"></div>
+			</div>
+			
+		</div> <!-- END overview-body -->
+		
+		<div id="overview-footer">
+			<!-- Buttons at the bottom of Overview box -->
+			<div id="buttons-left" style="left: 8px">
+				<a class="button" title="comment_0036">Save</a>
+				<a id="view-sbm" class="button" title="comment_0036">View submissions</a>
+				<a class="button" title="comment_0037">Cancel</a>
+			</div>
+		</div>
+	</div> <!-- END overview -->
+	
+</div> <!-- END page-wrap -->
+</div> <!-- END container -->
+
+<div id="footer">
+	<div id="footer-left"> <!-- Left part of footer -->
+		<img src="../../images/schoolmule_logo_small.png" alt="schooladmin" />
+		<a class="inverted-link" href="#">Schoolmule learningsystems</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">About</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Tutorials and Help</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Privacy policy</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Terms</a> &nbsp;|&nbsp;
+		<a class="inverted-link" href="#">Jobs</a>
+	</div>
+	<div id="footer-right"> <!-- Right part of footer -->
+		Unique user logins today Staff 16 / 22 &nbsp;|&nbsp; Pupils 123 / 189 &nbsp;|&nbsp; Parents 200 / 400
+	</div>
+</div> <!-- END footer -->
+
+<script type="text/javascript">
+	setLeftTab(7); //make menu item active
+</script>
+
+</body>
+</html>
