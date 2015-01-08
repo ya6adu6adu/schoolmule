@@ -301,6 +301,17 @@ var main = function(_options){
         //window.location = 'search.php?query='+text;
     }
 
+    /**
+     * logout user
+     * @returns {boolean}
+     */
+    this.logOutUser = function(){
+        $.post(self.script+'&action=logout', {action:'logout'}, function(data){
+            window.location = 'login.php'
+        },'json');
+        return true;
+    }
+
     this.showLogin2 = function(){
         var html ='\
                 <form id="login-form" onsubmit="return false">\

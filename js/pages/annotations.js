@@ -11,6 +11,7 @@ $(function(){
         schoolmule.main.showLogin();
     }else{
         showAnnotationPage();
+        checkUserActivityEvents();
     }
 });
 
@@ -540,4 +541,10 @@ function showAnnotationPage(){
     $("#cancel_button").click(function(){
         cancelDoc();
     });
+}
+
+function checkUserActivityEvents(){
+    if(opener.setUserActivity) {
+        opener.bindEvents(window.document);
+    }
 }
