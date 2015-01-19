@@ -65,7 +65,7 @@ class grid_performance {
         echo '<rows>';  
         $rerfs = $this->getPerformanceArray($result);
         $this->outPerformanceArray($rerfs);
-        echo "<row id='addresultbtn'><cell colspan='2' bgColor='#E9EAEE' image='add.png'>".dlang("runit_grid_menu_add", "Add new result unit")."</cell></row>";
+        echo "<row id='addresultbtn'><cell colspan='2' image='add.png'>".dlang("runit_grid_menu_add", "Add new result unit")."</cell></row>";
         echo '</rows>';
     }   
     

@@ -678,8 +678,9 @@ div.gridbox_sbdark .odd_sbdark {
  }
 div.gridbox_dhx_skyblue div.ftr td{
 	text-align:right;
-	background-image:url(./imgs/sky_blue_grid.gif);
-	border-color:#A4BED4;
+	/*background-image:url(./imgs/sky_blue_grid.gif);*/
+    background-color: #E9EAEE !important;
+    border-color: #C5C7D1 !important;
 }
 
 div.gridbox td.filter input, div.gridbox td.filter select{

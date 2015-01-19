@@ -64,7 +64,7 @@ class grid_assignments_tree {
         echo '<rows>';  
         $rerfs = $this->getAssignmentsArray($result);
         $this->outAssignmentsArray($rerfs);
-        echo "<row id='addresultbtn'><cell bgColor='#E9EAEE' colspan='2' image='add.png'>".dlang("runit_grid_menu_add", "Add new result unit")."</cell></row>";
+        echo "<row id='addresultbtn'><cell colspan='2' image='add.png'>".dlang("runit_grid_menu_add", "Add new result unit")."</cell></row>";
         echo '</rows>';
     }   
     

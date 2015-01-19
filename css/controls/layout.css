@@ -87,12 +87,12 @@
 }
 
 .block-border-bottom{
-	border-bottom: px solid #aaa;
+	border-bottom: 1px solid #8B9BA8;
 	
 }
 
 .block-border-right{
-	border-right: 1px solid #aaa;
+	border-right: 1px solid #8B9BA8;
 }
 
 .button {
@@ -310,7 +310,8 @@
 #objective_description_container .box-caption, #page_content_container .box-caption, #page_content_notes_container .box-caption,
 #grading_container .box-caption, #content_assignments_container .box-caption, #notes_assignments_container .box-caption, #assignment_garade_container .box-caption,
 #comments_tiny_container .box-caption, #description_for_pupils_container .box-caption, #notes_performance_container .box-caption,
-#assessment_garade_container .box-caption, #objective_progress_container .box-caption, #stg_grades_container .box-caption
+#assessment_garade_container .box-caption, #objective_progress_container .box-caption, #stg_grades_container .box-caption,
+#assess_grid_container .box-caption
 {
     color: #FFFFFF !important;
     background-color: #8B9BA8 !important;

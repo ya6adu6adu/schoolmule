@@ -27,7 +27,7 @@
                         <ul class="navMenu">
                             <li class="no-padding menuItem" style="background: transparent !important;">
                                 <div class="menuBlock">
-                                    <div class="menu" style="font-size: 10px !important;font-family: Arial !important;font-weight: bold !important;"><?php echo dlang("MENU","MENU"); ?></div>
+                                    <div class="menu" style="font-size: 10px !important;font-family: Arial !important;font-weight: bold !important; color: #8B9BA9 !important;"><?php echo dlang("MENU","MENU"); ?></div>
                                     <div class="triangle"></div>
                                 </div>
                                 <ul class="subMenu">

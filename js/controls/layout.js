@@ -376,6 +376,9 @@ schoolmule.controls.layout = function(_options){
                 if(cell.cells_right[j].cells[i].border_bottom){
                     internalBlock.addClass('block-border-bottom');
                 }
+                if(cell.cells_right[j].cells[i].border_left){
+                    internalBlock.addClass('block-border-left');
+                }
                 if(cell.cells_right[j].cells[i].title){
                     var ht = parseInt(internalBlock.css("height"));
                     internalBlock.css("height",(ht-23)+'px');

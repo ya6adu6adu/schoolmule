@@ -407,15 +407,15 @@ function showAssessPerformance(performance_id,p_stg){
 										id : "assess_grid",
 										width: '100%',
 										title: dlang("details_assess_performance_teachers_private_notes","Teachers private notes"),
-										height: '100%',
-										border_right: true
+										height: '100%'
 									},													
 									{
 										new_count : true,
 										id : "comments_tiny",
 										title: dlang("details_assess_performance_submissions","Submissions"),
 										width: '270px',
-										height: '100%'
+										height: '100%',
+                                        border_left: true
 									}
 									]
 								}								
@@ -529,15 +529,15 @@ function showAssessAssignment(assignment_id,p_stg){
 										id : "assignment_garade",
 										title: dlang("details_submissions_subm_res_and_assess","Submission result and assessments"),
 										width: '100%',
-										height: '100%',
-										border_right: true
+										height: '100%'
 									},
 									{
 										new_count : true,
 										id : "comments_tiny",
 										title: dlang("details_submissions_submissions","Submissions"),
 										width: '270px',
-										height: '100%'
+										height: '100%',
+                                        border_left: true
 									}
 									]
 								}
@@ -956,8 +956,7 @@ function showAssignmentsDetailsPupil(assignment_id,p_stg){
                             title: dlang("assignemnt_descr_header2","Assignment description"),
                             content: "Present view 2",
                             width: '100%',
-                            height: '100%',
-                            border_right: true
+                            height: '100%'
                         },
                         {
                             new_count : true,
@@ -965,7 +964,8 @@ function showAssignmentsDetailsPupil(assignment_id,p_stg){
                             title: dlang("Submissions"),
                             content: "Present view",
                             width: '270px',
-                            height: '100%'
+                            height: '100%',
+                            border_left: true
                         }
                     ]
                 }
@@ -2806,8 +2806,7 @@ function showPerformnaceDetailsPupil(performance_id,p_stg){
                             title: dlang("details_performance_description2","Performance description"),
                             content: "Present view 2",
                             width: '100%',
-                            height: '100%',
-                            border_right: true
+                            height: '100%'
                         },
                         {
                             new_count : true,
@@ -2815,7 +2814,8 @@ function showPerformnaceDetailsPupil(performance_id,p_stg){
                             title: dlang("details_performance_comments2","Comments"),
                             content: "Present view",
                             width: '270px',
-                            height: '100%'
+                            height: '100%',
+                            border_left: true
                         }
                     ]
                 }
@@ -3253,15 +3253,15 @@ function getAssignmentProgress(id){
 										id : "assessment_garade",
 										title: dlang("assign_progress_subm_and_perf_comments","Submissions and Performance comments"),
 										width: '100%',
-										height: '100%',
-										border_right: true
+										height: '100%'
 									},
 									{
 										new_count : true,
 										id : "comments_tiny",
 										title: dlang("assign_progress_submissions","Submissions"),
 										width: '270px',
-										height: '100%'
+										height: '100%',
+                                        border_left: true
 									}
 									]
 								}

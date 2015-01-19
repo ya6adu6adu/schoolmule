@@ -1822,3 +1822,9 @@ div#main-content > .no-border, div#navigation > .box-caption{
     box-sizing: border-box !important;
     padding-top: 10px !important;
 }
+#main-box-header strong{
+    font-weight: bolder;
+}
+.block-border-left{
+    border-left: 1px solid #8B9BA8;
+}
