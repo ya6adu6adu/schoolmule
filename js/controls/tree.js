@@ -116,7 +116,7 @@ schoolmule.controls.tree = function(_options) {
 			var select_ids = dhx.tree.getSelectedItemId().split(',');
 			for (var i=0; i < select_ids.length; i++) {
 				
-				dhx.tree.setItemStyle(select_ids[i],"background-color:#fff; border:0px solid #696969; color:#666;");
+				dhx.tree.setItemStyle(select_ids[i],"background-color: transparent; border:0px solid #696969; color:#666;");
 				if(select_ids[i]==detailsItem){
 					dhx.tree.setItemStyle(select_ids[i],"background-color:#fff; border:1px solid #696969; color:#666;");
 				}else{
@@ -371,14 +371,13 @@ schoolmule.controls.tree = function(_options) {
 
 		dhx.tree.attachEvent("onSelect", function(id){
             if(options.select===false){
-                dhx.tree.clearSelection();
                 return;
             }
             var temp = id.split(',');
 			if(!selContM){
 				if(self.drag_items && temp.length==1){
 					for(var i=0; i<self.drag_items.length;i++){
-						dhx.tree.setItemStyle(self.drag_items[i],"background-color:#fff; border:0px solid #696969; color:#666;");
+						dhx.tree.setItemStyle(self.drag_items[i],"background-color: transparent; border:0px solid #696969; color:#666;");
 					}		
 				}
 			}
@@ -389,7 +388,7 @@ schoolmule.controls.tree = function(_options) {
 					dhx.tree.setItemStyle(self.drag_items[self.drag_items.length-1],"background-color:#bbb; border:0px solid #696969; color:#FFF;");
 				if(!selContM){
 					var tdItem = options.select(id, dhx.tree, actionFunctions, detailsItem,ctrl);
-
+                    updateTreePath(dhx.tree, id);
                     if(tdItem){
                         $("#overview-body").css('background-color','#FFFFFF');
                     }
@@ -415,6 +414,7 @@ schoolmule.controls.tree = function(_options) {
 					dhx.tree.setItemStyle(self.drag_items[i],"background-color:#bbb; border:0px solid #696969; color:#FFF;");
 				}
 			}
+            return true;
 		});
 	}
 

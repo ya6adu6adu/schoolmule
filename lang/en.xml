@@ -397,7 +397,7 @@
     <string name="search_details_title">Search results</string>
     <string name="search_details_search_button">Search</string>
     <string name="search_details_results_found">results found</string>
-    <string name="login_log">Login</string>
+    <string name="login_log">LOGIN</string>
     <string name="login_user">Username</string>
     <string name="login_pass">Password</string>
     <string name="login_wrong">wrong username or password</string>
@@ -406,7 +406,7 @@
     <string name="button_reset_send">Send</string>
     <string name="button_reset_cancel">Cancel</string>
     <string name="reset_pass_user_text">We will send a link to your email where you can change password.</string>
-    <string name="empty_login_or_pass_alert">Please, enter you currnet login</string>
+    <string name="empty_login_or_pass_alert">Please, enter you current login</string>
     <string name="login_hello">Hello,</string>
     <string name="login_first_info_8">Your password must include at least one upper case, one lower case, one number. The password must be at least 8 characters.</string>
     <string name="login_new_pass">New Password</string>
@@ -451,7 +451,7 @@
     <string name="room_menu">Courserooms</string>
     <string name="course_objectives_tab">Course objectives</string>
     <string name="course_rooms_tab">Courserooms</string>
-    <string name="assessments_tab">Assessments</string>
+    <string name="assessments_tab">Assessment</string>
     <string name="assessment_accord">Assessment navigation</string>
     <string name="assessments_by_stg_accord">Assessments by studygroup</string>
     <string name="assessments_by_stg_accord_my">My assessments</string>
@@ -643,4 +643,6 @@
     <string name="performance_not_publ_label0">Performance is not published</string>
     <string name="performance_not_publ_label">This Performance is not published yet. Publication date and time: </string>
     <string name="incorrect_import_data_file">Sorry, incorrect data in the file. Please correct file and try again.</string>
+    <string name="optimized">Optimized for Google Chrome</string>
+    <string name="MENU">MENU</string>
 </resources>

@@ -142,7 +142,8 @@ schoolmule.controls.layout = function(_options){
 				$('#comments_tiny_container').hide();
 				$('#assignment_garade_container').css('width','100%');
 				$('#assignment_garade').css('width','100%');
-				collexp.css('background','url(images/collapse.png) no-repeat');
+				//collexp.css('background','url(images/collapse.png) no-repeat');
+                collexp.addClass("expand");
 				$("#overview-body").trigger('resizeMainCont');
 				for(var i=0; i<self.elements.length ; i++){
 					if(self.elements[i].refreshExpand){
@@ -154,7 +155,8 @@ schoolmule.controls.layout = function(_options){
 				$('#comments_tiny_container').show();
 				$('#assignment_garade_container').css('width',parseInt($('#assignment_garade_container').css('width'))-270+'px');
 				$('#assignment_garade').css('width',parseInt($('#assignment_garade_container').css('width'))+'px');
-				collexp.css('background','url(images/expand.png) no-repeat');
+				//collexp.css('background','url(images/expand.png) no-repeat');
+				collexp.removeClass("expand");
 				$("#overview-body").trigger('resizeMainCont');
 				for(var i=0; i<self.elements.length ; i++){
 					if(self.elements[i].refreshExpand){
@@ -301,7 +303,7 @@ schoolmule.controls.layout = function(_options){
         if(cell.cells_left){
             var navigation = $("#navigation");
             if(navigation.size()==0){
-                navigation = $('<div id="navigation"><div class="box-caption"></div></div>');
+                navigation = $('<div id="navigation"><div class="box-caption needPadding"></div></div>');
             }
             $.each(cell.cells_left, function (i){
                 navigation.append('<div id="'+cell.cells_left[i].id+'"></div>');
@@ -364,7 +366,7 @@ schoolmule.controls.layout = function(_options){
 
                 var padding_left = internalBlock.css('padding-left');
                 var padding_top = internalBlock.css('padding-top');
-                mainHeigth+=parseInt(padding_top)+1;
+                mainHeigth+=parseInt(padding_top);
 
                 if(cell.cells_right[j].cells[i].border_right){
                     internalBlock.addClass('block-border-right');
@@ -428,24 +430,28 @@ schoolmule.controls.layout = function(_options){
 	}
 	
 	function mainContentFullScreen() {
+        var content = $("#main-content");
 		if (he) {
 			$("#navigation,#second-menu,#first-menu,#header").hide();
-			$("#main-content").css({
-				left:"16px",
-				top:"6px"
+            content.css({
+				left:"10px",
+				top:"0",
+                borderTop: "1px solid red"
 			});
+            content.find(".no-border").removeClass("no-border");
             $("#hide-navigation").addClass("expanded");
 		}
 		else {
 			$("#navigation,#second-menu,#first-menu,#header").show();
+            content.find(".need_border").addClass("no-border");
 			if($("#navigation").size()>0){
-				$("#main-content").css({
-					left:"324px",
-					top:"93px"
+                content.css({
+					left:"322px",
+					top:"16px"
 				});
 			}else{
-				$("#main-content").css({
-					top:"93px"
+                content.css({
+					top:"16px"
 				});				
 			}
             $("#hide-navigation").removeClass("expanded");

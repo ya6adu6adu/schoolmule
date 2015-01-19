@@ -29,7 +29,7 @@ schoolmule.instances.tree_assessments_overview = new schoolmule.controls.tree({
 
 		if(schoolmule.instances.tree_assessments_by_studygroup){
 			var tree_desel = schoolmule.instances.tree_assessments_by_studygroup.getTree();
-			tree_desel.setItemStyle(tree_desel.getSelectedItemId(),"background-color:#fff; border:0px solid #696969; color:#666;");
+			tree_desel.setItemStyle(tree_desel.getSelectedItemId(),"background-color: transparent; border:0px solid #696969; color:#666;");
             tree_desel.clearSelection();
             tree_desel.saveSelectedItem("tree_assessments_by_studygroup"+"_selected");
 		}
@@ -37,33 +37,33 @@ schoolmule.instances.tree_assessments_overview = new schoolmule.controls.tree({
 			return false;
 		}
 		if(prev){
-			tree.setItemStyle(prev,"border:0; background-color:#FFFFFF; color:#666;");					
+			tree.setItemStyle(prev,"border:0; background-color: transparent; color:#666;");
 		}
 		var _id = id.split("_");
 		switch (_id[0]){
             case "academicyear":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "subject":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "years":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "programme":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "pupilgroup":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "pupil":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
 			case "assignmentsprogress":
 				tree.setItemStyle(id,"background-color:#FFFFFA; border:1px solid #696969; color:#666;");

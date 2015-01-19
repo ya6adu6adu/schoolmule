@@ -18,26 +18,97 @@ function viewSetup(){
 		default_select = false;
 	}
 	tabbar = new schoolmule.controls.tabs({
-		container:"second-menu",
-		width:'139px',
-		tabs_left:{
-            id:'left-tab',
-            callback: function(){},
-            label:dlang("setup_page_title","Database and users"),
-            select: false
-        },
-		tabs: [
-			{
-				id:'database',
-				callback: function(){
-					showSetupDatabase();
-				},
-				select: default_select,				
-				label:dlang("setup_page_db_tab","Database")
-			}
-		]
+		//container:"second-menu",
+		//width:'139px',
+		//tabs_left:{
+         //   id:'left-tab',
+         //   callback: function(){},
+         //   label:dlang("setup_page_title","Database and users"),
+         //   select: false
+        //},
+		//tabs: [
+		//	{
+		//		id:'database',
+		//		callback: function(){
+		//			showSetupDatabase();
+		//		},
+		//		select: default_select,
+		//		label:dlang("setup_page_db_tab","Database")
+		//	}
+		//]
 	});
+    tabbar.bindMenuEvents(
+        'second-menu',
+        [
+            {
+                id:'course_objectives',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "#tab=second-menu_course_objectives";
+                    if(window.location.pathname.indexOf("setup.php") > -1){
+                        window.location.pathname = "course_objectives.php"
+                    }else{
+                        showCourseObjectives();
+                    }
+                    setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+ dlang("course_objectives_tab", "Course objectives"));
 
+                }
+            },
+            {
+                id:'assignmrnts_and_performance',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "#tab=second-menu_assignmrnts_and_performance";
+                    if(window.location.pathname.indexOf("setup.php") > -1){
+                        window.location.pathname = "course_objectives.php"
+                    }else{
+                        showAssignmetsAndPerformance();
+                    }
+                    setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("course_rooms_tab", "Courserooms"));
+                }
+            },
+            {
+                id:'assessments',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "#tab=second-menu_assessments";
+                    if(window.location.pathname.indexOf("setup.php") > -1){
+                        window.location.pathname = "course_objectives.php"
+                    }else{
+                        showAssessments();
+                    }
+                    setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("assessments_tab", "Assessment"));
+                }
+            },
+            //{
+            //    id: 'move_to_course_room',
+            //    callback: function(){
+            //        window.location.hash = "#tab=second-menu_assignmrnts_and_performance";
+            //        window.location.pathname = "course_objectives.php"
+            //    }
+            //},
+            {
+                id: 'move_to_setup',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "";
+                    window.location.pathname = "setup.php";
+                }
+            }
+        ]
+    );
+
+    showSetupDatabase();
+    bindMenuEvents();
+    setMainPath(dlang("main_menu_db_and_users", "Database and users"));
 	if(hashValues.tab){
 		tabbar.setActiveTab(hashValues.tab);
 	}

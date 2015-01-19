@@ -57,3 +57,21 @@
     overflow: auto;
 }
 
+/* ----------------------------------------------------------------
+            CHANGED/ADDED STYLES FOR ACCORDION SECTION
+-----------------------------------------------------------------*/
+
+.i-head{
+    background: #8B9BA8 !important ;
+}
+.i-title{
+    color: #FFFFFF !important;
+}
+.standartTreeRow{
+    font-family: Tahoma !important;
+    font-size: 11px !important;
+}
+.i-head{
+    border-top: 1px solid #AEB9C1 !important;
+    border-bottom: 1px solid #AEB9C1 !important;
+}

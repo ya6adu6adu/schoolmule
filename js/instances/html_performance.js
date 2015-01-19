@@ -13,7 +13,7 @@ schoolmule.instances.html_performance = new schoolmule.controls.html({
 					</div>\
                     <div style="float:right; margin-left:10px;margin-right:0px;">\
                         <div style="float:left; margin-top: 1px; line-height:19px;" class="select_template_label">\
-                            <div style="text-align:right;">\
+                            <div style="text-align:right;height: 17px;margin-top: 2px;">\
                                 <strong><%= activation.label %>:</strong>\
                             </div>\
                         </div>\

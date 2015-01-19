@@ -44,7 +44,7 @@ schoolmule.instances.grid_performance = new schoolmule.controls.grid({
             }
         }*/
     },
-    beforeSelectRow:  function(new_row,dhx,keysel, row_id){
+    beforeSelectRow:  function(new_row,dhx,keysel, row_id, old_row){
        var that = this;      
          var _id = new_row.split("_");     
 
@@ -52,7 +52,13 @@ schoolmule.instances.grid_performance = new schoolmule.controls.grid({
                 if (_id[1])
                 that.editResultObjectives(dhx.grid,_id[1],row_id);
                 return false;          
-        }    
+        }
+        else{
+            if(old_row && _id[0] == 'addresultbtn'){
+                that.addResultUnit(dhx.grid, row_id);
+                return true;
+            }
+        }
     
         return true;
     },
@@ -76,14 +82,14 @@ schoolmule.instances.grid_performance = new schoolmule.controls.grid({
                       return false;
                   }
                 break;
-              case 'addresultbtn': 
-                if (stage==0){
-                    that.addResultUnit(grid,self.row_id)
-                      console.log('add');
-                }else{
-                    return true;
-                }                 
-                break;
+              //case 'addresultbtn':
+              //  if (stage==0){
+              //      that.addResultUnit(grid,self.row_id)
+              //        console.log('add');
+              //  }else{
+              //      return true;
+              //  }
+              //  break;
               case 'addresobjbtn': 
                 if (stage==0 && _id[1]){
                     that.editResultObjectives(grid,_id[1],self.row_id)

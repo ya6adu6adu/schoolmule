@@ -19,44 +19,119 @@ function viewRooms(){
 	var default_select = true;
 	if(hashValues.tab){
 		default_select = false;
-	}
+	}else{
+        hashValues.tab = "second-menu_assignmrnts_and_performance";
+    }
 
-	tabbar = new schoolmule.controls.tabs({
-		container:"second-menu",
-		width:'109px',
-		tabs_left:{
-				id:'left-tab', 
-				callback: function(){
-				}, 
-				label:dlang("room_menu","Courserooms"),
-				select: false
-			},
-		tabs: [
-			{
-				id:'course_objectives', 
-				callback: function(){
-					showCourseObjectives();
-				}, 
-				label:dlang("course_objectives_tab","Course objectives")
-			},
-			{
-				id:'assignmrnts_and_performance', 
-				callback: function(){
-					showAssignmetsAndPerformance();
-				},
-                select: default_select,
-                label:dlang("course_rooms_tab","Courserooms")
-			},
-			{
-				id:'assessments', 
-				callback: function(){
+	tabbar = new schoolmule.controls.tabs(
+     //   {
+	//	container:"second-menu",
+	//	width:'109px',
+	//	tabs_left:{
+	//			id:'left-tab',
+	//			callback: function(){
+	//			},
+	//			label:dlang("room_menu","Courserooms"),
+	//			select: false
+	//		},
+	//	tabs: [
+	//		{
+	//			id:'course_objectives',
+	//			callback: function(){
+	//				showCourseObjectives();
+	//			},
+	//			label:dlang("course_objectives_tab","Course objectives")
+	//		},
+	//		{
+	//			id:'assignmrnts_and_performance',
+	//			callback: function(){
+	//				showAssignmetsAndPerformance();
+	//			},
+     //           select: default_select,
+     //           label:dlang("course_rooms_tab","Courserooms")
+	//		},
+	//		{
+	//			id:'assessments',
+	//			callback: function(){
+    //
+	//				showAssessments();
+	//			},
+	//			label:dlang("assessments_tab","Assessments")
+	//		}
+	//	]
+	//}
+    );
+    bindMenuEvents();
+    tabbar.bindMenuEvents(
+        'second-menu',
+        [
+            {
+                id:'course_objectives',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "#tab=second-menu_course_objectives";
+                    if(window.location.pathname.indexOf("setup.php") > -1){
+                        window.location.pathname = "course_objectives.php"
+                    }else{
+                        showCourseObjectives();
+                    }
+                    setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+ dlang("course_objectives_tab", "Course objectives"));
 
-					showAssessments();
-				}, 
-				label:dlang("assessments_tab","Assessments")
-			}
-		]
-	});
+                }
+            },
+            {
+                id:'assignmrnts_and_performance',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "#tab=second-menu_assignmrnts_and_performance";
+                    if(window.location.pathname.indexOf("setup.php") > -1){
+                        window.location.pathname = "course_objectives.php"
+                    }else{
+                        showAssignmetsAndPerformance();
+                    }
+                    setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("course_rooms_tab", "Courserooms"));
+                }
+            },
+            {
+                id:'assessments',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "#tab=second-menu_assessments";
+                    if(window.location.pathname.indexOf("setup.php") > -1){
+                        window.location.pathname = "course_objectives.php"
+                    }else{
+                        showAssessments();
+                    }
+                    setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("assessments_tab", "Assessment"));
+                }
+            },
+            //{
+            //    id: 'move_to_course_room',
+            //    callback: function(){
+            //        window.location.hash = "#tab=second-menu_assignmrnts_and_performance";
+            //        window.location.pathname = "setup.php"
+            //    }
+            //}
+            //,
+            {
+                id: 'move_to_setup',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    window.location.hash = "";
+                    window.location.pathname = "setup.php";
+                }
+            }
+        ]
+    );
+
 
 	if(hashValues.tab){
 		tabbar.setActiveTab(hashValues.tab);
@@ -299,7 +374,6 @@ function showAssessPerformance(performance_id,p_stg){
 		content.destroy();
 		content = null;
 	}
-
 	content = new schoolmule.controls.layout({
 	cellsBlock: {
 				display_footer_right: true,
@@ -311,7 +385,7 @@ function showAssessPerformance(performance_id,p_stg){
 										id : "main-box-header",
 										title: "",
 										width: '100%',
-										height: '65px',
+										height: '67px',
 										border_bottom: true
 									}]									
 								},
@@ -1224,6 +1298,7 @@ function clickTheCustom(data){
     //---end of custom editor
 }
 function setPublishAssignmentMode(container,notice){
+    var style;
     var editionArea = $('#'+container), height;
     if(tinyContent){
         window.assignment_content = tinyContent.getContent();
@@ -1278,7 +1353,12 @@ function setPublishAssignmentMode(container,notice){
     setEditbold();
     if($('#'+notice +' .helper_tiny_message').size()==0 && !window.published_assignment_content){
         if(!$("#perfomance_custom_editor_for_published_tab").is(":visible")) {
-            $('#' + notice).append('<span class="helper_tiny_message">' + dlang("help_tiny_mce_message", "To edit content click 'Edit' tab in description header") + '</span>');
+            if($("#"+notice).find(".custom_editor_control").length > 0){
+                style = "top: 25px !important;"
+            }else{
+                style = "";
+            }
+            $('#' + notice).append('<span class="helper_tiny_message" style="'+style+'">' + dlang("help_tiny_mce_message", "To edit content click 'Edit' tab in description header") + '</span>');
         }
     }
     if (container == "description_for_pupils_field"){
@@ -1409,6 +1489,7 @@ function createEditPublishHeaderObjective(container,header,text){
 }
 
 function setPublishObjectiveMode(container,notice){
+    var style;
     if(tinyGrading){
         window.grading_content = tinyGrading.getContent();
     }
@@ -1446,7 +1527,12 @@ function setPublishObjectiveMode(container,notice){
     setEditboldObjective();
     if($('#'+notice +' .helper_tiny_message').size()==0 && !window.published_grading_content){
         if(!$("#perfomance_custom_editor_for_published_tab").is(":visible")) {
-            $('#' + notice).append('<span class="helper_tiny_message">' + dlang("help_tiny_mce_message", "To edit content click 'Edit' tab in description header") + '</span>');
+            if($("#"+notice).find(".custom_editor_control").length > 0){
+                style = "top: 25px !important;"
+            }else{
+                style = "";
+            }
+            $('#' + notice).append('<span class="helper_tiny_message" style="'+style+'">' + dlang("help_tiny_mce_message", "To edit content click 'Edit' tab in description header") + '</span>');
         }
     }
 }
@@ -1724,7 +1810,7 @@ function addCustomEditor(container, id, neighbour, isHidden, label, isMCE, eleme
     ceContainer.append('<table id="'+id+'"class="custom_editor_control">'
             +'<tr><td class="url_td"><input class="custom_editor_url" type="text">'+
             '<img class="custom_editor_reload_btn" src="/images/reload.png"></td>'+
-            '<td class="control_td"><input class="custom_editor_flag" type="checkbox">'+
+            '<td class="control_td"><span class="custom_checkbox"></span><input class="custom_editor_flag" type="checkbox">'+
             '<span>'+label+'</span></td></tr></table>');
     ceContainer.append('<iframe id="'+id+'_frame" class="custom_editor_frame" hidden></iframe>');
     if (isHidden){
@@ -1737,7 +1823,10 @@ function addCustomEditor(container, id, neighbour, isHidden, label, isMCE, eleme
     var ceFrame = $("#"+id+"_frame");
     var ceReload = $("#"+id+" .custom_editor_reload_btn");
     if (getCookie(id+'_'+element_id+'_checked') || getCookie(id+'_'+element_id+'_checked')===false){
-        ceFlag.prop("checked", (getCookie(id+'_'+element_id+'_checked')==='false')?false:true);        
+        ceFlag.prop("checked", (getCookie(id+'_'+element_id+'_checked')==='false')?false:true);
+        if(getCookie(id+'_'+element_id+'_checked')!=='false'){
+            $(".custom_checkbox").css("background","url(../images/icons/chx_check.png)");
+        }
     }
     if (getCookie(id+'_'+element_id+'_url')){
         ceUrl.val(getCookie(id+'_'+element_id+'_url'))
@@ -1761,6 +1850,7 @@ function addCustomEditor(container, id, neighbour, isHidden, label, isMCE, eleme
         setCookie(id+'_'+element_id+'_checked', ceFlag.is(':checked'));
         setCookie(id+'_'+element_id+'_url', ceUrl.val());
         if(ceFlag.is(':checked')){
+        $(".custom_checkbox").css("background","url(../images/icons/chx_check.png)");
         ceFrame.attr('src',ceUrl.val());
         ceFrame.height(boxHeight - boxTopInput);
         ceFrame.show();
@@ -1769,6 +1859,7 @@ function addCustomEditor(container, id, neighbour, isHidden, label, isMCE, eleme
         //mceBox.addClass("display_none");
         //mcePrev.addClass("display_none");
         }else{
+            $(".custom_checkbox").css("background","url(../images/icons/chx_uncheck.png)");
             ceFrame.hide();
             if (isMCE){
                 ceContainer.css("overflow", "hidden");

@@ -22,13 +22,13 @@ schoolmule.instances.html_pupil_assessment_by_stg = new schoolmule.controls.html
 				</div>\
 				<div style="float:right; margin-right:0px;">\
 					<div style="float:left; margin-top: -1px; line-height:19px;">\
-						<div style="text-align:right;">\
+						<div style="text-align:right;height: 17px;margin-top: 2px;">\
 							<strong><%= goal.label %>:</strong>\
 						</div>\
-						<div style="text-align:right;">\
+						<div style="text-align:right;height: 17px;margin-top: 2px;">\
 							<strong><%= prognose.label %>:</strong>\
 						</div>\
-						<div style="text-align:right;">\
+						<div style="text-align:right;height: 17px;margin-top: 2px;">\
 							<strong><%= grade.label %>:</strong>\
 						</div>\
 					</div>\

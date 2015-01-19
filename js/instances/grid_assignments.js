@@ -62,7 +62,7 @@ schoolmule.instances.grid_assignments = new schoolmule.controls.grid({
             }
         }*/
     },
-    beforeSelectRow:  function(new_row,dhx,keysel, row_id){
+    beforeSelectRow:  function(new_row,dhx,keysel, row_id, old_row){
        var that = this;      
          var _id = new_row.split("_");     
 
@@ -70,7 +70,13 @@ schoolmule.instances.grid_assignments = new schoolmule.controls.grid({
                 if (_id[1])
                 that.editResultObjectives(dhx.grid,_id[1],row_id);
                 return false;          
-        }    
+        }
+        else{
+            if(old_row && _id[0] == 'addresultbtn'){
+                that.addResultUnit(dhx.grid, row_id);
+                return true;
+            }
+        }
     
         return true;
     },
@@ -94,15 +100,16 @@ schoolmule.instances.grid_assignments = new schoolmule.controls.grid({
                       return false;
                   }
                 break;
-              case 'addresultbtn': 
-                if (stage==0){
-                    that.addResultUnit(grid,self.row_id)
-                      console.log('add');
-                }else{
-                    return true;
-                }                 
-                break;
-              case 'addresobjbtn': 
+              //case 'addresultbtn':
+              //    debugger;
+              //  if (stage==0){
+              //      that.addResultUnit(grid,self.row_id)
+              //        console.log('add');
+              //  }else{
+              //      return true;
+              //  }
+              //  break;
+              case 'addresobjbtn':
                 if (stage==0 && _id[1]){
                     that.editResultObjectives(grid,_id[1],self.row_id)
 
@@ -152,7 +159,7 @@ schoolmule.instances.grid_assignments = new schoolmule.controls.grid({
                                     grid.cells(baseId+'max', 1).setDisabled(celLock.max);
                                     grid.cells(baseId+'pass', 1).setDisabled(celLock.pass);
                                     var activeColor = "white";
-                                    var inactiveColor = "#F0F0EE";
+                                    var inactiveColor = "#F2F3F7";
                                     if (celLock.max){
                                         grid.setCellTextStyle(baseId+'max', 1,"background-color:"+inactiveColor+";");
                                     }else{

@@ -160,13 +160,15 @@ schoolmule.controls.grid = function(_options){
             if(options.save_state){
                 setCookie(options.id+'_select', id);
             }
-
+            //if(id === 'addresultbtn'){
+            //    this.callEvent("onRowDblClicked",[id,ind]);
+            //}
             keysel = false;
 			options.selectRow(ind, id, dhx, options, self.row_id, actions, self.row_id);
 		});
 		
 		dhx.grid.attachEvent("onBeforeSelect", function(new_row,old_row){
-			return options.beforeSelectRow(new_row,dhx,keysel,self.row_id);
+            return options.beforeSelectRow(new_row,dhx,keysel,self.row_id, old_row);
 		});
 
         dhx.grid.attachEvent("onRowDblClicked", function(rId,cInd){

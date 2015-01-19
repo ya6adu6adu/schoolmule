@@ -65,7 +65,7 @@ class grid_performance {
         echo '<rows>';  
         $rerfs = $this->getPerformanceArray($result);
         $this->outPerformanceArray($rerfs);
-        echo "<row id='addresultbtn'><cell colspan='2' image='add.png'>".dlang("runit_grid_menu_add", "Add new result unit")."</cell></row>";
+        echo "<row id='addresultbtn'><cell colspan='2' bgColor='#E9EAEE' image='add.png'>".dlang("runit_grid_menu_add", "Add new result unit")."</cell></row>";
         echo '</rows>';
     }   
     
@@ -129,7 +129,7 @@ class grid_performance {
             echo '<cell style="color:rgb(73, 74, 75);" bgColor="#FFFFFF" image="result_unit_type.png" >' 
                 . dlang("runit_grid_runit", "Assignment result units") 
             . '</cell>';
-             echo '<cell  style="background-color: rgb(240, 240, 238);" bgColor="#FFFFFF"  >' 
+             echo '<cell  style="background-color: #F2F3F7;" bgColor="#FFFFFF"  >'
                 . dlang("runit_selectoption3","Grade")
             . '</cell>';
             echo '</row>';           
@@ -137,7 +137,7 @@ class grid_performance {
             echo '<cell  style="color:rgb(73, 74, 75);" bgColor="#FFFFFF"  image="max.png" >' 
                 . dlang("runit_grid_max", "Max")
             . '</cell>';
-             echo '<cell  style="background-color: rgb(240, 240, 238);"   >' 
+             echo '<cell  style="background-color: #F2F3F7"   >'
                 .'A'
             . '</cell>';
             echo '</row>';
@@ -146,7 +146,7 @@ class grid_performance {
             echo '<cell  style="background-color: #FFFFFF" bgColor="#FFFFFF"  image="pass.png" >' 
                .dlang("runit_grid_pass", "Pass")
             . '</cell>';
-             echo '<cell  style="background-color: rgb(240, 240, 238);"   >' 
+             echo '<cell  style="background-color: #F2F3F7;"   >'
                 . 'E'
             . '</cell>';
             echo '</row>';
@@ -157,17 +157,17 @@ class grid_performance {
             . '</cell>';     
             foreach ($row['c']['objectives'] as $stg_key => $stg_val){ //studygroup iteration
                 echo '<row  id="runit_'.$key.'_c_stg_'.$stg_key.'">';
-                echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#FFFFFF" image="studygroup.png">' 
+                echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#E9EAEE" image="studygroup.png">'
                     .$stg_val['title_en']
                 . '</cell>';
                 foreach ($stg_val['objectives'] as $o_key => $o_val){ //objectives iteration
                     echo '<row id="runit_'.$key.'_c_obj_'.$o_key.'">';
-                    echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#FFFFFF"  image="objective.png" >' 
+                    echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#E9EAEE"  image="objective.png" >'
                         .$o_val['title_en']
                     . '</cell><cell></cell>';
                     echo '</row>';
                 }
-                echo '<row id="addresobjbtn_'.$key.'"><cell colspan="2" image="add.png">'.dlang("runit_grid_assign_object", "Assign objectives").'</cell><cell ></cell></row>';
+                echo '<row id="addresobjbtn_'.$key.'"><cell bgColor="#E9EAEE" colspan="2" image="add.png">'.dlang("runit_grid_assign_object", "Assign objectives").'</cell><cell ></cell></row>';
                 echo '</row>';
             }               
             echo '</row>';

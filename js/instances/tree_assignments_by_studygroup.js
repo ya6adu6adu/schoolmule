@@ -344,18 +344,18 @@ schoolmule.instances.tree_assignments_by_studygroup = new schoolmule.controls.tr
 	select: function(id,tree,funcs,prev){
 		if(schoolmule.instances.tree_assignments_by_status){
 			var tree_desel = schoolmule.instances.tree_assignments_by_status.getTree();
-			tree_desel.setItemStyle(tree_desel.getSelectedItemId(),"background-color:#fff; border:0px solid #696969; color:#666;");
+			tree_desel.setItemStyle(tree_desel.getSelectedItemId(),"background-color:transparent; border:0px solid #696969; color:#666;");
             tree_desel.clearSelection();
             tree_desel.saveSelectedItem('tree_assignments_by_status_selected');
 		}
 		if(prev){
-			tree.setItemStyle(prev,"border:0; background-color:#FFFFFF; color:#666;");
+			tree.setItemStyle(prev,"border:0; background-color:transparent; color:#666;");
 		}
 		var _id = id.split("_");
 		switch (_id[0]){
             case "academicyear":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "folder":
                 //tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
@@ -363,39 +363,39 @@ schoolmule.instances.tree_assignments_by_studygroup = new schoolmule.controls.tr
                 break;
             case "member":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "pupilgroup":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "pupil":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "teachers":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                ///tree.clearSelection(id);
                 break;
             case "staffmember":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "pupils":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "member":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "room":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "subject":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "studygroup":
                 //tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");

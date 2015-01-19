@@ -1,8 +1,10 @@
 .template{
-	
-	/*height:100%;*/
-	background:#F0F0EE;
+	background:#D8D9E0;
 	padding: 4px 9px 4px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 	
 }
 
@@ -20,7 +22,10 @@ select.styled {
 	border: 0;
 	overflow: hidden !important;
 	text-align: left;
-	color: #666;
-	font: 11px Arial, Helvetica, sans-serif;
-        line-height: 14px;
+	color: #666666;
+	/*font: 11px Arial, Helvetica, sans-serif;*/
+    line-height: 14px;
+}
+#main-box-header *{
+    font: 11px Tahoma;
 }

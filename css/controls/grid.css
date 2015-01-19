@@ -108,3 +108,11 @@ img[src='dhtmlx/dhtmlxGrid/codebase/imgs/add.png']{
 .display_none{
     display: none !important;
 }
+img[src='dhtmlx/dhtmlxTree/codebase/imgs/csh_schoolmule/folder_closed.png']{
+    width: 14px !important;
+    height: 12px !important;
+}
+img[src='dhtmlx/dhtmlxTree/codebase/imgs/csh_schoolmule/folder_open.png']{
+    width: 16px !important;
+    height: 12px !important;
+}

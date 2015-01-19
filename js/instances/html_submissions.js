@@ -20,13 +20,13 @@ schoolmule.instances.html_submissions = new schoolmule.controls.html({
 				</div>\
 				<div style="float:right; margin-left:10px;margin-right:0px;">\
 					<div style="float:left; margin-top: -1px; line-height:19px;">\
-						<div style="text-align:right;">\
+						<div style="text-align:right;height: 17px;margin-top: 2px;">\
 							<strong><%= publication.label %>:</strong>\
 						</div>\
-						<div style="text-align:right;">\
+						<div style="text-align:right;height: 17px;margin-top: 2px;">\
 							<strong><%= activation.label %>:</strong>\
 						</div>\
-						<div style="text-align:right;">\
+						<div style="text-align:right;height: 17px;margin-top: 2px;">\
 							<strong><%= deadline.label %>:</strong>\
 						</div>\
 					</div>\

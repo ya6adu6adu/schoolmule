@@ -207,7 +207,7 @@ schoolmule.instances.tree_course_objectives = new schoolmule.controls.tree({
 
             if(ifs){
             */
-                tree.setItemStyle(prev,"border:0; background-color:#FFFFFF; color:#666;");
+                tree.setItemStyle(prev,"border:0; background-color: transparent; color:#666;");
 
             /*}else{
                 tree.setItemStyle(prev,"border:0; background-color:#FFFFFF; color:red;");
@@ -217,11 +217,11 @@ schoolmule.instances.tree_course_objectives = new schoolmule.controls.tree({
 		switch (_id[0]){
 			case "myobj":
 				tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-				tree.clearSelection(id);
+				//tree.clearSelection(id);
 				break;
 			case "programme":
 				tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-				tree.clearSelection(id);
+				//tree.clearSelection(id);
 				break;
 			case "studygroup":
 				tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
@@ -232,7 +232,7 @@ schoolmule.instances.tree_course_objectives = new schoolmule.controls.tree({
                     tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:red;");
                 }
                 */
-				tree.clearSelection(id);
+				//tree.clearSelection(id);
 				break;
 			case "objectivegroup":
 				if(!ctrl){
@@ -244,7 +244,7 @@ schoolmule.instances.tree_course_objectives = new schoolmule.controls.tree({
                         tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:red;");
                     }
                     */
-					tree.clearSelection(id);
+					//tree.clearSelection(id);
 				}
 				break;
 			case "objective":
@@ -277,15 +277,15 @@ schoolmule.instances.tree_course_objectives = new schoolmule.controls.tree({
 
             case "academicyear":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "subject":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "studygroup":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
 			default:
 				return null;

@@ -17,23 +17,28 @@
     <div id="result_cunter"></div>
     <div id="dialogflexpaper">
            <div id="flexpaper_buttons" >
-               <div style="min-height: 704px; position: absolute; height: 100%; margin-left: 15px;">
+               <div style="min-height: 704px; position: absolute; height: 100%; margin-left: 15px; width: 225px;">
+                   <div class="topSection">
                            <div class="nav_buttons" style=" padding-top: 10px;">
-                               <label class="main_label"><?php echo dlang("flexpaper_page_navig_title","Page Navigation"); ?></label>
-                               <div class="buttoncont">
-                                   <button class="button annbutton" id="prev"><</button>
-                                   <button class="button annbutton" id="next">></button>
+                               <div class="buttoncont" style="height: 13px;">
+                                   <div class="left-triangle" id="prev"></div>
+                                   <div class="middle main_label"><?php echo dlang("flexpaper_page_navig_title","Page Navigation"); ?></div>
+                                   <div class="right-triangle" id="next"></div>
                                </div>
-                               <select class="styled runitsel" id="gotopage">
+                               <span class="select" style="width: 185px; left: 0; " id="number_page"><?php echo dlang("goto_page_select","Goto Page"); ?></span>
+                               <select class="styled runitsel" id="gotopage" style="opacity: 0">
+
                                </select>
-                               <span class="page_pic flex_pic "><span class="select-item"></span><img src="images/flexpaper/View_page.png"></span>
-                               <span class="2page_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/View_two_pages.png"></span>
-                               <span class="many_page_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/Many_pages.png"></span>
-                               <span class="fill_vert_pic flex_pic"><span  class="select-item"></span><img src="images/flexpaper/Fill_vertically.png"></span>
-                               <span class="fill_hor_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/Fill_horizontally.png"></span>
-                               <span class="rotate_pic flex_pic"><img src="images/flexpaper/Rotate.png"></span>
-                               <span class="select_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/Select_text.png"></span>
-                               <span class="move_pic flex_pic"><span class="select-item"></span><img src="images/flexpaper/Move.png"></span>
+                               <div class="makeFloat">
+                                   <span class="page_pic flex_pic " style=""><span class="select-item"></span><img class="selected" style="margin: 1.5px 2.5px;" src="images/flexpaper/one_page_selected.png"></span>
+                                   <span class="2page_pic flex_pic" style="width: 25px !important;"><span style="display: none" class="select-item"></span><img style="margin: 3px 1px;" src="images/flexpaper/twodocuments.png"></span>
+                                   <span class="many_page_pic flex_pic"><span style="display: none" class="select-item"></span><img style="margin: 3px;" src="images/flexpaper/thumbs.png"></span>
+                                   <span class="fill_vert_pic flex_pic"><span  class="select-item"></span><img class="selected" style="margin: 0.5px 3px;" src="images/flexpaper/fit_vert_selected.png"></span>
+                                   <span class="fill_hor_pic flex_pic"><span style="display: none" class="select-item"></span><img style="margin: 2px 0px;" src="images/flexpaper/fit.png"></span>
+                                   <span class="rotate_pic flex_pic"><img style="margin: 2px 1px;" src="images/flexpaper/flip.png"></span>
+                                   <span class="select_pic flex_pic"><span style="display: none" class="select-item"></span><img style="margin: 2px 1px;" src="images/flexpaper/textselect.png"></span>
+                                   <span class="move_pic flex_pic"><span class="select-item"></span><img style="margin: 1px 2px;" class="selected" src="images/flexpaper/hand_selected.png"></span>
+                               </div>
                                <!--<span class="fullscreen_pic flex_pic"><img src="images/flexpaper/Full_screen.png"></span>-->
                                <div style="margin-top: 5px;" id="slider"></div>
                            </div>
@@ -43,12 +48,14 @@
                                echo '
                                    <div class="nav_buttons" style="border-top: 1px solid #666; padding-top: 10px; margin-top: 10px;">
                                        <label class="main_label">'.dlang("flexpaper_annotate_tools","Annotate tools").'</label>
-                                       <span class="show_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/View_annotation_active.png"></span>
-                                       <span class="comment_pic flex_pic"><span style="display: none; " class="select-item"></span><img src="images/flexpaper/Comment.png"></span>
-                                       <span class="draw_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/Draw.png"></span>
-                                       <span class="highlightfill_vert_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/Highlight.png"></span>
-                                       <span class="strike_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/Strike_through.png"></span>
-                                       <span class="delete_pic flex_pic"><span style="display: none" class="select-item"></span><img src="images/flexpaper/Delete.png"></span>
+                                       <div class="makeFloat">
+                                           <span class="show_pic flex_pic"><span style="display: none" class="select-item"></span><img class="" style="margin: 3px 1.5px; position: relative;" src="images/flexpaper/View_annotation_active.png"></span>
+                                           <span class="comment_pic flex_pic"><span style="display: none; " class="select-item"></span><img style="margin: 2px 1.5px; position: relative;" src="images/flexpaper/comment.png"></span>
+                                           <span class="draw_pic flex_pic"><span style="display: none" class="select-item"></span><img style="margin: 2px 3px; position: relative;" src="images/flexpaper/pen.png"></span>
+                                           <span class="highlightfill_vert_pic flex_pic"><span style="display: none" class="select-item"></span><img style="margin: 2px 3px; position: relative;" src="images/flexpaper/highlight.png"></span>
+                                           <span class="strike_pic flex_pic"><span style="display: none" class="select-item"></span><img style="margin: 3.5px; position: relative;" src="images/flexpaper/Strike_through.png"></span>
+                                           <span class="delete_pic flex_pic"><span style="display: none" class="select-item"></span><img style="margin: 2px 2.5px; position: relative;" src="images/flexpaper/Delete.png"></span>
+                                       </div>
                                    </div>
                                 ';
                            }
@@ -57,7 +64,6 @@
 
                            <div class="nav_buttons" style="border-top: 1px solid #666; padding-top: 10px; margin-top: 10px;">
                                <label class="main_label"><?php echo dlang("flexpaper_print_search","Print and search"); ?></label>
-                               <span class="print flex_pic"><img src="images/flexpaper/Print.png"></span>
                                <input class="search_input" id="search_input" type="text" />
                                <span class="draw_search flex_pic"><img src="images/flexpaper/Search.png"></span>
                            </div>
@@ -67,8 +73,11 @@
                            <div id="results_grid"></div>
                            <div class="nav_buttons" class="nav_buttons" style="padding-top: 10px;">
                                <label class="main_label"><?php echo dlang("flexpaper_assessment_title","Assessment"); ?></label>
-                               <select class="styled runitsel" id="setassessment"></select>
+                               <span class="select" style="width: 185px; left: 0; " id="assesment"></span>
+                               <select class="styled runitsel" id="setassessment" style="opacity: 0"></select>
                            </div>
+                       </div>
+                        <div class="bottomSection">
                             <?php
                                 if($admin->role!="pupil" && $admin->role!="parent"){
                                     echo '
@@ -78,10 +87,11 @@
                                            <label class="main_label">'.dlang("flexpaper_assessment_private_notes","Teachers private notes:").'</label>
                                            <textarea id="private_notes_text" class="runitinp" rows="10" cols="45"></textarea>
                                        </div>
-                                       <div class="nav_buttons" class="nav_buttons" style="padding-top: 10px;">
                                     ';
                                 }
                             ?>
+                           <div class="nav_buttons printButton" class="nav_buttons" style="padding-top: 10px;">
+                            <span class="print flex_pic"><img src="images/flexpaper/Print.png" /></span>
                            </div>
                                <?php
                                if($admin->role!="pupil" && $admin->role!="parent"){
@@ -99,7 +109,7 @@
                                     ';
                                }
                                ?>
-
+                        </div>
 
                </div>
         <div id="paperViwer"  style="height:100%; width: 100%; background-color: #919191; /*margin-left: -200px;*/ /*padding-left: 200px;*/ box-sizing: border-box;"></div>

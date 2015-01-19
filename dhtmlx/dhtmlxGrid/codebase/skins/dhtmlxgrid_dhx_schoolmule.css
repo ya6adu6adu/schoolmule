@@ -1,16 +1,18 @@
 div.gridbox_dhx_skyblue { height: 100%; }
 
 div.gridbox_dhx_skyblue .xhdr{
-	background-image:url(../imgs/schoolmule_grid/schoolmule_grid.gif);
+	/*background-image:url(../imgs/schoolmule_grid/schoolmule_grid.gif);*/
+    background-color: #E9EAEE !important;
 }
 
 div.gridbox_dhx_skyblue table.hdr tr{
-	background-image:url(../imgs/schoolmule_grid/schoolmule_grid.gif);
+    background-color: #E9EAEE !important;
 	background-position:0px -1px\9;
 }
 body:nth-of-type(1) div.gridbox_dhx_skyblue table.hdr tr{
-	background-image:url(../imgs/schoolmule_grid/schoolmule_grid.gif);
-	background-position:0px -1px;
+	/*background-image:url(../imgs/schoolmule_grid/schoolmule_grid.gif);*/
+    background-color: #E9EAEE !important;
+	/*background-position:0px -1px;*/
 }
 
 div.gridbox_dhx_skyblue table.obj tr td{
@@ -29,11 +31,11 @@ div.gridbox_dhx_skyblue table.hdr td div.hdrcell:nth-of-type(1){
 }
 div.gridbox_dhx_skyblue table.hdr td { padding-top: 3px; padding-bottom: 3px; }
 html > body /**/ div.gridbox_dhx_skyblue table.hdr td div.hdrcell{
-	width=100%;
+	width:100%;
 }
 div.gridbox_dhx_skyblue table.hdr td {
-	border-width: 1px 1px 1px 1px;
-	border-color : #FDFDFD #A4BED4 #A4BED4 #FDFDFD;
+	border-width: 1px;
+	border-color : #C5C7D1;
 	background-color:transparent;
 	
 	font-family:Arial;
@@ -44,7 +46,8 @@ div.gridbox_dhx_skyblue table.hdr td {
 }
 
 div.gridbox_dhx_skyblue {
-  border:1px solid  #A4BED4 !important;
+  border:1px solid #C5C7D1 !important;
+  border-width: 0 !important;
 }
 div.gridbox table.obj tr  td{
     padding-top:3px;

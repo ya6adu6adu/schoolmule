@@ -165,6 +165,17 @@ schoolmule.controls.tabs = function(_options){
 		container = $('#'+id);
 		createTabbar();
 	}
+
+    this.bindMenuEvents = function(id, array){
+        var i;
+        if(id){
+            for(i = 0;i < array.length; i++){
+                if(array[i].hasOwnProperty('callback')){
+                    $("#"+id+"_"+array[i]['id']).click(array[i]['callback'])
+                }
+            }
+        }
+    }
 	
 	init();
 }

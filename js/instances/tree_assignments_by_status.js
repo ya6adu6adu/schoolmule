@@ -54,7 +54,7 @@ schoolmule.instances.tree_assignments_by_status = new schoolmule.controls.tree({
                 break;
             default:
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
 				break;
 		}
 	},

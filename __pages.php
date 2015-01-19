@@ -23,7 +23,29 @@
 		<div id="container">
 			<div id="page-wrap">			
 				<div id="header">
-                    
+                    <div id="menu">
+                        <ul class="navMenu">
+                            <li class="no-padding menuItem" style="background: transparent !important;">
+                                <div class="menuBlock">
+                                    <div class="menu" style="font-size: 10px !important;font-family: Arial !important;font-weight: bold !important;"><?php echo dlang("MENU","MENU"); ?></div>
+                                    <div class="triangle"></div>
+                                </div>
+                                <ul class="subMenu">
+                                    <li><a id="second-menu_move_to_setup"><?php echo dlang("main_menu_db_and_users", "Database and users")?></a></li>
+                                    <li class="backImg">
+                                        <?php echo dlang("main_menu_db_course_rooms", "Courserooms")?>
+                                        <ul>
+                                            <li id="second-menu_course_objectives"><?php echo dlang("course_objectives_tab", "Course objectives")?></li>
+                                            <li id="second-menu_assignmrnts_and_performance"><?php echo dlang("course_rooms_tab", "Courserooms")?></li>
+                                            <li id="second-menu_assessments"><?php echo dlang("assessments_tab", "Assessment")?></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li id="mainSub" class="menuItem" style="background: transparent !important; cursor: default !important;"></li>
+                            <li id="selectedInTree" class="menuItem" style="background: transparent !important; font-weight: normal !important; cursor: default !important;"></li>
+                        </ul>
+                    </div>
 					<div id="login">
                         <div class="right-header">
 
@@ -33,40 +55,40 @@
                         </div>
 					</div>
 				</div>
-				<ul id="first-menu">                                    
-					<li style="padding-left: 21px;">
-                                            <div id="top-menu-fold-setup_menu" class="first-menu-fold" >
-                                                <a id="setup_menu" href="setup.php" onclick="$('#setup_menu').addClass('top_menu_selected'); $('#top-menu-fold-setup_menu').addClass('top_menu_fold_selected')"><?php echo $item1_menu?></a>
-                                            </div>
-                                        </li>
-					<li>
-                                            <div id="top-menu-fold-course_objectives_menu" class="first-menu-fold">
-                                                <a id="course_objectives_menu" href="course_objectives.php" onclick="$('#course_objectives_menu').addClass('top_menu_selected'); $('#top-menu-fold-course_objectives_menu').addClass('top_menu_fold_selected')"><?php echo $item2_menu?></a>
-                                            </div>
-                                        </li>
-                                        <div id="messages_to_sch">
-                                            <li style="float:right">
-                                                <div id="top-menu-fold-course_objectives_menu" class="first-menu-links">
-                                                    <p style="" id="bug_message"><?php echo dlang("right_top_report_bug","Report bug"); ?></p>
-                                                </div>
-                                            </li>
-                                            <li style="float:right">
-                                                <div id="top-menu-fold-course_objectives_menu" class="first-menu-links">
-                                                    <p id="feature_request"><?php echo dlang("right_top_make_request","Make feature request"); ?></p>
-                                                </div>
-                                            </li>
-                                        </div>
-				</ul>
+<!--				<ul id="first-menu">                                    -->
+<!--					<li style="padding-left: 21px;">-->
+<!--                                            <div id="top-menu-fold-setup_menu" class="first-menu-fold" >-->
+<!--                                                <a id="setup_menu" href="setup.php" onclick="$('#setup_menu').addClass('top_menu_selected'); $('#top-menu-fold-setup_menu').addClass('top_menu_fold_selected')">--><?php //echo $item1_menu?><!--</a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--					<li>-->
+<!--                                            <div id="top-menu-fold-course_objectives_menu" class="first-menu-fold">-->
+<!--                                                <a id="course_objectives_menu" href="course_objectives.php" onclick="$('#course_objectives_menu').addClass('top_menu_selected'); $('#top-menu-fold-course_objectives_menu').addClass('top_menu_fold_selected')">--><?php //echo $item2_menu?><!--</a>-->
+<!--                                            </div>-->
+<!--                                        </li>-->
+<!--                                        <div id="messages_to_sch">-->
+<!--                                            <li style="float:right">-->
+<!--                                                <div id="top-menu-fold-course_objectives_menu" class="first-menu-links">-->
+<!--                                                    <p style="" id="bug_message">--><?php //echo dlang("right_top_report_bug","Report bug"); ?><!--</p>-->
+<!--                                                </div>-->
+<!--                                            </li>-->
+<!--                                            <li style="float:right">-->
+<!--                                                <div id="top-menu-fold-course_objectives_menu" class="first-menu-links">-->
+<!--                                                    <p id="feature_request">--><?php //echo dlang("right_top_make_request","Make feature request"); ?><!--</p>-->
+<!--                                                </div>-->
+<!--                                            </li>-->
+<!--                                        </div>-->
+<!--				</ul>-->
                                 
-                            <div id="second-menu">
-                                <div class="pre-second-menu-first-block"></div>
-                                <div class="pre-second-menu-second-block"></div>
-                                <div class="second-menu-left-block"> </div>
-                                <div class="second-menu-left-ang"> </div>
-                            </div>
+<!--                            <div id="second-menu">-->
+<!--                                <div class="pre-second-menu-first-block"></div>-->
+<!--                                <div class="pre-second-menu-second-block"></div>-->
+<!--                                <div class="second-menu-left-block"> </div>-->
+<!--                                <div class="second-menu-left-ang"> </div>-->
+<!--                            </div>-->
                                 
 			<div id="main-content">
-				<div class="box-caption">
+				<div class="box-caption no-border need_border needPadding">
 					<div class="expand_btn" id="hide-navigation" title="comment_0016"></div>
 					<span class="after_expand_btn" id="title_expand"></span>
 				</div>

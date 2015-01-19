@@ -71,7 +71,7 @@ schoolmule.instances.tree_export = new schoolmule.controls.tree({
 
     select: function(id,tree,funcs,prev,ctrl){
         tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-        tree.clearSelection(id);
+        //tree.clearSelection(id);
         return false;
     },
     popup: [

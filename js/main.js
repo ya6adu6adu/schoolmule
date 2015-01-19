@@ -1,4 +1,5 @@
 var schoolmule = window.schoolmule||{};
+var showNav;
 
 /*get all exists now cookies */
 function getCookie(name) {
@@ -254,6 +255,7 @@ var main = function(_options){
 	var self = this;
 	var login;
 	var loginMenu;
+    var navigationMenu;
 	this.user_id = null;
 	this.callback = null;
 	
@@ -315,22 +317,23 @@ var main = function(_options){
     this.showLogin2 = function(){
         var html ='\
                 <form id="login-form" onsubmit="return false">\
-                    <div class="main_login_logo"><img src="gfx/logo.png" /></div>\
+                    <div class="main_login_logo"><img class="logo" src="images/total/logo.png" /></div>\
                     <h2>'+dlang("login_log","Login")+'</h2>\
-                    <div>\
+                    <div class="loginArea">\
                         <div class="label"><label for="name">'+dlang("login_user","Username")+'</label></div>\
                         <div class="field"><input type="text" id="name" class="login-input" name="username" title="comment_0101" /></div>\
                         <div class="label"><label for="password">'+dlang("login_pass","Password")+'</label></div>\
                         <div class="field"><input type="password" id="password" class="login-input" name="password" title="comment_0102" /></div>\
-                        <div class="field" id="wrong" style="display:none;">'+dlang("login_wrong","wrong username or password")+'</div>\
+                        <div class="field" id="wrong" style="visibility: hidden">'+dlang("login_wrong","wrong username or password")+'</div>\
                     </div>\
                     <div id="captcha-wrap" style="display:none;"><img src="images/captcha.jpg" alt="" /></div>\
                     <div id="button-wrap">\
-                        <button class="button" title="comment_0103" id="signin" >'+dlang("login_sigin","Sign in")+'</button>\
-                        <div class="field" id="reset_pass">'+dlang("login_reset","Reset password")+'</div>\
+                        <button class="button login-buttons left" title="'+dlang("login_sigin","Sign in")+'" id="signin" >'+dlang("login_sigin","Sign in")+'</button>\
+                        <button class="button login-buttons right" title="'+dlang("login_reset","Reset password")+'"  id="reset_pass" >'+dlang("login_reset","Reset password")+'</button>\
                     </div>\
+                <div class="optimized">'+dlang("optimized","Optimized for Google Chrome")+'</div>\
                 </form>\
-                <div id="substrate">\
+                <div id="substrate"></div>\
                 ';
 
         $('body').append(html);
@@ -349,7 +352,7 @@ var main = function(_options){
             $('body').append(cont);
 
             if(login==""){
-                alert(dlang("empty_login_or_pass_alert","Please, enter you currnet login"));
+                alert(dlang("empty_login_or_pass_alert","Please, enter you current login"));
                 return false;
             }
 
@@ -389,7 +392,7 @@ var main = function(_options){
         });
 
         $('#signin').click(function(){
-            $('#wrong').hide();
+            $('#wrong').css({visibility:"hidden"});
             var login = $('#name','#login-form').val();
             var pass = $('#password','#login-form').val();
             $.post(self.script, {login: login, password:pass, action:'sign_in'}, function(data){
@@ -407,7 +410,7 @@ var main = function(_options){
                         window.location = 'index.php?lng=se';
                     }
                 }else{
-                    $('#wrong').show();
+                    $('#wrong').css({visibility:"visible"});
                 }
             },'json');
         });
@@ -836,14 +839,63 @@ var main = function(_options){
             event.stopPropagation();
 	  		createMenu();
 	     	showMenu();
-            $('body').click(function(){
-                if(loginMenu){
-                    loginMenu.hide();
-                }
-            })
 	    });
+        $('body').click(function(){
+            if(loginMenu){
+                loginMenu.hide();
+            }
+            if(detectMobileDevice() && navigationMenu){
+                navigationMenu.hide();
+            }
+        })
+        if(detectMobileDevice()) {
+
+        }else{
+            //$(".menuBlock").mouseover(
+            //    function (e) {
+            //        createNavigationMenu();
+            //        showNavMenu($(this));
+            //    }
+            //);
+            //$(".menuBlock").mouseout(
+            //    function (e) {
+            //        console.log(e.clientX, e.clientY);
+            //        setTimeout(function(){
+            //            navigationMenu.hide();
+            //        },1500)
+            //    }
+            //);
+        }
+        //document.getElementsByClassName("menuBlock")[0].onmouseover = function(e){
+        //    alert(e);
+        //}
         //$("#mail_lamp").click(createSendMessageDialog);
 	};
+
+    function createNavigationMenu(){
+        if(!navigationMenu) {
+            var database, courseRoom;
+            navigationMenu = new dhtmlXMenuObject();
+            navigationMenu.renderAsContextMenu();
+            navigationMenu.contextAutoHide = false;
+            database = dlang("main_menu_db_and_users", "Database and users");
+            courseRoom = dlang("main_menu_db_course_rooms", "Courserooms");
+            navigationMenu.addNewChild(navigationMenu.topId, 0, "db", database, false);
+            navigationMenu.addNewChild(navigationMenu.topId, 1, "cr", courseRoom, false);
+            navigationMenu.addNewChild('cr', 2, "co", dlang("course_objectives_tab", "Course objectives"), false);
+            navigationMenu.addNewChild('cr', 3, "crs", dlang("course_rooms_tab", "Courserooms"), false);
+            navigationMenu.addNewChild("cr", 4, "assess", dlang("assessments_tab", "Assessment"), false);
+            navigationMenu.attachEvent("onClick", function (id, zoneId, casState) {
+                switch (id) {
+                    case 'logout':
+                        break;
+                }
+            });
+        }
+    }
+    function showNavMenu(obj){
+        navigationMenu.showContextMenu(obj.offset().left + obj.outerWidth(), obj.offset().top -1);
+    }
 
     function createSendMessageDialog(type){
         var message_form = null;
@@ -960,7 +1012,94 @@ var main = function(_options){
     }
 	init();
 };
+function detectMobileDevice(){
+    var device  = /ipad|iphone|ipod|android|blackberry|webos|windows phone/i.test(navigator.userAgent.toLowerCase());
+    return (device) ? true : false;
+}
 
+function setMainPath(path){
+    $("#mainSub").text(path);
+}
+function updateTreePath(tree, selectedId){
+    var text = " > "+ tree.getItemText(selectedId), newId = selectedId;
+    while(tree.getParentId(newId)){
+        newId = tree.getParentId(newId);
+        text = " > " + tree.getItemText(newId) + text;
+    }
+    $("#selectedInTree").text(text);
+}
 
+function bindMenuEvents(){
+    var target, clicked , time;
+    if(detectMobileDevice()){
+        $(".navMenu > li").click(
+            function(e){
+                if(!e.isTrigger) {
+                    clicked =  new Date().getTime();
+                    $(".navMenu > li > ul").css({display: 'block', zIndex: '3'});
+                    if(!showNav) {
+                        showNav = setInterval(function () {
+                            time = new Date().getTime();
+                            if (time - clicked > 6000) {
+                                hideNavMenu();
+                            }
+                        }, 6000);
+                    }
+                }
+            }
+        );
+        $(".navMenu > li > ul > li").click(
+            function(e){
+                target = e.srcElement || e.target;
+                if($(target).find("ul").length > 0) {
+                    clicked =  new Date().getTime();
+                    $(".navMenu > li > ul > li > ul").css({opacity: "1"});
+                };
+                if(!showNav) {
+                    showNav = setInterval(function () {
+                        time = new Date().getTime();
+                        if (time - clicked < 6000) {
+                            hideNavMenu();
+                        }
+                    }, 6000);
+                }
+            }
+        );
+        $("body").click(function(){
+            hideNavMenu();
+        });
+    }else{
+        $(".navMenu > li").hover(
+            function(e){
+                target = e.srcElement || e.target;
+                if(target.id !== 'mainSub' && target.id !== 'selectedInTree')
+                $(".navMenu > li > ul").css({ display: 'block',zIndex:'3'});
+            },
+            function(e){
+                $(".navMenu > li > ul").css({ display: 'none',zIndex:'0'});
+            }
+        );
+        $(".navMenu > li > ul > li").hover(
+            function(e){
+                target = e.srcElement || e.target;
+                if($(target).find("ul").length > 0) {
+                    $(".navMenu > li > ul > li > ul").css({opacity: "1"});
+                }
+            },
+            function(){
+                $(".navMenu > li > ul > li > ul").css({opacity: "0"});
+            }
+        );
+    }
+}
+
+function hideNavMenu(){
+    $(".navMenu > li > ul > li > ul").css({opacity: "0"});
+    $(".navMenu > li > ul").css({display: 'none', zIndex: '0'});
+    if(showNav) {
+        clearInterval(showNav);
+        showNav = null;
+    }
+}
 
 

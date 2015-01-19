@@ -92,6 +92,7 @@ function showAnnotationPage(){
     set_assess.append(option);
     set_assess.change(function(){
         var val = $(this).val();
+        setAssessmentValue(val);
         var id = grid.getSelectedRowId().split('_');
         $.post("connectors/connector.php?control_id=grid_assess_assignments", {action:"editgrade", id:id[1], value:val}, function(){})
     });
@@ -120,44 +121,67 @@ function showAnnotationPage(){
         $('.flexpaper_bttnComment').click();
     });
 
-    $('button#prev').click(function(){
+    $('div#prev').click(function(){
         $FlexPaper('paperViwer').prevPage();
     });
 
-    $('button#next').click(function(){
+    $('div#next').click(function(){
         $FlexPaper('paperViwer').nextPage()
     });
 
     //$('textarea.runitinp').autosize();
 
-    $('.flex_pic').hover(
-        function(){
-            $(this).find('span').addClass('hover-item');
-        },
-        function(){
-            $(this).find('span').removeClass('hover-item');
-        }
-    );
+    //$('.flex_pic').hover(
+    //    function(){
+    //        $(this).find('span').addClass('hover-item');
+    //    },
+    //    function(){
+    //        $(this).find('span').removeClass('hover-item');
+    //    }
+    //);
 
     $('.page_pic').click(function(){
+        var img = $(this).find("img"), twoPagePic = $('.2page_pic').find('img'), manyPagePic = $('.many_page_pic').find('img');
         $FlexPaper('paperViwer').switchMode("Portrait");
-        $(this).find('span').css('display','inline');
-        $('.2page_pic').find('span').hide();
-        $('.many_page_pic').find('span').hide();
+        //$(this).find('span').css('display','inline');
+        if(!img.hasClass("selected")){
+            //img.removeClass("selected").attr('src', 'images/flexpaper/fit.png').css({
+            //    margin: "2px 1.5px",
+            //    position: "relative"
+            //});
+            img.addClass("selected").attr('src', 'images/flexpaper/one_page_selected.png').css({
+                margin: "1.5px 2.5px",
+                position: "relative"
+            });
+            twoPagePic.removeClass("selected").css("margin","3px 1px").attr("src","images/flexpaper/twodocuments.png");
+            manyPagePic.removeClass("selected").css("margin","3px").attr("src","images/flexpaper/thumbs.png");
+        }
     });
 
     $('.2page_pic').click(function(){
+        var img = $(this).find("img"), pagePic = $('.page_pic').find('img'), manyPagePic = $('.many_page_pic').find('img');
         $FlexPaper('paperViwer').switchMode("TwoPage");
-        $(this).find('span').css('display','inline');
-        $('.page_pic').find('span').hide();
-        $('.many_page_pic').find('span').hide();
+        if(!img.hasClass("selected")){
+            img.addClass("selected").css({
+                margin: "1.5px 2.5px",
+                position: "relative"
+            }).attr('src', 'images/flexpaper/twopages_selected.png');
+            pagePic.removeClass("selected").css("margin","3px 3.5px").attr("src","images/flexpaper/document.png");
+            manyPagePic.removeClass("selected").css("margin","3px").attr("src","images/flexpaper/thumbs.png");
+        }
     });
 
     $('.many_page_pic').click(function(){
+        var img = $(this).find("img"), pagePic = $('.page_pic').find('img'), twoPagePic = $('.2page_pic').find('img');
         $FlexPaper('paperViwer').switchMode("Tile");
-        $(this).find('span').css('display','inline');
-        $('.2page_pic').find('span').hide();
-        $('.page_pic').find('span').hide();
+        if(!img.hasClass("selected")){
+            img.addClass("selected").css({
+                margin: "1.5px 2.5px",
+                position: "relative"
+            }).attr('src', 'images/flexpaper/thumbs_selected.png');
+            pagePic.removeClass("selected").css("margin","3px 3.5px").attr("src","images/flexpaper/document.png");
+            twoPagePic.removeClass("selected").css("margin","3px 1px").attr("src","images/flexpaper/twodocuments.png");
+        }
     });
 
     $('.fullscreen_pic').click(function(){
@@ -165,9 +189,15 @@ function showAnnotationPage(){
     });
 
     $('.fill_vert_pic').click(function(){
+        var img = $(this).find("img"), fillHorisPic = $('.fill_hor_pic').find('img');
+        if(!img.hasClass("selected")){
+            img.addClass("selected").css({
+                margin: "0.5px 3px",
+                position: "relative"
+            }).attr('src', 'images/flexpaper/fit_vert_selected.png');
+            fillHorisPic.removeClass("selected").css("margin","2px 0").attr("src","images/flexpaper/fit.png");
+        }
         $FlexPaper('paperViwer').fitHeight()
-        $(this).find('span').css('display','inline');
-        $('.fill_hor_pic').find('span').hide();
     });
 
     $( "#slider" ).slider({
@@ -183,8 +213,16 @@ function showAnnotationPage(){
 
     $('.fill_hor_pic').click(function(){
         $FlexPaper('paperViwer').fitWidth();
-        $(this).find('span').css('display','inline');
-        $('.fill_vert_pic').find('span').hide();
+        //$(this).find('span').css('display','inline');
+//        $('.fill_vert_pic').find('span').hide();
+        var img = $(this).find("img"), fillVertPic = $('.fill_vert_pic').find('img');
+        if(!img.hasClass("selected")){
+            img.addClass("selected").css({
+                margin: "2px 0",
+                position: "relative"
+            }).attr('src', 'images/flexpaper/fit_horis_selected.png');
+            fillVertPic.removeClass("selected").css("margin","2px").attr("src","images/flexpaper/pagefit.png");
+        }
     });
 
     $('.rotate_pic').click(function(){
@@ -193,27 +231,46 @@ function showAnnotationPage(){
 
     $('.select_pic').click(function(){
         $FlexPaper('paperViwer').setCurrentCursor('TextSelectorCursor');
-        $(this).find('span').css('display','inline');
-        $('.move_pic').find('span').hide();
+        //$(this).find('span').css('display','inline');
+        var img = $(this).find("img"), movePic = $('.move_pic').find('img');
+        if(!img.hasClass("selected")){
+            img.addClass("selected").css({
+                margin: "1.5px 0.5px",
+                position: "relative"
+            }).attr('src', 'images/flexpaper/textselect_selected.png');
+            movePic.removeClass("selected").css("margin","3px 3.5px").attr("src","images/flexpaper/hand.png");
+        }
         deselectActiveAnnotationInstrument();
     });
 
     $('.move_pic').click(function(){
-        console.log($FlexPaper('paperViwer'))
+        var img = $(this).find("img"), selectPic = $('.select_pic').find('img');
         $FlexPaper('paperViwer').setCurrentCursor('ArrowCursor');
-        $(this).find('span').css('display','inline');
-        $('.select_pic').find('span').hide();
+        if(!img.hasClass("selected")){
+            img.addClass("selected").css({
+                margin: "1px 2px",
+                position: "relative"
+            }).attr('src', 'images/flexpaper/hand_selected.png');
+            selectPic.removeClass("selected").css("margin","2px 1.5px").attr("src","images/flexpaper/textselect.png");
+        }
         deselectActiveAnnotationInstrument();
     });
 
-    $(".show_pic").toggle(
-        function () {
-            $(this).find('img').attr('src','images/flexpaper/View_annotation_active.png')
-            $('.flexpaper_bttnShowHide').click();
-        },
-        function () {
-            $(this).find('img').attr('src','images/flexpaper/View_annotation_dissabled.png')
-            $('.flexpaper_bttnShowHide').click();
+    $(".show_pic").click(function() {
+        var img = $(this).find("img");
+        if(img.hasClass("selected")){
+            img.removeClass("selected").attr('src', 'images/flexpaper/View_annotation_dissabled.png').css({
+                margin: "4.5px 1.5px",
+                position: "relative"
+            });
+
+        }else{
+            img.addClass("selected").attr('src', 'images/flexpaper/View_annotation_active.png').css({
+                margin: "3px 1.5px",
+                position: "relative"
+            });
+        }
+        $('.flexpaper_bttnShowHide').click();
         }
     );
 
@@ -227,6 +284,14 @@ function showAnnotationPage(){
         $('.draw_pic').find('span').hide();
         $('.highlightfill_vert_pic').find('span').hide();
         $('.strike_pic').find('span').hide();*/
+        var img = $(this).find("img"), drawPic = $('.draw_pic').find("img"), highLight = $('.highlightfill_vert_pic').find("img"), strikePic = $('.strike_pic').find("img");
+        if(!img.hasClass("selected")){
+            img.addClass("selected");
+            img.css({margin: "1.5px", position: "relative"}).attr("src","images/flexpaper/comment_selected.png");
+            drawPic.removeClass("selected").css({margin:"2px 3px", position: "relative"}).attr("src","images/flexpaper/pen.png");
+            highLight.removeClass("selected").css({margin: "2px 3px", position: "relative"}).attr("src","images/flexpaper/highlight.png");
+            strikePic.removeClass("selected").css({margin: "3.5px", position: "relative"}).attr("src","images/flexpaper/Strike_through.png");
+        }
         showCommentMode(this);
         deselectActiveMoveInstrument();
     });
@@ -245,17 +310,41 @@ function showAnnotationPage(){
     }
 
     $('.draw_pic').click(function(){
+        var img = $(this).find("img"), commentPic = $('.comment_pic').find("img"), highLight = $('.highlightfill_vert_pic').find("img"), strikePic = $('.strike_pic').find("img");
+        if(!img.hasClass("selected")){
+            img.addClass("selected");
+            img.css({margin:"1.5px 0.5px", position: "relative"}).attr("src","images/flexpaper/pen_selected.png");
+            highLight.removeClass("selected").css({margin: "2px 3px", position: "relative"}).attr("src","images/flexpaper/highlight.png");
+            strikePic.removeClass("selected").css({margin: "3.5px", position: "relative"}).attr("src","images/flexpaper/Strike_through.png");
+            commentPic.removeClass("selected").css({margin: "2px 1.5px", position: "relative"}).attr("src","images/flexpaper/comment.png");
+        }
         showDravMode(this);
         deselectActiveMoveInstrument();
         //$FlexPaper('paperViwer').enableDrawMode('blue');
     });
 
     $('.highlightfill_vert_pic').click(function(){
+        var img = $(this).find("img"), commentPic = $('.comment_pic').find("img"),  strikePic = $('.strike_pic').find("img"), drawPic = $('.draw_pic').find("img");
+        if(!img.hasClass("selected")){
+            img.addClass("selected");
+            img.css({margin: "1.5px 0.5px", position: "relative"}).attr("src","images/flexpaper/highlight_selected.png");
+            drawPic.removeClass("selected").css({margin:"2px 3px", position: "relative"}).attr("src","images/flexpaper/pen.png");
+            strikePic.removeClass("selected").css({margin: "3.5px", position: "relative"}).attr("src","images/flexpaper/Strike_through.png");
+            commentPic.removeClass("selected").css({margin: "2px 1.5px", position: "relative"}).attr("src","images/flexpaper/comment.png");
+        }
         showHighlightMode(this);
         deselectActiveMoveInstrument();
     });
 
     $('.strike_pic').click(function(){
+        var img = $(this).find("img"), commentPic = $('.comment_pic').find("img"),  drawPic = $('.draw_pic').find("img"), highLight = $('.highlightfill_vert_pic').find("img");
+        if(!img.hasClass("selected")){
+            img.addClass("selected");
+            img.css({margin: "3px 1.5px", position: "relative"}).attr("src","images/flexpaper/strikethrough_selected.png");
+            highLight.removeClass("selected").css({margin: "2px 3px", position: "relative"}).attr("src","images/flexpaper/highlight.png");
+            drawPic.removeClass("selected").css({margin:"2px 3px", position: "relative"}).attr("src","images/flexpaper/pen.png");
+            commentPic.removeClass("selected").css({margin: "2px 1.5px", position: "relative"}).attr("src","images/flexpaper/comment.png");
+        }
         showStrikeMode(this);
         deselectActiveMoveInstrument();
     });
@@ -460,6 +549,7 @@ function showAnnotationPage(){
             if(!isNaN(val)){
                 $FlexPaper('paperViwer').gotoPage(val);
             }
+            setPagesValue(val);
 
         });
 
@@ -547,4 +637,18 @@ function checkUserActivityEvents(){
     if(opener.setUserActivity) {
         opener.bindEvents(window.document);
     }
+}
+
+function setPagesValue(val){
+    var span = $("#number_page");
+    if(val) {
+        span.text(val);
+    }else {
+        span.text(dlang("goto_page_select","Goto Page"));
+    }
+    return true;
+}
+function setAssessmentValue(val){
+    $("#assesment").text(val);
+    return true;
 }

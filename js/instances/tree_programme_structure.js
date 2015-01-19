@@ -117,7 +117,7 @@ schoolmule.instances.tree_programme_structure = new schoolmule.controls.tree({
     select: function(id,tree,funcs,prev,ctrl){
         var _id = id.split("_");
         if(prev){
-            tree.setItemStyle(prev,"border:0; background-color:#FFFFFF; color:#666;");
+            tree.setItemStyle(prev,"border:0; background-color: transparent; color:#666;");
         }
         switch (_id[0]){
             case  "studygroup":
@@ -176,19 +176,19 @@ schoolmule.instances.tree_programme_structure = new schoolmule.controls.tree({
                 break;
             case "programmes":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "programme":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "academicyear":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
             case "academicyears":
                 tree.setItemStyle(id,"border:0; background-color:#FFFFFF; color:#666;");
-                tree.clearSelection(id);
+                //tree.clearSelection(id);
                 break;
         }
     },
@@ -556,7 +556,7 @@ function refreshStructureGrids(tree){
 function clearSelectUsers(){
     if(schoolmule.instances.tree_users){
         var tree_desel = schoolmule.instances.tree_users.getTree();
-        tree_desel.setItemStyle(tree_desel.getSelectedItemId(),"background-color:#fff; border:0px solid #696969; color:#666;");
+        tree_desel.setItemStyle(tree_desel.getSelectedItemId(),"background-color: transparent; border:0px solid #696969; color:#666;");
         tree_desel.clearSelection();
         tree_desel.saveSelectedItem("tree_users"+"_selected");
     }
