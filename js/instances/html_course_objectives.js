@@ -6,12 +6,12 @@ schoolmule.instances.html_course_objectives = new schoolmule.controls.html({
 	onGetTemplate: function(){
 		var template = '\
 				<div class="template">\
-					<div style="float:left;">\
+					<div style="float:left; margin-top: 2px;">\
 						<div id = "course_objectives_objective" > <strong><%= course_objectives_objective.label %>: </strong><span> <%= course_objectives_objective.value %></span></div>\
 						<div id = "course_objectives_programme"> <strong><%= course_objectives_programme.label %>: </strong><span> <%= course_objectives_programme.value %></span></div>\
 						<div id="course_objectives_teachers"> <strong><%= course_objectives_teachers.label %>: </strong> <span><%= course_objectives_teachers.value %></span></div>\
 					</div>\
-					<div style="float:left; margin-left:50px;">\
+					<div style="float:left; margin-left:50px;margin-top: 2px;">\
 						<div id="course_objectives_weight"> <strong><%= course_objectives_weight.label %>: </strong><span> <%= course_objectives_weight.value %></span></div>\
 						<input id="course_objectives_weight_input" value="<%= course_objectives_weight.value %>">\
 						<div id="course_objectives_course"> <strong><%= course_objectives_course.label %>: </strong><span> <%= course_objectives_course.value %></span></div>\

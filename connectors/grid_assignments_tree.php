@@ -177,17 +177,17 @@ class grid_assignments_tree {
             . '</cell>';     
             foreach ($row['c']['objectives'] as $stg_key => $stg_val){ //studygroup iteration
                 echo '<row  id="runit_'.$key.'_c_stg_'.$stg_key.'">';
-                echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#E9EAEE" image="studygroup.png">'
+                echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#FFFFFF" image="studygroup.png">'
                     .$stg_val['title_en']
                 . '</cell>';
                 foreach ($stg_val['objectives'] as $o_key => $o_val){ //objectives iteration
                     echo '<row id="runit_'.$key.'_c_obj_'.$o_key.'">';
-                    echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#E9EAEE"  image="objective.png" >'
+                    echo '<cell colspan="2" style="color:rgb(73, 74, 75);" bgColor="#FFFFFF"  image="objective.png" >'
                         .$o_val['title_en']
                     . '</cell><cell></cell>';
                     echo '</row>';
                 }
-                echo '<row id="addresobjbtn_'.$key.'"><cell bgColor="#E9EAEE" colspan="2" image="add.png">'.dlang("runit_grid_assign_object", "Assign objectives").'</cell><cell ></cell></row>';
+                echo '<row id="addresobjbtn_'.$key.'"><cell bgColor="#FFFFFF" colspan="2" image="add.png">'.dlang("runit_grid_assign_object", "Assign objectives").'</cell><cell ></cell></row>';
                 echo '</row>';
             }               
             echo '</row>';

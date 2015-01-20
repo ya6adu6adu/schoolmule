@@ -43,6 +43,11 @@ schoolmule.controls.tabs = function(_options){
 		.addClass("item-active");
 	}
 
+    this.selectTab = function(id){
+        self.curtab = id;
+        Hash.add('tab',id);
+    };
+
 	
 	this.checkContent = function(checkTinyContent){
 		if(checkTinyContent===true){

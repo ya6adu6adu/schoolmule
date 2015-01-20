@@ -6,27 +6,26 @@ schoolmule.instances.html_submissions = new schoolmule.controls.html({
 	onGetTemplate: function(){
 		var template = '\
 			<div class="template">\
-				<div style="float:left;">\
+				<div style="float:left; margin-top: 2px;">\
 					<div id="assignment_name"> <strong><%= assignment_name.label %>: </strong><span> <%= assignment_name.value %></span></div>\
 					<div id="assignment_id" > <strong><%= assignment_id.label %>: </strong> <span><%= assignment_id.value %></span></div>\
 					<div id="assignment_courseroom"> <strong><%= assignment_courseroom.label %>: </strong><span> <%= assignment_courseroom.value %></span></div>\
 					<div id="assignment_element" > <strong><%= assignment_element.label %>: </strong> <span><%= assignment_element.value %></span></div>\
 				</div>\
-				<div style="float:left; margin-left:50px;">\
+				<div style="float:left; margin-left:50px; margin-top: 2px;">\
 					<div id="assignment_subm_total"> <strong><%= assignment_subm_total.label %>: </strong> <span><%= assignment_subm_total.value %></span></div>\
 					<div id="assignment_subm_submitted"> <strong><%= assignment_subm_submitted.label %>: </strong> <span><%= assignment_subm_submitted.value %></span></div>\
 					<div id="assignment_subm_not_assesed"> <strong><%= assignment_subm_not_assesed.label %>: </strong> <span><%= assignment_subm_not_assesed.value %></span></div>\
-					<div id="assignment_subm_not_passed"> <strong><%= assignment_subm_not_passed.label %>: </strong> <span><%= assignment_subm_not_passed.value %></span></div>\
 				</div>\
 				<div style="float:right; margin-left:10px;margin-right:0px;">\
 					<div style="float:left; margin-top: -1px; line-height:19px;">\
-						<div style="text-align:right;height: 17px;margin-top: 2px;">\
+						<div style="text-align:right;height: 17px;">\
 							<strong><%= publication.label %>:</strong>\
 						</div>\
-						<div style="text-align:right;height: 17px;margin-top: 2px;">\
+						<div style="text-align:right;height: 17px;">\
 							<strong><%= activation.label %>:</strong>\
 						</div>\
-						<div style="text-align:right;height: 17px;margin-top: 2px;">\
+						<div style="text-align:right;height: 17px;">\
 							<strong><%= deadline.label %>:</strong>\
 						</div>\
 					</div>\

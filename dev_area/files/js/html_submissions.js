@@ -91,10 +91,10 @@ schoolmule.instances.html_submissions = new schoolmule.controls.html({
 				label:"Subm. not assesed",
 				value:"defaults"
 			},
-			assignment_subm_not_passed:{
-				label:"Subm. not passed",
-				value:"defaults"
-			},
+			//assignment_subm_not_passed:{
+			//	label:"Subm. not passed",
+			//	value:"defaults"
+			//},
 			publication:{
 				label:"Publication",
 				options:[{

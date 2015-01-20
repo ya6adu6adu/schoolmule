@@ -411,7 +411,7 @@ schoolmule.controls.forum = function(_options){
                 if(name=='save'){
                     $(".forum-cont .dhx_file_param.dhx_file_progress").show();
                     var comment = dhx.form.getItemValue('comment');
-
+                    debugger;
                     $.post("libs/addcomment.php", {action:"add", comment:comment, item_id:options.id, type:options.type, id:schoolmule.main.user_id, user:schoolmule.main.user_login, date:ttt.split(' GMT')[0], pupil_id:pupil_id}, function(response){
                         if(options.files){
                             uploader.setURL("libs/file_upload.php?id="+schoolmule.main.user_id+"&login="+schoolmule.main.user_login+"&comment="+response+"&item_id="+options.id);

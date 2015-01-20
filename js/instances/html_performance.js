@@ -13,12 +13,12 @@ schoolmule.instances.html_performance = new schoolmule.controls.html({
 					</div>\
                     <div style="float:right; margin-left:10px;margin-right:0px;">\
                         <div style="float:left; margin-top: 1px; line-height:19px;" class="select_template_label">\
-                            <div style="text-align:right;height: 17px;margin-top: 2px;">\
+                            <div style="text-align:right;height: 17px;">\
                                 <strong><%= activation.label %>:</strong>\
                             </div>\
                         </div>\
                         <div style="float:left; margin-left:5px; margin-right:0px; ">\
-                            <div style="margin-top: 2px; width: 140px; height: 17px">\
+                            <div style="width: 140px; height: 17px">\
                                 <span class="select" style="width: 117px; " id="selectprognose"></span>\
                                 <select id="assignment_activation" class="styled" title="comment_0050" name="goal" style="width:140px;">\
                                     <% for(var i=0;i< activation.options.length; i++){ %>\

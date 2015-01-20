@@ -52,6 +52,7 @@ function viewSetup(){
                     }else{
                         showCourseObjectives();
                     }
+                    tabbar.selectTab("second-menu_course_objectives");
                     setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+ dlang("course_objectives_tab", "Course objectives"));
 
                 }
@@ -68,6 +69,7 @@ function viewSetup(){
                     }else{
                         showAssignmetsAndPerformance();
                     }
+                    tabbar.selectTab("second-menu_assignmrnts_and_performance");
                     setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("course_rooms_tab", "Courserooms"));
                 }
             },
@@ -83,6 +85,7 @@ function viewSetup(){
                     }else{
                         showAssessments();
                     }
+                    tabbar.selectTab("second-menu_assessments");
                     setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("assessments_tab", "Assessment"));
                 }
             },
@@ -90,9 +93,10 @@ function viewSetup(){
             //    id: 'move_to_course_room',
             //    callback: function(){
             //        window.location.hash = "#tab=second-menu_assignmrnts_and_performance";
-            //        window.location.pathname = "course_objectives.php"
+            //        window.location.pathname = "setup.php"
             //    }
-            //},
+            //}
+            //,
             {
                 id: 'move_to_setup',
                 callback: function(){

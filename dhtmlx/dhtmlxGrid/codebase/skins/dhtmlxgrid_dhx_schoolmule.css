@@ -46,8 +46,8 @@ div.gridbox_dhx_skyblue table.hdr td {
 }
 
 div.gridbox_dhx_skyblue {
-  border:1px solid #C5C7D1 !important;
-  border-width: 0 !important;
+  /*border:1px solid #C5C7D1 !important;*/
+  /*border-width: 0 !important;*/
 }
 div.gridbox table.obj tr  td{
     padding-top:3px;

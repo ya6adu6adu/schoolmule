@@ -376,6 +376,10 @@ schoolmule.controls.layout = function(_options){
                 if(cell.cells_right[j].cells[i].border_bottom){
                     internalBlock.addClass('block-border-bottom');
                 }
+                if(cell.cells_right[j].cells[i].border_top){
+                    console.log(internalBlock);
+                    internalBlock.addClass('block-border-top');
+                }
                 if(cell.cells_right[j].cells[i].border_left){
                     internalBlock.addClass('block-border-left');
                 }
@@ -438,15 +442,14 @@ schoolmule.controls.layout = function(_options){
 			$("#navigation,#second-menu,#first-menu,#header").hide();
             content.css({
 				left:"10px",
-				top:"0",
-                borderTop: "1px solid red"
+				top:"-10px"
 			});
-            content.find(".no-border").removeClass("no-border");
+            //content.find(".no-border").removeClass("no-border");
             $("#hide-navigation").addClass("expanded");
 		}
 		else {
 			$("#navigation,#second-menu,#first-menu,#header").show();
-            content.find(".need_border").addClass("no-border");
+            //content.find(".need_border").addClass("no-border");
 			if($("#navigation").size()>0){
                 content.css({
 					left:"322px",

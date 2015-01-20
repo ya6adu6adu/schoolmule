@@ -77,6 +77,7 @@ function viewRooms(){
                     }else{
                         showCourseObjectives();
                     }
+                    tabbar.selectTab("second-menu_course_objectives");
                     setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+ dlang("course_objectives_tab", "Course objectives"));
 
                 }
@@ -93,6 +94,7 @@ function viewRooms(){
                     }else{
                         showAssignmetsAndPerformance();
                     }
+                    tabbar.selectTab("second-menu_assignmrnts_and_performance");
                     setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("course_rooms_tab", "Courserooms"));
                 }
             },
@@ -108,6 +110,7 @@ function viewRooms(){
                     }else{
                         showAssessments();
                     }
+                    tabbar.selectTab("second-menu_assessments");
                     setMainPath(dlang("main_menu_db_course_rooms", "Courserooms")+" > "+dlang("assessments_tab", "Assessment"));
                 }
             },
@@ -385,8 +388,7 @@ function showAssessPerformance(performance_id,p_stg){
 										id : "main-box-header",
 										title: "",
 										width: '100%',
-										height: '67px',
-										border_bottom: true
+										height: '67px'
 									}]									
 								},
 								{
@@ -396,7 +398,7 @@ function showAssessPerformance(performance_id,p_stg){
 										id : "gridbox_performance",
 										width: '100%',
 										height: '89px',
-										border_right: false
+										border_top: true
 									}
 									]													
 								},
@@ -476,6 +478,7 @@ function enableMASbutton(){
 }
 
 function checkSubmissionButton(id, tree_item,stg){
+
     var pupil;
     var mas = enableMASbutton();
 	if(tabbar.curtab == 'second-menu_assignmrnts_and_performance'){
@@ -1329,7 +1332,7 @@ function setPublishAssignmentMode(container,notice){
     }
     if(window.tinyContent){
         window.tinyContent.hide();
-        if(editionArea.outerHeight() > editionArea.parent().outerHeight()){
+        if(editionArea.outerHeight() >= editionArea.parent().outerHeight()){
             height  = "100%";
         }else{
             height = "auto";
@@ -1628,7 +1631,7 @@ function showAssignmentsDetailsStaff(assignment_id,p_stg){
     window.oldNotes = null;
     content.showLoader();
     content.elements.push(acc);
-    content_assignments
+    //content_assignments
     
     createEditPublishHeader('content_assignments_container','content_assignments_field','content_assignments');
     createNoteResultHeader ('notes_assignments_container');   

@@ -6,16 +6,15 @@ schoolmule.instances.html_assignments = new schoolmule.controls.html({
 	onGetTemplate: function(){
 		var template = '\
 			<div class="template">\
-				<div style="float:left;">\
+				<div style="float:left; margin-top: 2px;">\
 					<div id="assignment_name"> <strong><%= assignment_name.label %>: </strong><span> <%= assignment_name.value %></span></div>\
 					<div id="assignment_stg"> <strong><%= assignment_stg.label %>: </strong><span> <%= assignment_stg.value %></span></div>\
 					<div id="view_submissions"><img /> <span style=" cursor:pointer; position: relative; top:-3px;"><%= view_submissions.value %></span></div>\
 				</div>\
-				<div style="float:left; margin-left:50px;">\
+				<div style="float:left; margin-left:50px; margin-top: 2px;">\
 				    <div id="assignment_subm_total"> <strong><%= assignment_subm_total.label %>: </strong> <span><%= assignment_subm_total.value %></span></div>\
 					<div id="assignment_subm_submitted"> <strong><%= assignment_subm_submitted.label %>: </strong> <span><%= assignment_subm_submitted.value %></span></div>\
 					<div id="assignment_subm_not_assesed"> <strong><%= assignment_subm_not_assesed.label %>: </strong> <span><%= assignment_subm_not_assesed.value %></span></div>\
-					<div id="assignment_subm_not_passed"> <strong><%= assignment_subm_not_passed.label %>: </strong> <span><%= assignment_subm_not_passed.value %></span></div>\
 				</div>\
 				<div style="float:right; margin-left:10px;margin-right:0px;">\
 					<div style="float:left; margin-top: -1px; line-height:19px;" class="select_template_label">\
@@ -25,11 +24,11 @@ schoolmule.instances.html_assignments = new schoolmule.controls.html({
 						<div style="text-align:right;height: 17px;margin-top: 2px;">\
 							<strong><%= activation.label %>:</strong>\
 						</div>\
-						<div style="text-align:right;height: 17px;margin-top: 2px;">\
+						<div style="text-align:right;">\
 							<strong><%= deadline.label %>:</strong>\
 						</div>\
 					</div>\
-					<div style="float:left; margin-left:5px; margin-right:0px; ">\
+					<div style="float:left; margin-left:5px; margin-right:0; margin-top: 2px; ">\
 						<div style="width: 140px; height: 17px">\
 							<span class="select" style="width: 117px; " id="selectgoal">Always</span>\
 							<select id="assignment_publication" class="styled" title="comment_0050" name="goal" style="width:140px;">\

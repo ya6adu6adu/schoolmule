@@ -1098,13 +1098,12 @@ td.short-cell { width: 48px; }
 }
 
 #login-dd {
-    margin-top: -4px;
     cursor: pointer;
 }
 
 #login {
     position: absolute;
-    top: 4px;
+    top: 5px;
     right: 17px;
     padding: 0;
     font-size: 11px;
@@ -1528,7 +1527,7 @@ div#result_unit_area span, div#result_unit_area_perf span {
 /*font-size: 11px;*/
 /*}*/
 body{
-    background: #A6A6A6 !important;
+    background: #808080 !important;
 }
 
 #login-form h2{
@@ -1610,16 +1609,16 @@ input[type="text"], input[type="password"] {
     color: #999999 !important;
     font-family: Tahoma !important;
     font-size: 11px !important;
-    border: 1px solid #C5C7D1 !important;
+    border: 1px solid #8B9BA8 !important;
     border-width: 1px !important;
 }
 #navigation, #main-content{
     background: #D8D9E0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    border-bottom: 1px solid #C5C7D1 !important;
-    border-left: 1px solid #C5C7D1 !important;
-    border-right: 1px solid #C5C7D1 !important;
+    border-bottom: 1px solid #8B9BA8 !important;
+    border-left: 1px solid #8B9BA8 !important;
+    border-right: 1px solid #8B9BA8 !important;
 }
 #nav-header{
     background: #D8D9E0 !important;
@@ -1693,7 +1692,7 @@ input[type="text"], input[type="password"] {
     width: 48px;
     text-align: center;
     height: 10px;
-    padding: 2.5px 0 !important;
+    padding: 2px 0 3px !important;
     box-sizing: content-box
 
 }
@@ -1719,7 +1718,7 @@ input[type="text"], input[type="password"] {
 .navMenu li{
     list-style: none;
     position: relative;
-    padding: 1px 7px 1px 10px;
+    padding: 0 7px 1px 10px;
 }
 .navMenu > li > ul{
     position: absolute;
@@ -1779,7 +1778,7 @@ input[type="text"], input[type="password"] {
     font-size: 11px !important;
     color: #FFFFFF;
     font-weight: bold !important;
-    padding-left: 3px !important;
+    padding-left: 10px !important;
     padding-right: 3px !important;
 }
 #selectedInTree.menuItem{
@@ -1796,6 +1795,7 @@ input[type="text"], input[type="password"] {
 }
 #overview-footer .button{
     border-color: #8B9BA9 !important;
+    color: #8B9BA9 !important;
 }
 div#main-content > .no-border, div#navigation > .box-caption{
     border-width: 0 0 1px 0 !important;
@@ -1821,10 +1821,15 @@ div#main-content > .no-border, div#navigation > .box-caption{
 .needPadding{
     box-sizing: border-box !important;
     padding-top: 10px !important;
+    text-transform: uppercase !important;
 }
 #main-box-header strong{
-    font-weight: bolder;
+    font-weight: bolder !important;
+    line-height: 15px !important;
 }
 .block-border-left{
-    border-left: 1px solid #8B9BA8;
+    border-left: 1px solid #8B9BA8 !important;
+}
+.block-border-top{
+    border-top: 1px solid #8B9BA8 !important;
 }

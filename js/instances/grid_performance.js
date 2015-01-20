@@ -54,9 +54,9 @@ schoolmule.instances.grid_performance = new schoolmule.controls.grid({
                 return false;          
         }
         else{
-            if(old_row && _id[0] == 'addresultbtn'){
+            if(_id[0] == 'addresultbtn'){
                 that.addResultUnit(dhx.grid, row_id);
-                return true;
+                return false;
             }
         }
     
