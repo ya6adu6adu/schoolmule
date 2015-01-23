@@ -39,26 +39,35 @@ schoolmule.controls.forum = function(_options){
 		if(options.files){
             if(options.edit){
                 config = [
-
+                    {
+                        type: "fieldset",
+                        className : "chooseArea",
+                        label: dlang("choose_input_type","Choose input type:"),
+                        list: [
+                            {
+                                inputWidth: "auto",
+                                inputHeight: 40
+                            }
+                        ]
+                    },
                     {
                         type: "fieldset",
                         label: dlang("subm_comm_grag_text","Drag files here.."),
-                        width:220,
-                        className:"qwert",
+                        className:"fileUploadArea",
                         list: [{
                             titleScreen: false,
                             className: "forumUploader",
                             type: "upload",
                             name: "files",
-                            inputWidth: 185,
+                            inputWidth: "auto",
                             url: "libs/file_upload.php",
                             titleText:"",
                             autoStart:false
                         }
                         ]
                     },
-                    {type: "input", width:254, name: "comment", label: dlang("subm_comm_grag_comments","Comments:"), value: "", rows:2, position:"label-top", inputHeight:30},
-                    {type: "button", name: "save", value: dlang("subm_comm_grag_button_text","Submit"), offsetTop:10, width:80}
+                    {type: "input", className: "commentArea", width:245, name: "comment", label: dlang("subm_comm_grag_comments","Comments:"), value: "", rows:2, position:"label-top", inputHeight:47},
+                    {type: "button", className: "saveArea", name: "save", value: dlang("subm_comm_grag_button_text","Submit"), width:50}
                 ];
             }else{
                 config = [];
@@ -71,8 +80,8 @@ schoolmule.controls.forum = function(_options){
 		}else{
             if(options.edit){
                 config = [
-                    {type: "input", width:215, name: "comment", label: dlang("subm_comm_grag_comments","Comments:"), value: "", rows:2, position:"label-top", inputHeight:30},
-                    {type: "button", name: "save", value: dlang("subm_comm_grag_button_text","Submit"),offsetTop:10, width:80}
+                    {type: "input", className: "commentArea", width:215, name: "comment", label: dlang("subm_comm_grag_comments","Comments:"), value: "", rows:2, position:"label-top", inputHeight:47},
+                    {type: "button", className: "saveArea", name: "save", value: dlang("subm_comm_grag_button_text","Submit"),offsetTop:12, width:50}
                 ];
             }else{
                 config = [];
@@ -282,7 +291,7 @@ schoolmule.controls.forum = function(_options){
         if(schoolmule.main.user_role != 'parent'){
             $(".forum-cont").append('' +
                 '<div class="link_btn_cont">' +
-                    '<span class="link_title_field'+(options.files?"":" performance_link")+'" >'+dlang("add_link_text","Link")+':</span>' +
+                    '<span class="link_title_field'+(options.files?"":" performance_link")+'" ></span>' +
                     '<div class="linkbutton" title="Link"></div>' +
                 '</div>');
             $('.linkbutton').click(function(){
@@ -411,7 +420,6 @@ schoolmule.controls.forum = function(_options){
                 if(name=='save'){
                     $(".forum-cont .dhx_file_param.dhx_file_progress").show();
                     var comment = dhx.form.getItemValue('comment');
-                    debugger;
                     $.post("libs/addcomment.php", {action:"add", comment:comment, item_id:options.id, type:options.type, id:schoolmule.main.user_id, user:schoolmule.main.user_login, date:ttt.split(' GMT')[0], pupil_id:pupil_id}, function(response){
                         if(options.files){
                             uploader.setURL("libs/file_upload.php?id="+schoolmule.main.user_id+"&login="+schoolmule.main.user_login+"&comment="+response+"&item_id="+options.id);

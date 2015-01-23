@@ -480,7 +480,7 @@
 	width: 19px;
 	height: 19px;
 	top: 8px;
-	background-image: url("../imgs/dhxform_dhx_web/dhxform_upload_buttons.gif");
+	/*background-image: url("../imgs/dhxform_dhx_web/dhxform_upload_buttons.gif");*/
 	background-repeat: no-repeat;
 	font-size: 2px;
 	cursor: pointer;

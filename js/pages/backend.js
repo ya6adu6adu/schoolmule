@@ -14,55 +14,111 @@ function showBackend(){
     var default_select = true;
     if(hashValues.tab){
         default_select = false;
+    }else{
+        hashValues.tab = "second-menu_settings";
     }
-
 	var tabbar = new schoolmule.controls.tabs({
-		container:"second-menu",
-		tabs_left:{
-				id:'left-tab', 
-				callback: function(){
-				}, 
-				label:'Backend setup',
-				select: false
-			},
-		tabs: [
-			{
-				id:'settings', 
-				callback: function(){
-					addSettings();
-				}, 
-				label:'Settings',
-				select: true
-			},
-			{
-				id:'customers', 
-				callback: function(){
-					addCustomersGrid();
-				}, 
-				label:'Customers',
-				select: false
-			},
-			{
-				id:'educational_entities', 
-				callback: function(){
-					addEntitiesGrid();
-				}, 
-				label:'Educational entities',
-				select: false
-			},
-			{
-				id:'administrators', 
-				callback: function(){
-					addAdminGrid();
-
-				}, 
-				label:'Administrators',
-				select: false
-			}
-		]
+		//container:"second-menu",
+		//tabs_left:{
+		//		id:'left-tab',
+		//		callback: function(){
+		//		},
+		//		label:'Backend setup',
+		//		select: false
+		//	},
+		//tabs: [
+		//	{
+		//		id:'settings',
+		//		callback: function(){
+		//			addSettings();
+		//		},
+		//		label:'Settings',
+		//		select: true
+		//	},
+		//	{
+		//		id:'customers',
+		//		callback: function(){
+		//			addCustomersGrid();
+		//		},
+		//		label:'Customers',
+		//		select: false
+		//	},
+		//	{
+		//		id:'educational_entities',
+		//		callback: function(){
+		//			addEntitiesGrid();
+		//		},
+		//		label:'Educational entities',
+		//		select: false
+		//	},
+		//	{
+		//		id:'administrators',
+		//		callback: function(){
+		//			addAdminGrid();
+        //
+		//		},
+		//		label:'Administrators',
+		//		select: false
+		//	}
+		//]
 	
 	});
+    bindMenuEvents();
+    tabbar.bindMenuEvents(
+        "second-menu",
+        [
+            {
+                id:'settings',
+                callback: function(){
+                    debugger;
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    addSettings();
+                    tabbar.selectTab("second-menu_settings");
+                },
+                label:'Settings',
+                select: true
+            },
+            {
+                id:'customers',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    addCustomersGrid();
+                    tabbar.selectTab("second-menu_customers");
+                },
+                label:'Customers',
+                select: false
+            },
+            {
+                id:'educational_entities',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    addEntitiesGrid();
+                    tabbar.selectTab("second-menu_educational_entities");
+                },
+                label:'Educational entities',
+                select: false
+            },
+            {
+                id:'administrators',
+                callback: function(){
+                    if(detectMobileDevice()){
+                        hideNavMenu();
+                    }
+                    addAdminGrid();
+                    tabbar.selectTab("second-menu_administrators");
 
+                },
+                label:'Administrators',
+                select: false
+            }
+        ]
+    );
     if(hashValues.tab){
         tabbar.setActiveTab(hashValues.tab);
     }

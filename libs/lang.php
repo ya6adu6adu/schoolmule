@@ -1,6 +1,5 @@
 <?php
 	function dlang($key,$params=null){
-
 		global $config;
 		global $langXml;
 		global $appPath;
@@ -42,6 +41,7 @@
 		if($langXml!=null){
 			return $langXml;
 		}else{
+            $lang = $lang?$lang:"en";
 			$langXml = new DomDocument;
 			$langXml->load($appPath."lang/".$lang.".xml");
 			return $langXml;

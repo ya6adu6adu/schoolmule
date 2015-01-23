@@ -14,20 +14,21 @@
 	overflow-x: auto;
 	position:absolute;
 	top:0;
-	bottom: 180px;
+	bottom: 210px;
 	border-left: 2px solid #c5c5c5;
+    box-sizing: border-box;
 }
 
 .forum-cont{
     width: 269px;
-	margin-left:-1px;
-	height: 180px;
+	height: 210px;
 	position:absolute;
 	bottom:0px;
-	border-top: 2px solid #c5c5c5;
-	border-left: 2px solid #c5c5c5;
+	border-top: 1px solid #8B9BA8;
 	overflow-y: auto;
 	overflow-x: hidden;
+    box-sizing: border-box;
+    background: #D8D9E0;
 }
 
  .login-name{
@@ -145,13 +146,9 @@
 }
 
 .linkbutton{
-    position: absolute;
-    bottom:10px;
-    left: 7px;
-    background-color: #f7f7f7;
-    width: 19px;
-    height: 19px;
-    background: url("../../gfx/link_icon_submission_area.png");
+    width: 22px;
+    height: 21px;
+    background: url(../../images/upload_area/uploader/link.png);
     cursor: pointer;
 }
 
@@ -187,15 +184,15 @@
     width: 239px !important;
 }
 .link_title_field{
-    position: relative;
-    top:-8px;
-    padding-right: 3px;
-    padding-left: 4px;
-    width: auto;
-    color: #646464;
-    font-family: Tahoma;
-    font-size: 11px;
-    background-color: #FFFFFF;
+    /*position: relative;*/
+    /*top:-8px;*/
+    /*padding-right: 3px;*/
+    /*padding-left: 4px;*/
+    /*width: auto;*/
+    /*color: #646464;*/
+    /*font-family: Tahoma;*/
+    /*font-size: 11px;*/
+    /*background-color: #FFFFFF;*/
 }
 
 .link_title_field.performance_link{
@@ -275,4 +272,102 @@
 
 .file_item img.file_type_icon:hover, .file_item .file_name:hover{
     cursor: pointer;
+}
+.forum-cont #comments_tiny_form{
+    width: 100%;
+    height: 100%;
+}
+.forum-cont .btn_l, .forum-cont .btn_r{
+    width: 0 !important;
+}
+.forum-cont .dhxform_base{
+    width: 100%;
+    height: 100%;
+    margin: 0 !important;
+    box-sizing: border-box;
+    border: 0 !important;
+}
+.forum-cont .link_btn_cont{
+    border: 0 !important;
+    position: absolute !important;
+    width: 22px !important;
+    height: 21px !important;
+    top: 32px !important;
+    left: 62px !important;
+}
+.forum-cont .fileUploadArea .dhxform_fs{
+    margin: 0 !important;
+    top: 0 !important;
+}
+.forum-cont .dhxform_fs{
+    border: 0 !important;
+}
+.forum-cont .dhx_upload_files{
+    height: 24px;
+    background: white;
+    width: 249px !important;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+.forum-cont .chooseArea{
+    position: absolute;
+    top: 10px;
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.forum-cont .fileUploadArea{
+    position: absolute;
+    top: 65px;
+}
+.forum-cont .commentArea{
+    margin-left: 10px;
+    top: 110px;
+    height: 60px;
+    position: absolute;
+
+}
+.forum-cont .commentArea .dhxform_label{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.forum-cont .commentArea *{
+    font-family: Tahoma !important;
+    font-size: 11px !important;
+    box-sizing: border-box;
+}
+.forum-cont .saveArea{
+    padding: 0 !important;
+    height: 38px;
+    bottom: 0;
+    position: absolute;
+    box-sizing: border-box !important;
+}
+.forum-cont .saveArea *{
+    height: 17px !important;
+    box-sizing: border-box !important;
+}
+.forumUploader .dhx_upload_controls{
+    position: absolute !important;
+    top: -50px !important;
+    left: 0 !important;
+}
+.forumUploader .dhx_upload_controls .dhx_file_uploader_button.button_browse{
+    left: 36px !important;
+    background-image: url(../../images/upload_area/uploader/upload_file.png);
+    height: 20px !important;
+    width: 16px !important;
+}
+.forumUploader .dhx_upload_controls .dhx_file_uploader_button.button_clear{
+    left: 10px !important;
+    background-image: url(../../images/upload_area/uploader/document.png);
+    background-position: 0 !important;
+    height: 20px !important;
+    width: 16px !important;
+}
+.dhxform_obj_dhx_web .dhx_file_uploader div.dhx_upload_controls div.dhx_file_uploader_button{
+    top: 5px !important;
+}
+.dhxform_obj_dhx_web fieldset.dhxform_fs legend.fs_legend{
+    padding-left: 10px !important;
 }

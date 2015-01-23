@@ -33,7 +33,6 @@ if(isset($_SESSION['lng'])){
 }else{
     $lang = 'en';
 }
-
 if(isset($_GET['lng']) && $_GET['lng']){
     $lang = $_GET['lng'];
     $langs = 'en,se,ru,da,fi,nw,pl,ge,it';

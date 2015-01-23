@@ -1,5 +1,61 @@
 <?php
     include_once('_pageshead.php');
+    require_once('build_menu.php');
+    if($admin->role == 'mainadmin'){
+        $menu = array(
+            'id' => 'second-menu_',
+            'items' => array(
+                '0' => array(
+                    'id' => 'settings',
+                    'text' => 'Backend setup'
+                ),
+                '1' => array(
+                    'id' => 'customers',
+                    'text' => 'Customers'
+                ),
+                '2' => array(
+                    'id' => 'educational_entities',
+                    'text' => 'Educational entities'
+                ),
+                '3' => array(
+                    'id' => 'administrators',
+                    'text' => 'Administrators'
+                )
+
+            )
+        );
+    }else{
+        $menu = array(
+            'id' => 'second-menu_',
+            'items' => array(
+                '0' => array(
+                    'id' => 'move_to_setup',
+                    'text' => dlang("main_menu_db_and_users", "Database and users"),
+                    'haveSub' => false
+                ),
+                '1' => array(
+                    'id' => 'have_sub',
+                    'text' => dlang("main_menu_db_course_rooms", "Courserooms"),
+                    'haveSub' => true,
+                    'sub' => array(
+                        '0' => array(
+                            'id' => 'course_objectives',
+                            'text' => dlang("course_objectives_tab", "Course objectives"),
+                        ),
+                        '1' => array(
+                            'id' => 'assignmrnts_and_performance',
+                            'text' => dlang("course_rooms_tab", "Courserooms"),
+                        ),
+                        '2' => array(
+                            'id' => 'assessments',
+                            'text' => dlang("assessments_tab", "Assessment")
+                        )
+                    )
+                )
+
+            )
+        );
+    }
 ?>
         <link rel="shortcut icon" type="image/ico" href="favicon.png" />
 		<?php foreach ($params['controls'] as $param): ?>
@@ -30,17 +86,19 @@
                                     <div class="menu" style="font-size: 10px !important;font-family: Arial !important;font-weight: bold !important; color: #8B9BA9 !important;"><?php echo dlang("MENU","MENU"); ?></div>
                                     <div class="triangle"></div>
                                 </div>
-                                <ul class="subMenu">
-                                    <li><a id="second-menu_move_to_setup"><?php echo dlang("main_menu_db_and_users", "Database and users")?></a></li>
-                                    <li class="backImg">
-                                        <?php echo dlang("main_menu_db_course_rooms", "Courserooms")?>
-                                        <ul>
-                                            <li id="second-menu_course_objectives"><?php echo dlang("course_objectives_tab", "Course objectives")?></li>
-                                            <li id="second-menu_assignmrnts_and_performance"><?php echo dlang("course_rooms_tab", "Courserooms")?></li>
-                                            <li id="second-menu_assessments"><?php echo dlang("assessments_tab", "Assessment")?></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <?php echo buildMenu($menu);
+                                ?>
+<!--                                <ul class="subMenu">-->
+<!--                                    <li><a id="second-menu_move_to_setup">--><?php //echo dlang("main_menu_db_and_users", "Database and users")?><!--</a></li>-->
+<!--                                    <li class="backImg">-->
+<!--                                        --><?php //echo dlang("main_menu_db_course_rooms", "Courserooms")?>
+<!--                                        <ul>-->
+<!--                                            <li id="second-menu_course_objectives">--><?php //echo dlang("course_objectives_tab", "Course objectives")?><!--</li>-->
+<!--                                            <li id="second-menu_assignmrnts_and_performance">--><?php //echo dlang("course_rooms_tab", "Courserooms")?><!--</li>-->
+<!--                                            <li id="second-menu_assessments">--><?php //echo dlang("assessments_tab", "Assessment")?><!--</li>-->
+<!--                                        </ul>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
                             </li>
                             <li id="mainSub" class="menuItem" style="background: transparent !important; cursor: default !important;"></li>
                             <li id="selectedInTree" class="menuItem" style="background: transparent !important; font-weight: normal !important; cursor: default !important;"></li>

@@ -6,7 +6,6 @@
     		'title' => dlang("browser_tab_backend","Backend setup"),
     		'top_title' => 'SchoollMule Backend'
     	);
-
     	include_once '__pages.php';
 
 	
